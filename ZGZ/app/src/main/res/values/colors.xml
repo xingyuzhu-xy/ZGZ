@@ -3,4 +3,19 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+   <!-- zxy-->
+
+    <color name="my_setting_blue1">#43BFFF</color>
+    <color name="my_setting_blue2">#CEE9F4</color>
+    <color name="font_black1">#666666</color>
+    <color name="black230">#CDCDCD</color>
+    <color name="font_grey1">#CCCCCC</color>
+    <color name="deliver_grey">#F2F2F2</color>
+    <color name="font_black2">#A6A6A6</color>
+    <color name="line">#E6E6E6</color>
+    <color name="font_black3">#797979</color>
+    <color name="font_black4">#868686</color>
+    <color name="blue3">#9BDDFF</color>
+    <color name="grey">#A1A1A1</color>
 </resources>

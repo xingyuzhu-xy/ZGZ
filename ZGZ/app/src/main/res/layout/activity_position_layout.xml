@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="@color/my_setting_blue1">
+        <TextView
+            android:id="@+id/position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/white"
+            android:text="职位"
+            android:textSize="15sp"
+            android:layout_centerVertical="true"/>
+        <EditText
+            android:layout_width="145dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:hint="搜索职位/公司"
+            android:textSize="9sp"
+            android:textColorHint="#82C2E6"
+            android:background="@drawable/position_edittext"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:drawableLeft="@mipmap/search"
+            android:paddingLeft="10dp"
+            android:drawablePadding="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:text="消息"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:textSize="15sp"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/position_listview">
+
+    </ListView>
+
+</LinearLayout>
