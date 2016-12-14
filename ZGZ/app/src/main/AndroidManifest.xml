@@ -15,11 +15,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         //t
         <activity android:name=".t.SearchListActivity"/>
         <activity android:name=".t.PositionDetailsActivity"/>
         <activity android:name=".t.EnterpriseDetailsActivity"/>
         <activity android:name=".t.PartTimeJobActivity"/>
-    </application>
 
+        <!--zxy-->
+        <activity android:name=".zxy.MyResumeActivity"/>
+        <activity android:name=".zxy.MyDeliverActivity"/>
+        <activity android:name=".zxy.MyDownloadActivity"/>
+        <activity android:name=".zxy.MyMessageActivity"/>
+        <activity android:name=".zxy.MyCollectActivity"/>
+        <activity android:name=".zxy.MyAttentionActivity"/>
+        <activity android:name=".zxy.MySysSettingActivity"/>
+        <activity android:name=".zxy.MyAdviceActivity"/>
+
+    </application>
+    
 </manifest>
