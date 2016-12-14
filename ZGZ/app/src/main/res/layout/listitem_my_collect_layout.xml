@@ -6,7 +6,7 @@
         android:id="@+id/my_collect_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/position"
+        android:text="@string/design_director"
         android:textSize="12sp"
         android:textColor="@color/font_black1"
         android:layout_marginTop="11dp"

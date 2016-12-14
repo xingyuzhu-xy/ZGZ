@@ -8,13 +8,22 @@
         android:label="@string/app_name"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".zxy.PositionDetailActivity">
+        <activity android:name=".zxy.MySettingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--zxy-->
+        <activity android:name=".zxy.MyResumeActivity"/>
+        <activity android:name=".zxy.MyDeliverActivity"/>
+        <activity android:name=".zxy.MyDownloadActivity"/>
+        <activity android:name=".zxy.MyMessageActivity"/>
+        <activity android:name=".zxy.MyCollectActivity"/>
+        <activity android:name=".zxy.MyAttentionActivity"/>
+        <activity android:name=".zxy.MySysSettingActivity"/>
+        <activity android:name=".zxy.MyAdviceActivity"/>
     </application>
-
+    
 </manifest>
