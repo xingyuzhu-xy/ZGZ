@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="71dp">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="13dp">
+        <LinearLayout
+            android:layout_marginTop="19dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/what_job"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="绩佣会计"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="渝中区"
+                android:layout_marginRight="12dp"
+                android:textSize="10sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="9dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="塔尔餐饮"
+                android:textSize="10sp"/>
+            <TextView
+                android:id="@+id/money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3000-5000/月"
+                android:layout_marginRight="12dp"
+                android:textSize="10sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
