@@ -8,13 +8,18 @@
         android:label="@string/app_name"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".zxy.PositionDetailActivity">
+        <activity android:name=".t.AdvancedSearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        //t
+        <activity android:name=".t.SearchListActivity"/>
+        <activity android:name=".t.PositionDetailsActivity"/>
+        <activity android:name=".t.EnterpriseDetailsActivity"/>
+        <activity android:name=".t.PartTimeJobActivity"/>
     </application>
 
 </manifest>
