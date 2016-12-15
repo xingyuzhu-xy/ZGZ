@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
-        android:id="@+id/cpname"
+        android:id="@+id/my_message_cpname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cpname"
@@ -15,17 +15,17 @@
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cpname"
+        android:layout_below="@id/my_message_cpname"
         android:text="时间:"
         android:textSize="12sp"
         android:textColor="@color/font_black1"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"/>
     <TextView
-        android:id="@+id/message_time"
+        android:id="@+id/my_message_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cpname"
+        android:layout_below="@id/my_message_cpname"
         android:layout_toRightOf="@id/time"
         android:text="@string/time"
         android:textSize="12sp"
@@ -43,11 +43,12 @@
         android:textColor="@color/font_black1"
         android:layout_marginTop="5dp"/>
     <TextView
-        android:id="@+id/message_site"
+        android:id="@+id/my_message_site"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/site"
         android:textSize="12sp"
+        android:layout_marginBottom="5dp"
         android:textColor="@color/font_black1"
         android:layout_toRightOf="@id/site"
         android:layout_alignTop="@id/site"
@@ -62,5 +63,6 @@
         android:layout_marginRight="10dp"
         android:layout_centerVertical="true"
         android:textColor="@android:color/white"
-        android:background="@drawable/deliver_button1"/>
+        android:background="@drawable/deliver_button1"
+        />
 </RelativeLayout>

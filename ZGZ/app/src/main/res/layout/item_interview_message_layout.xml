@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
-        android:id="@+id/cpimage"
+        android:id="@+id/interview_cpimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/interview_congqing"
@@ -11,13 +11,13 @@
         android:layout_marginBottom="26dp"
         android:layout_marginLeft="10dp"/>
     <TextView
-        android:id="@+id/cpname"
+        android:id="@+id/interview_cpname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cpname"
         android:textSize="14sp"
         android:textColor="@color/font_black1"
-        android:layout_toRightOf="@id/cpimage"
+        android:layout_toRightOf="@id/interview_cpimage"
         android:layout_marginLeft="7dp"
         android:layout_centerVertical="true"/>
     <TextView
@@ -30,18 +30,21 @@
         android:background="@drawable/deliver_button1"
         android:paddingLeft="11dp"
         android:paddingRight="11dp"
-        android:layout_alignTop="@id/cpimage"
+        android:layout_alignTop="@id/interview_cpimage"
         android:layout_alignParentRight="true"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"/>
+
     <TextView
+        android:id="@+id/interview_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/date"
         android:textSize="11sp"
         android:textColor="@color/font_black4"
-        android:layout_above="@id/yueqi"
-        android:layout_alignRight="@id/yueqi"/>
+        android:layout_above="@+id/yueqi"
+        android:layout_alignRight="@+id/yueqi"
+        android:layout_alignEnd="@+id/yueqi" />
 </RelativeLayout>
