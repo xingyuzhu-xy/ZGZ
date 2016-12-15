@@ -16,7 +16,6 @@
             </intent-filter>
         </activity>
 
-        //t
         <activity android:name=".t.SearchListActivity"/>
         <activity android:name=".t.PositionDetailsActivity"/>
         <activity android:name=".t.EnterpriseDetailsActivity"/>
@@ -31,6 +30,13 @@
         <activity android:name=".zxy.MyAttentionActivity"/>
         <activity android:name=".zxy.MySysSettingActivity"/>
         <activity android:name=".zxy.MyAdviceActivity"/>
+        <activity android:name=".zxy.MySettingActivity"/>
+
+        <activity android:name=".zxy.InterviewFaceActivity"/>
+        <activity android:name=".zxy.InterviewMessageActivity"/>
+        <activity android:name=".zxy.PositionActivity"/>
+        <activity android:name=".zxy.PositionDetailActivity"/>
+
 
     </application>
     
