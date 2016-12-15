@@ -5,24 +5,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import test.leco.com.zgz.R;
-import test.leco.com.zgz.t.data.RecommendListItem;
+import test.leco.com.zgz.t.data.PartTimeJobItem;
 
 /**
- * Created by Administrator on 2016/12/0014.
+ * Created by Administrator on 2016/12/0015.
  */
 
-public class RecommendAdapter extends BaseAdapter {
+public class PartTimeJobAdapter extends BaseAdapter {
 
     Context context;
-    List<RecommendListItem> list;
+    List<PartTimeJobItem> list;
     LayoutInflater inflater;
-    public RecommendAdapter(Context context,List<RecommendListItem> list){
+    public PartTimeJobAdapter( Context context,List<PartTimeJobItem> list){
         this.context = context;
         this.list = list;
         inflater = LayoutInflater.from(context);
@@ -47,31 +46,28 @@ public class RecommendAdapter extends BaseAdapter {
         Holder holder = null;
         if (convertView == null){
             holder = new Holder();
-            convertView = inflater.inflate(R.layout.t_recommend_list_item,null);
-            holder.image = (ImageView) convertView.findViewById(R.id.image);
-            holder.whatJob = (TextView) convertView.findViewById(R.id.what_job);
+            convertView = inflater.inflate(R.layout.t_part_time_job_item,null);
+            holder.positionName = (TextView) convertView.findViewById(R.id.positionName);
             holder.address = (TextView) convertView.findViewById(R.id.address);
-            holder.type = (TextView) convertView.findViewById(R.id.type);
-            holder.money = (TextView) convertView.findViewById(R.id.money);
+            holder.workTime = (TextView) convertView.findViewById(R.id.workTime);
+            holder.salary = (TextView) convertView.findViewById(R.id.salary);
             convertView.setTag(holder);
         }else {
             holder = (Holder) convertView.getTag();
         }
-        RecommendListItem recommendListItem = list.get(position);
-        holder.image.setImageResource(recommendListItem.getImage());
-        holder.whatJob.setText(recommendListItem.getPositionName());
-        holder.address.setText(recommendListItem.getWorkPlace());
-        holder.type.setText(recommendListItem.getCompanyName());
-        holder.money.setText(recommendListItem.getSalary());
+        PartTimeJobItem partTimeJobItem = list.get(position);
+        holder.positionName.setText(partTimeJobItem.getPositionName());
+        holder.address.setText(partTimeJobItem.getAddress());
+        holder.workTime.setText(partTimeJobItem.getWorkTime());
+        holder.salary.setText(partTimeJobItem.getSalary());
 
         return convertView;
     }
 
     class Holder{
-        ImageView image;
-        TextView whatJob;
+        TextView positionName;
         TextView address;
-        TextView type;
-        TextView money;
+        TextView workTime;
+        TextView salary;
     }
 }

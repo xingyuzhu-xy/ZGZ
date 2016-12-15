@@ -17,6 +17,9 @@
         </activity>
 
         //t
+        <activity android:name=".t.AdvancedSearchActivity"/>
+        <activity android:name=".t.NearWorkActivity"/>
+        <activity android:name=".t.WhoSeeMeActivity"/>
         <activity android:name=".t.SearchListActivity"/>
         <activity android:name=".t.PositionDetailsActivity"/>
         <activity android:name=".t.EnterpriseDetailsActivity"/>

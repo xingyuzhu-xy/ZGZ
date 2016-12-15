@@ -105,6 +105,7 @@
         android:layout_gravity="center"
         android:background="@color/line_color"/>
     <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

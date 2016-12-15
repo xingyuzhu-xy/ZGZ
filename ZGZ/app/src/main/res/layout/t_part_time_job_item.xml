@@ -11,6 +11,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="10dp">
         <TextView
+            android:id="@+id/positionName"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -33,12 +34,14 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="10dp">
         <TextView
+            android:id="@+id/address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/part_time_address"
             android:textSize="12sp"
             android:textColor="@color/dark_gray"/>
         <TextView
+            android:id="@+id/workTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/part_time_time"
@@ -51,6 +54,7 @@
             android:textColor="@color/white"
             android:background="@drawable/t_part_time_job_time"/>
         <TextView
+            android:id="@+id/salary"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:gravity="right"

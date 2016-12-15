@@ -9,6 +9,7 @@
         android:orientation="horizontal"
         android:background="@color/blue">
         <ImageView
+            android:id="@+id/back_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/advanced_list_top_get_back"
