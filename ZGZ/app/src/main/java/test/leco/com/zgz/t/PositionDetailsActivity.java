@@ -34,7 +34,8 @@ public class PositionDetailsActivity extends Activity{
         enterprise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                intent = new Intent(PositionDetailsActivity.this,);
+//                startActivity(intent);
             }
         });
     }

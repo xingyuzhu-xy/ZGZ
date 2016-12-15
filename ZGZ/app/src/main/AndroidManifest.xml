@@ -24,6 +24,7 @@
         <activity android:name=".t.PositionDetailsActivity"/>
         <activity android:name=".t.EnterpriseDetailsActivity"/>
         <activity android:name=".t.PartTimeJobActivity"/>
+        <activity android:name=".t.CompanyDetailsActivity"/>
 
         <!--zxy-->
         <activity android:name=".zxy.MyResumeActivity"/>
@@ -34,6 +35,7 @@
         <activity android:name=".zxy.MyAttentionActivity"/>
         <activity android:name=".zxy.MySysSettingActivity"/>
         <activity android:name=".zxy.MyAdviceActivity"/>
+        <activity android:name=".zxy.PositionDetailActivity"/>
 
     </application>
     
