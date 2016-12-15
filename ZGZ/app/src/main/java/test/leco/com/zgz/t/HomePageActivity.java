@@ -91,6 +91,7 @@ public class HomePageActivity extends FragmentActivity {
         radioButtons.add(positionRadio);
         radioButtons.add(interviewRadio);
         radioButtons.add(meRadio);
+        //viewpager滑动监听
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -140,9 +141,10 @@ public class HomePageActivity extends FragmentActivity {
             }
         });*/
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
+            @Override//底部按钮切换视图
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
+                    //主页
                     case R.id.homepage_radiobutton:
                         homeRadio.setTextColor(getResources().getColor(R.color.my_setting_blue1));
                         positionRadio.setTextColor(getResources().getColor(R.color.light_black));
@@ -150,6 +152,7 @@ public class HomePageActivity extends FragmentActivity {
                         meRadio.setTextColor(getResources().getColor(R.color.light_black));
                         viewPager.setCurrentItem(0);
                         break;
+                    //职位
                     case R.id.positon_radiobutton:
                         homeRadio.setTextColor(getResources().getColor(R.color.light_black));
                         positionRadio.setTextColor(getResources().getColor(R.color.my_setting_blue1));
@@ -157,6 +160,7 @@ public class HomePageActivity extends FragmentActivity {
                         meRadio.setTextColor(getResources().getColor(R.color.light_black));
                         viewPager.setCurrentItem(1);
                         break;
+                    //面试
                     case R.id.interview_radiobutton:
                         homeRadio.setTextColor(getResources().getColor(R.color.light_black));
                         positionRadio.setTextColor(getResources().getColor(R.color.light_black));
@@ -164,6 +168,7 @@ public class HomePageActivity extends FragmentActivity {
                         meRadio.setTextColor(getResources().getColor(R.color.light_black));
                         viewPager.setCurrentItem(2);
                         break;
+                    //我的
                     case R.id.me_radiobutton:
                         homeRadio.setTextColor(getResources().getColor(R.color.light_black));
                         positionRadio.setTextColor(getResources().getColor(R.color.light_black));

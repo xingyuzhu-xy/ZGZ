@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
-        android:id="@+id/cpimage"
+        android:id="@+id/onlineface_cpimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/interview_congqing"
@@ -11,13 +11,13 @@
         android:layout_marginBottom="26dp"
         android:layout_marginLeft="10dp"/>
     <TextView
-        android:id="@+id/cpname"
+        android:id="@+id/onlineface_cpname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cpname"
         android:textSize="14sp"
         android:textColor="@color/font_black1"
-        android:layout_toRightOf="@id/cpimage"
+        android:layout_toRightOf="@id/onlineface_cpimage"
         android:layout_marginLeft="7dp"
         android:layout_marginTop="20dp"/>
     <TextView
@@ -27,11 +27,11 @@
         android:text="职位:"
         android:textSize="12sp"
         android:textColor="@color/font_black2"
-        android:layout_below="@id/cpname"
+        android:layout_below="@id/onlineface_cpname"
         android:layout_marginTop="8dp"
-        android:layout_alignLeft="@id/cpname"/>
+        android:layout_alignLeft="@id/onlineface_cpname"/>
     <TextView
-        android:id="@+id/position"
+        android:id="@+id/onlineface_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/position"
@@ -41,13 +41,14 @@
         android:layout_alignBottom="@id/zhiwei"
         android:layout_marginLeft="5dp"/>
     <TextView
+        android:id="@+id/onlineface_pay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/paymoney"
         android:textSize="12sp"
         android:textColor="@color/font_black2"
-        android:layout_toRightOf="@id/position"
-        android:layout_alignBottom="@id/position"
+        android:layout_toRightOf="@id/onlineface_position"
+        android:layout_alignBottom="@id/onlineface_position"
         android:layout_marginLeft="20dp"/>
     <TextView
         android:layout_width="wrap_content"
