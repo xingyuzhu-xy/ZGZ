@@ -2,14 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:text="@string/home_page"
-        android:textSize="15sp"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:background="@color/blue"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/homepage_relative">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="@string/home_page"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/blue"/>
+    </RelativeLayout>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
