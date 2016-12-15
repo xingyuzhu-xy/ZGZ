@@ -26,6 +26,8 @@
         <activity android:name=".t.EnterpriseDetailsActivity"/>
         <activity android:name=".t.PartTimeJobActivity"/>
         <activity android:name=".t.CompanyDetailsActivity"/>
+        <activity android:name=".t.IndustryInvolvedActivity"/>
+        <activity android:name=".t.InvolvedItemActivity"/>
 
         <!--zxy-->
         <activity android:name=".zxy.MyResumeActivity"/>

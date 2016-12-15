@@ -8,6 +8,7 @@
         android:orientation="horizontal"
         android:background="@color/blue">
         <ImageView
+            android:id="@+id/back_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/advanced_list_top_get_back"
@@ -54,6 +55,7 @@
         android:layout_height="1dp"
         android:background="@color/line_color"/>
     <LinearLayout
+        android:id="@+id/vocationType"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:orientation="horizontal">
@@ -75,6 +77,7 @@
             android:textColor="@color/blue"
             android:layout_marginRight="12sp"/>
         <ImageView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/advanced_list_main_body_arrows"
