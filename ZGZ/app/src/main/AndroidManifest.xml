@@ -43,7 +43,7 @@
 
         <activity android:name=".zxy.InterviewFaceActivity"/>
         <activity android:name=".zxy.InterviewMessageActivity"/>
-        <activity android:name=".zxy.PositionActivity"/>
+        <!--<activity android:name=".zxy.PositionActivity"/>-->
         
 
 
