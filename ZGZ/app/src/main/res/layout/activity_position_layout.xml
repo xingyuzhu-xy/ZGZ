@@ -4,11 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <RelativeLayout
+        android:id="@+id/position_relative"
         android:layout_width="match_parent"
         android:layout_height="43dp"
         android:background="@color/my_setting_blue1">
         <TextView
-            android:id="@+id/position"
+            android:id="@+id/position_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -17,6 +18,7 @@
             android:textSize="16sp"
             android:layout_centerVertical="true"/>
         <EditText
+            android:id="@+id/search_edittext"
             android:layout_width="145dp"
             android:layout_height="20dp"
             android:layout_centerInParent="true"
@@ -30,6 +32,7 @@
             android:paddingLeft="10dp"
             android:drawablePadding="10dp"/>
         <TextView
+            android:id="@+id/message_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"

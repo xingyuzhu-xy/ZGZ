@@ -10,16 +10,14 @@ import android.view.ViewGroup;
 import test.leco.com.zgz.R;
 
 /**
- * Created by Administrator on 2016/12/0014.
+ * Created by Administrator on 2016/12/14.
  */
 
-public class HomePageFragment extends Fragment {
-
+public class MeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.t_homepage,null);
-
+        View view=inflater.inflate(R.layout.activity_my_setting_layout,null);
         return view;
     }
 }

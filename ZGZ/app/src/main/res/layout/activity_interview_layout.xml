@@ -7,9 +7,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="43dp"
+        android:id="@+id/interview_relative"
         android:background="@color/my_setting_blue1">
         <ImageView
-            android:id="@+id/resume_arrow"
+            android:id="@+id/interview_imageview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/interview_information"
