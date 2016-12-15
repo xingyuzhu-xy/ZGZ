@@ -46,13 +46,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/username"
                     android:textColor="@color/font_black1"
-                    android:textSize="12dp"
+                    android:textSize="14dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="9dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/phonenumber"
+                    android:textSize="13sp"
                     android:layout_gravity="center"
                     android:textColor="@color/font_black1"
                     android:layout_marginTop="5dp"/>
@@ -65,6 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="姓名"
+                    android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"/>
@@ -80,6 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/username"
+                    android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_toLeftOf="@id/arrow1"
                     android:layout_centerVertical="true"
@@ -93,6 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="性别"
+                    android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"/>
@@ -108,6 +112,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sex"
+                    android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_toLeftOf="@id/arrow2"
                     android:layout_centerVertical="true"
@@ -121,6 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="出生年月"
+                    android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"/>
@@ -141,6 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="参加工作时间"
+                    android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"/>
@@ -160,6 +167,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="现居住城市"
+                android:textSize="14sp"
                 android:textColor="@color/font_black1"
                 android:layout_marginLeft="10dp"
                 android:layout_centerVertical="true"/>
@@ -179,6 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="户口所在地"
+                    android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"/>
@@ -199,6 +208,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="手机号码"
+                    android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"/>
@@ -207,7 +217,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/binding"
-                    android:textSize="10dp"
+                    android:textSize="14sp"
                     android:layout_toRightOf="@id/number"
                     android:textColor="@color/my_setting_blue1"
                     android:layout_centerVertical="true"/>
@@ -223,6 +233,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/number"
+                    android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_toLeftOf="@id/arrow4"
                     android:layout_centerVertical="true"
@@ -236,6 +247,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="手机号码"
+                    android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"/>
@@ -251,6 +263,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/email_adress"
+                    android:textSize="14sp"
                     android:textColor="@color/font_grey1"
                     android:layout_toLeftOf="@id/arrow5"
                     android:layout_centerVertical="true"

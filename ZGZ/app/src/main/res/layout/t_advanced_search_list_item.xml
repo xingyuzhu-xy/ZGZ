@@ -12,7 +12,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="飞成精密模具"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textColor="@color/light_black"
             android:layout_marginLeft="11dp"
             android:layout_marginTop="12dp"/>
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="今天"
-            android:textSize="10dp"
+            android:textSize="12dp"
             android:textColor="@color/dark_gray"
             android:layout_marginRight="11dp"
             android:layout_marginTop="13dp"/>
@@ -30,12 +30,12 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/line_color"
-        android:layout_marginTop="4dp"/>
+        android:layout_marginTop="5dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="注塑模具师父"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:textColor="@color/light_black"
         android:layout_marginLeft="11dp"
         android:layout_marginTop="5dp"/>
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="渝中区"
-            android:textSize="10sp"
+            android:textSize="11sp"
             android:textColor="@color/dark_gray"
             android:layout_marginLeft="5dp"
             android:layout_gravity="center"/>
@@ -69,13 +69,13 @@
             android:layout_height="wrap_content"
             android:text="大专/2年及以上"
             android:textColor="@color/dark_gray"
-            android:textSize="10sp"
+            android:textSize="11sp"
             android:layout_gravity="center"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3000-6000元/月"
-            android:textSize="10sp"
+            android:textSize="11sp"
             android:textColor="@color/dark_gray"
             android:layout_marginRight="11dp"
             android:layout_gravity="center"/>

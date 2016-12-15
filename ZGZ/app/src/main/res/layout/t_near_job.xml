@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/near_work"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:gravity="center"
             android:textColor="@color/white" />
     </LinearLayout>
@@ -32,14 +32,14 @@
             android:text="@string/position_value"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/position_value_input"
             android:layout_gravity="center"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/gray"
             android:layout_marginRight="12sp"/>
         <ImageView
@@ -64,14 +64,14 @@
             android:text="@string/vocation_type"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/unlimited"
             android:layout_gravity="center"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/blue"
             android:layout_marginRight="12sp"/>
         <ImageView
@@ -96,14 +96,14 @@
             android:text="@string/min_salary"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/min_salary_input"
             android:layout_gravity="center"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/gray"
             android:layout_marginRight="12sp"/>
         <ImageView
@@ -128,14 +128,14 @@
             android:text="@string/update_time"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/update_time"
             android:layout_gravity="center"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/gray"
             android:layout_marginRight="12sp"/>
         <ImageView
@@ -160,14 +160,14 @@
             android:text="@string/distance_range"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/distance_numb"
             android:layout_gravity="center"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/gray"
             android:layout_marginRight="12sp"/>
         <ImageView
@@ -190,6 +190,6 @@
         android:text="@string/search"
         android:gravity="center"
         android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:background="@drawable/t_advanced_search_button"/>
 </LinearLayout>

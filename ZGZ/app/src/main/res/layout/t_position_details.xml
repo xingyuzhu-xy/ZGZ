@@ -24,7 +24,7 @@
             android:gravity="center"
             android:text="@string/position_details"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
     <ScrollView
@@ -42,7 +42,7 @@
                 android:layout_marginTop="17dp"
                 android:text="注塑模具师父"
                 android:textColor="@color/light_black"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -50,6 +50,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="6dp"
                 android:text="4000-8000/月"
+                android:textSize="12sp"
                 android:textColor="@color/dark_gray" />
 
             <ImageView
@@ -73,7 +74,7 @@
                     android:drawablePadding="5dp"
                     android:text="经验不限"
                     android:textColor="@color/light_black"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -84,7 +85,7 @@
                     android:drawablePadding="5dp"
                     android:text="学历不限"
                     android:textColor="@color/light_black"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -95,7 +96,7 @@
                     android:drawablePadding="5dp"
                     android:text="4人"
                     android:textColor="@color/light_black"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -113,7 +114,7 @@
                     android:drawablePadding="5dp"
                     android:text="年龄不限"
                     android:textColor="@color/light_black"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -124,7 +125,7 @@
                     android:drawablePadding="5dp"
                     android:text="性别不限"
                     android:textColor="@color/light_black"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -135,7 +136,7 @@
                     android:drawablePadding="5dp"
                     android:text="应届生亦可"
                     android:textColor="@color/light_black"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <ImageView
@@ -156,7 +157,7 @@
                     android:layout_marginLeft="20dp"
                     android:text="沙坪坝"
                     android:textColor="@color/light_black"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -170,7 +171,7 @@
                     android:layout_marginLeft="3dp"
                     android:text="离我11574km"
                     android:textColor="@color/light_black"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <TextView
@@ -180,7 +181,7 @@
                 android:layout_marginTop="5dp"
                 android:text="重庆市沙坪坝区上桥工业园"
                 android:textColor="@color/dark_gray"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -217,16 +218,16 @@
                             android:layout_height="wrap_content"
                             android:text="飞成精密模具"
                             android:textColor="@color/light_black"
-                            android:textSize="10sp" />
+                            android:textSize="13sp" />
 
                         <TextView
-                            android:layout_width="30dp"
-                            android:layout_height="12dp"
+                            android:layout_width="35dp"
+                            android:layout_height="15dp"
                             android:layout_marginLeft="15dp"
                             android:background="@drawable/t_certified"
                             android:gravity="right|center"
                             android:text="@string/certified"
-                            android:textSize="8dp" />
+                            android:textSize="10dp" />
                     </LinearLayout>
 
                     <TextView
@@ -238,7 +239,7 @@
                         android:maxEms="13"
                         android:text="50人以下／民营／机械／机电／重工塑料磨具，压铸磨具，五金磨具等"
                         android:textColor="@color/dark_gray"
-                        android:textSize="9dp" />
+                        android:textSize="11dp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -272,7 +273,7 @@
                         android:layout_height="wrap_content"
                         android:text="职业招聘人"
                         android:textColor="@color/light_black"
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -280,7 +281,7 @@
                         android:layout_marginTop="4dp"
                         android:text="夏姐/人事(招聘)经理"
                         android:textColor="@color/dark_gray"
-                        android:textSize="9dp" />
+                        android:textSize="10dp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -303,14 +304,14 @@
                     android:layout_weight="1"
                     android:text="@string/profession_status"
                     android:textColor="@color/advanced_search_button"
-                    android:textSize="11dp" />
+                    android:textSize="12dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/login_time"
                     android:textColor="@color/dark_gray"
-                    android:textSize="10dp" />
+                    android:textSize="11dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -319,7 +320,7 @@
                     android:layout_marginRight="12dp"
                     android:text="今天"
                     android:textColor="@color/dark_gray"
-                    android:textSize="10dp" />
+                    android:textSize="11dp" />
             </LinearLayout>
 
             <ImageView
@@ -346,14 +347,14 @@
                         android:layout_height="wrap_content"
                         android:text="低于20%"
                         android:textColor="@color/advanced_search_button"
-                        android:textSize="12sp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/resume_dispose"
                         android:textColor="@color/dark_gray"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <ImageView
@@ -374,14 +375,14 @@
                         android:layout_height="wrap_content"
                         android:text="5天"
                         android:textColor="@color/advanced_search_button"
-                        android:textSize="12sp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/resume_reply_time"
                         android:textColor="@color/dark_gray"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
             <TextView
@@ -390,7 +391,7 @@
                 android:layout_marginLeft="14dp"
                 android:text="@string/position_statement"
                 android:layout_marginTop="20dp"
-                android:textSize="8dp"
+                android:textSize="10dp"
                 android:textColor="@color/light_black"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -398,7 +399,7 @@
                 android:layout_marginLeft="14dp"
                 android:text="1.严格按(注塑机安卓操作规程)操作机器，不得随意更改设定参数"
                 android:layout_marginTop="8dp"
-                android:textSize="8dp"
+                android:textSize="10dp"
                 android:textColor="@color/light_black"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -406,7 +407,7 @@
                 android:layout_marginLeft="14dp"
                 android:text="2.严格按(注塑机安卓操作规程)操作机器，不得随意更改设定参数"
                 android:layout_marginTop="6dp"
-                android:textSize="8dp"
+                android:textSize="10dp"
                 android:textColor="@color/light_black"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -414,7 +415,7 @@
                 android:layout_marginLeft="14dp"
                 android:text="3.严格按(注塑机安卓操作规程)操作机器，不得随意更改设定参数"
                 android:layout_marginTop="6dp"
-                android:textSize="8dp"
+                android:textSize="10dp"
                 android:textColor="@color/light_black"/>
 
             <TextView
@@ -423,7 +424,7 @@
                 android:layout_marginLeft="14dp"
                 android:text="@string/position_statement"
                 android:layout_marginTop="11dp"
-                android:textSize="8dp"
+                android:textSize="10dp"
                 android:textColor="@color/light_black"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -431,7 +432,7 @@
                 android:layout_marginLeft="14dp"
                 android:text="1.良好的沟通能力和技巧，头脑灵活，责任心强"
                 android:layout_marginTop="7dp"
-                android:textSize="8dp"
+                android:textSize="10dp"
                 android:textColor="@color/light_black"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -439,7 +440,7 @@
                 android:layout_marginLeft="14dp"
                 android:text="2.积极肯干，吃苦耐劳；具有创新精神及团队协作精神"
                 android:layout_marginTop="6dp"
-                android:textSize="8dp"
+                android:textSize="10dp"
                 android:textColor="@color/light_black"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -447,7 +448,7 @@
                 android:layout_marginLeft="14dp"
                 android:text="3.责任心强，有团队合作精神，有良好的沟通能力"
                 android:layout_marginTop="6dp"
-                android:textSize="8dp"
+                android:textSize="10sp"
                 android:textColor="@color/light_black"
                 android:layout_marginBottom="16dp"/>
         </LinearLayout>
@@ -462,6 +463,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="9dp"
+            android:textSize="12sp"
             android:text="@string/enterprise_consultation"
             android:textColor="@color/advanced_search_button"
             android:drawableLeft="@mipmap/enterprise_consultation"
@@ -482,7 +484,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/phone"
                     android:textColor="@color/advanced_search_button"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:drawableLeft="@mipmap/phone"
                     android:layout_centerInParent="true"
                     android:drawablePadding="7dp"/>
@@ -499,7 +501,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/send_resume"
                     android:textColor="@color/white"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:drawableLeft="@mipmap/send_resume"
                     android:layout_centerInParent="true"
                     android:drawablePadding="7dp"/>

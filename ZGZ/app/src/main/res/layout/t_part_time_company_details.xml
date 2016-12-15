@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/company_details"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:gravity="center"
             android:textColor="@color/white" />
     </LinearLayout>
@@ -44,13 +44,13 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="@string/part_time_position_name"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:textColor="@color/light_black"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/part_time_time"
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     android:paddingBottom="2dp"
                     android:paddingTop="3dp"
                     android:paddingLeft="6dp"
@@ -68,7 +68,7 @@
                 android:text="@string/company_name"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="12dp"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:textColor="@color/light_black"
                 android:drawableLeft="@mipmap/part_time_job_company_details_company"
                 android:gravity="center"
@@ -79,7 +79,7 @@
                 android:text="@string/company_address"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="12dp"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:textColor="@color/light_black"
                 android:drawableLeft="@mipmap/part_time_job_company_details_salary"
                 android:gravity="center"
@@ -94,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/company_salary"
-                    android:textSize="12sp"
+                    android:textSize="13sp"
                     android:textColor="@color/light_black"
                     android:drawableLeft="@mipmap/company_icon"
                     android:gravity="center"
@@ -103,7 +103,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/company_salary_pay_time"
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     android:textColor="@color/dark_gray"
                     android:layout_marginLeft="9dp"/>
             </LinearLayout>
@@ -114,7 +114,7 @@
                 android:text="@string/company_need_number"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="12dp"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:textColor="@color/light_black"
                 android:drawableLeft="@mipmap/company_details_number_of_people"
                 android:gravity="center"
@@ -127,7 +127,7 @@
                 android:text="@string/company_work_time"
                 android:layout_marginLeft="17dp"
                 android:layout_marginTop="12dp"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:textColor="@color/light_black"
                 android:drawableLeft="@mipmap/part_time_job_company_details_date"
                 android:gravity="center"
@@ -148,7 +148,7 @@
                         android:layout_height="0dp"
                         android:text="TIME"
                         android:gravity="center"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textColor="@color/white"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -156,7 +156,7 @@
                         android:layout_height="0dp"
                         android:text="上午"
                         android:gravity="center"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textColor="@color/white"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -164,7 +164,7 @@
                         android:layout_height="0dp"
                         android:text="下午"
                         android:gravity="center"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textColor="@color/white"/>
                     <TextView
                         android:layout_width="match_parent"
@@ -172,7 +172,7 @@
                         android:layout_height="0dp"
                         android:text="晚上"
                         android:gravity="center"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textColor="@color/white"/>
                 </LinearLayout>
                 <LinearLayout
@@ -190,7 +190,7 @@
                             android:layout_height="match_parent"
                             android:text="周一"
                             android:gravity="center"
-                            android:textSize="11sp"
+                            android:textSize="12sp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:layout_width="0dp"
@@ -198,7 +198,7 @@
                             android:layout_height="match_parent"
                             android:text="周二"
                             android:gravity="center"
-                            android:textSize="11sp"
+                            android:textSize="12sp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:layout_width="0dp"
@@ -206,7 +206,7 @@
                             android:layout_height="match_parent"
                             android:text="周三"
                             android:gravity="center"
-                            android:textSize="11sp"
+                            android:textSize="12sp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:layout_width="0dp"
@@ -214,7 +214,7 @@
                             android:layout_height="match_parent"
                             android:text="周四"
                             android:gravity="center"
-                            android:textSize="11sp"
+                            android:textSize="12sp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:layout_width="0dp"
@@ -222,7 +222,7 @@
                             android:layout_height="match_parent"
                             android:text="周五"
                             android:gravity="center"
-                            android:textSize="11sp"
+                            android:textSize="12sp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:layout_width="0dp"
@@ -230,7 +230,7 @@
                             android:layout_height="match_parent"
                             android:text="周六"
                             android:gravity="center"
-                            android:textSize="11sp"
+                            android:textSize="12sp"
                             android:textColor="@color/white"/>
                         <TextView
                             android:layout_width="0dp"
@@ -238,7 +238,7 @@
                             android:layout_height="match_parent"
                             android:text="周日"
                             android:gravity="center"
-                            android:textSize="11sp"
+                            android:textSize="12sp"
                             android:textColor="@color/white"/>
                     </LinearLayout>
                     <LinearLayout
@@ -246,6 +246,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="3">
                         <GridView
+                            android:id="@+id/gr"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:numColumns="7"/>
@@ -278,13 +279,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/company_education"
-                            android:textSize="12sp"
+                            android:textSize="13sp"
                             android:textColor="@color/light_black"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/unlimited"
-                            android:textSize="12sp"
+                            android:textSize="13sp"
                             android:textColor="@color/light_black"/>
                     </LinearLayout>
                     <LinearLayout
@@ -296,13 +297,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/company_sex"
-                            android:textSize="12sp"
+                            android:textSize="13sp"
                             android:textColor="@color/light_black"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/unlimited"
-                            android:textSize="12sp"
+                            android:textSize="13sp"
                             android:textColor="@color/light_black"/>
                     </LinearLayout>
                     <TextView
@@ -310,7 +311,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/company_explain"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:maxEms="21"
                         android:layout_marginBottom="50dp"
                         android:lineSpacingExtra="3dp"
@@ -337,7 +338,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/company_share"
                 android:textColor="@color/light_black"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:drawableLeft="@mipmap/position_message_share"
                 android:layout_centerInParent="true"
                 android:drawablePadding="10dp"/>
@@ -352,7 +353,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/company_consultation"
                 android:textColor="@color/light_black"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:drawableLeft="@mipmap/position_message_share"
                 android:layout_centerInParent="true"
                 android:drawablePadding="10dp"/>
@@ -363,7 +364,7 @@
             android:layout_height="match_parent"
             android:text="@string/company_apply"
             android:gravity="center"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textColor="@color/white"
             android:background="@drawable/t_enterprise_consultation_send_resume"/>
     </LinearLayout>

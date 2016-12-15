@@ -21,7 +21,7 @@
             android:gravity="center"
             android:text="@string/who_see_me"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="16sp" />
     </LinearLayout>
     <ListView
         android:layout_width="match_parent"

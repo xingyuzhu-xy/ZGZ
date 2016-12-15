@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:text="@string/cpname"
         android:textColor="@color/font_black1"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:layout_marginTop="14dp"
         android:layout_marginLeft="10dp"/>
     <TextView
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/cpname"
         android:text="时间:"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textColor="@color/font_black1"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"/>
@@ -28,7 +28,7 @@
         android:layout_below="@id/cpname"
         android:layout_toRightOf="@id/time"
         android:text="@string/time"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:layout_marginLeft="2dp"
         android:textColor="@color/font_black1"
         android:layout_marginTop="5dp"/>
@@ -39,7 +39,7 @@
         android:text="地点:"
         android:layout_below="@id/time"
         android:layout_marginLeft="10dp"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textColor="@color/font_black1"
         android:layout_marginTop="5dp"/>
     <TextView
@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/site"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:textColor="@color/font_black1"
         android:layout_toRightOf="@id/site"
         android:layout_alignTop="@id/site"
@@ -57,7 +57,7 @@
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:text="同意"
-        android:textSize="10sp"
+        android:textSize="13sp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
         android:layout_centerVertical="true"

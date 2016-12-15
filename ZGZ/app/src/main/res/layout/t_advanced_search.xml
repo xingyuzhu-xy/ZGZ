@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/advanced_search"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:gravity="center"
             android:textColor="@color/white" />
     </LinearLayout>
@@ -33,14 +33,14 @@
             android:text="@string/position"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/input_job"
             android:layout_gravity="center"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/gray"
             android:layout_marginRight="12sp"/>
         <ImageView
@@ -65,7 +65,7 @@
             android:text="@string/vocation"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
             android:text="@string/regio"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -113,10 +113,10 @@
             android:text="@string/salary_range"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
         <EditText
-            android:layout_width="51dp"
+            android:layout_width="60dp"
             android:layout_height="21dp"
             android:background="@drawable/t_salary_range"
             android:layout_gravity="center"
@@ -125,12 +125,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/to"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/dark_gray"
             android:layout_gravity="center"
             android:layout_margin="10dp"/>
         <EditText
-            android:layout_width="51dp"
+            android:layout_width="60dp"
             android:layout_height="21dp"
             android:background="@drawable/t_salary_range"
             android:layout_gravity="center"/>
@@ -138,7 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/yuan"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/dark_gray"
             android:layout_gravity="center"
             android:layout_margin="10dp"/>
@@ -159,14 +159,14 @@
             android:text="@string/release_time"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/unlimited"
             android:layout_gravity="center"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/gray"
             android:layout_marginRight="12sp"/>
         <ImageView

@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="登录"
-            android:textSize="30px"
+            android:textSize="16sp"
             android:textColor="@android:color/white"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="登录"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textColor="@color/font_black1"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"/>
@@ -41,7 +41,7 @@
             android:layout_height="match_parent"
             android:hint="请输入账号"
             android:textColorHint="@color/font_grey1"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:layout_marginLeft="20dp"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="密码"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textColor="@color/font_black1"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"/>
@@ -73,7 +73,7 @@
             android:layout_height="match_parent"
             android:hint="请输入密码"
             android:textColorHint="@color/font_grey1"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:layout_marginLeft="20dp"/>
     </LinearLayout>
     <View

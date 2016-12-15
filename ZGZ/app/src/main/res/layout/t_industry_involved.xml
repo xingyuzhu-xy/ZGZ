@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:text="@string/industry_involved"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:gravity="center"
             android:textColor="@color/white" />
         <TextView

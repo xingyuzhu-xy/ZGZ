@@ -9,29 +9,30 @@
         android:gravity="center"
         android:background="@color/blue"
         android:textColor="@color/white"
-        android:textSize="15sp"/>
+        android:textSize="16sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/email_name"
         android:layout_margin="10dp"
         android:textColor="@color/light_black"
-        android:textSize="13sp"/>
+        android:textSize="14sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nihao"
         android:layout_marginLeft="10dp"
         android:textColor="@color/light_black"
-        android:textSize="12sp"/>
+        android:textSize="13sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/email_notification1"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
         android:textColor="@color/light_black"
-        android:textSize="12sp"/>
+        android:textSize="13sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +40,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/light_black"
-        android:textSize="12sp"/>
+        android:textSize="13sp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,13 +51,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email_time"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email_time1"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
     </LinearLayout>
     <LinearLayout
@@ -69,13 +70,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email_address"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email_address1"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
     </LinearLayout>
     <LinearLayout
@@ -88,13 +89,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email_contacts"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email_contacts1"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
     </LinearLayout>
     <LinearLayout
@@ -107,13 +108,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email_contacts_phone"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email_contacts_phone1"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
     </LinearLayout>
     <LinearLayout
@@ -126,13 +127,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email_road"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email_road1"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"/>
     </LinearLayout>
     <TextView
@@ -142,7 +143,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/light_black"
-        android:textSize="13sp"
+        android:textSize="14sp"
         android:gravity="right"
         android:layout_marginRight="12dp"/>
     <ImageView

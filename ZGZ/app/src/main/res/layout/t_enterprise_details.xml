@@ -22,7 +22,7 @@
             android:gravity="center"
             android:text="@string/enterprise_details"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="16sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,14 +33,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="文林创意传媒"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"
             android:layout_marginTop="16dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="渝中区文林图文制作部"
-            android:textSize="10sp"
+            android:textSize="11sp"
             android:textColor="@color/dark_gray"
             android:layout_marginTop="6dp"/>
     </LinearLayout>
@@ -59,13 +59,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="规模"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="50人以下"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"
             android:layout_marginLeft="15dp"/>
     </LinearLayout>
@@ -80,13 +80,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="性质"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="民营"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"
             android:layout_marginLeft="15dp"/>
         </LinearLayout>
@@ -102,13 +102,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="行业"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="互联网/移动互联网/电子商务"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"
             android:layout_marginLeft="15dp"/>
     </LinearLayout>
@@ -124,13 +124,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="福利"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black" />
         <TextView
             android:layout_width="51dp"
             android:layout_height="wrap_content"
             android:text="五险"
-            android:textSize="9sp"
+            android:textSize="10sp"
             android:textColor="@color/dark_gray"
             android:gravity="center"
             android:paddingBottom="3dp"
@@ -141,7 +141,7 @@
             android:layout_width="51dp"
             android:layout_height="wrap_content"
             android:text="周末双休"
-            android:textSize="9sp"
+            android:textSize="10sp"
             android:textColor="@color/dark_gray"
             android:gravity="center"
             android:paddingBottom="3dp"
@@ -152,7 +152,7 @@
             android:layout_width="51dp"
             android:layout_height="wrap_content"
             android:text="带薪休假"
-            android:textSize="9sp"
+            android:textSize="10sp"
             android:textColor="@color/dark_gray"
             android:gravity="center"
             android:paddingBottom="3dp"
@@ -179,7 +179,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="重庆渝中区大坪英利国际"
-            android:textSize="12sp"
+            android:textSize="13sp"
             android:textColor="@color/light_black"
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"/>
@@ -194,7 +194,7 @@
         android:layout_marginLeft="11dp"
         android:layout_marginRight="13dp"
         android:layout_marginTop="18dp"
-        android:textSize="12sp"
+        android:textSize="13sp"
         android:maxEms="26"
         android:lines="4"
         android:lineSpacingExtra="3dp"
@@ -217,7 +217,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/enterprise_consultation"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:drawableLeft="@mipmap/ask_enterprise"
                 android:layout_centerInParent="true"
                 android:drawablePadding="7dp"/>
@@ -235,7 +235,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/care_enterprise"
                 android:textColor="@color/white"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:drawableLeft="@mipmap/care_enterprise"
                 android:layout_centerInParent="true"
                 android:drawablePadding="7dp"/>

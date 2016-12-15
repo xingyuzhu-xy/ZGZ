@@ -14,7 +14,7 @@
             android:text="飞成精密模具"
             android:layout_gravity="center"
             android:layout_marginLeft="12dp"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textColor="@color/light_black"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2016-10-18"
-        android:textSize="10dp"
+        android:textSize="11sp"
         android:textColor="@color/dark_gray"
         android:layout_marginLeft="13dp"
         android:layout_marginTop="8dp"/>

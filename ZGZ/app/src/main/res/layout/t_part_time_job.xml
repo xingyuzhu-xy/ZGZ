@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/part_time_job"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:gravity="center"
             android:textColor="@color/white" />
     </LinearLayout>
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/work_place"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textColor="@color/light_black"
                 android:layout_centerInParent="true"/>
             <ImageView
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/choose_position"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textColor="@color/light_black"
                 android:layout_centerInParent="true"/>
             <ImageView
@@ -88,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/update_time"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:textColor="@color/light_black"
                 android:layout_centerInParent="true"/>
             <ImageView
