@@ -1,11 +1,13 @@
 package test.leco.com.zgz.t.fragment;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import java.util.List;
 
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.zxy.Myadapter.PositionAdapter;
+import test.leco.com.zgz.zxy.PositionDetailActivity;
 
 /**
  * Created by Administrator on 2016/12/14.
@@ -28,7 +31,13 @@ public class PositionFragment extends Fragment {
         list=new ArrayList<>();
         getDate();
         listView.setAdapter(new PositionAdapter(list,getActivity()));
-        super.onCreate(savedInstanceState);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(), PositionDetailActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -44,4 +53,5 @@ public class PositionFragment extends Fragment {
             list.add(map);
         }
     }
+
 }
