@@ -2,7 +2,9 @@ package test.leco.com.zgz.zxy;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,20 +21,60 @@ import test.leco.com.zgz.zxy.Myadapter.UnlineFaceAdpater;
 public class InterviewFaceActivity extends Activity {
     ListView onLineListView,unLineListView;
     List<HashMap<String,Object>> onlineList,unlineList;
+
+    TextView online,unline;
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interview_face_layout);
         onLineListView= (ListView) findViewById(R.id.online_listview);
         unLineListView= (ListView) findViewById(R.id.unline_listview);
-        unlineList=new ArrayList<>();
-        onlineList=new ArrayList<>();
+        online = (TextView) findViewById(R.id.online);
+        unline = (TextView) findViewById(R.id.unline);
+
+        online.setOnClickListener(clickListener);
+        unline.setOnClickListener(clickListener);
+
+        unlineList=new ArrayList<HashMap<String,Object>>();
+        onlineList=new ArrayList<HashMap<String,Object>>();
+
         getunlineDate();
         getOnlineDate();
         unLineListView.setAdapter(new UnlineFaceAdpater(unlineList,this));
         onLineListView.setAdapter(new OnlineFaceAdapter(onlineList,this));
-        super.onCreate(savedInstanceState);
+
     }
+
+    View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.online:
+                    if (unLineListView.getVisibility() == View.VISIBLE){
+                        unLineListView.setVisibility(View.GONE);
+                    }
+                    if (onLineListView.getVisibility() == View.VISIBLE){
+                        onLineListView.setVisibility(View.GONE);
+                    }else {
+                        onLineListView.setVisibility(View.VISIBLE);
+                    }
+
+                    break;
+                case R.id.unline:
+                    if (onLineListView.getVisibility() == View.VISIBLE){
+                        onLineListView.setVisibility(View.GONE);
+                    }
+                    if (unLineListView.getVisibility() == View.VISIBLE){
+                        unLineListView.setVisibility(View.GONE);
+                    }else {
+                        unLineListView.setVisibility(View.VISIBLE);
+                    }
+                    break;
+            }
+        }
+    };
+
     public void getOnlineDate(){
-        for (int i=0;i<3;i++){
+        for (int i=0;i<10;i++){
             HashMap<String,Object> map =new HashMap<>();
             map.put("onCpimage",R.mipmap.cpimage);
             map.put("onCpname",getResources().getString(R.string.cpname));
@@ -42,7 +84,7 @@ public class InterviewFaceActivity extends Activity {
         }
     }
     public void getunlineDate(){
-        for (int i=0;i<3;i++){
+        for (int i=0;i<8;i++){
             HashMap<String,Object> map =new HashMap<>();
             map.put("unCpimage",R.mipmap.cpimage);
             map.put("unCpname",getResources().getString(R.string.cpname));

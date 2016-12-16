@@ -478,6 +478,23 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="9dp"
+                android:background="@drawable/t_enterprise_consultation_phone"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chat"
+                    android:textColor="@color/advanced_search_button"
+                    android:textSize="14sp"
+                    android:drawableLeft="@mipmap/phone"
+                    android:layout_centerInParent="true"
+                    android:drawablePadding="7dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="9dp"
                 android:background="@drawable/t_enterprise_consultation_phone">
                 <TextView
                     android:layout_width="wrap_content"

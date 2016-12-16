@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import test.leco.com.zgz.R;
+import test.leco.com.zgz.zxy.ReferCompanyActivity;
 
 /**
  * Created by Administrator on 2016/12/0014.
@@ -34,8 +35,8 @@ public class PositionDetailsActivity extends Activity{
         enterprise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                intent = new Intent(PositionDetailsActivity.this,);
-//                startActivity(intent);
+                intent = new Intent(PositionDetailsActivity.this, ReferCompanyActivity.class);
+                startActivity(intent);
             }
         });
     }

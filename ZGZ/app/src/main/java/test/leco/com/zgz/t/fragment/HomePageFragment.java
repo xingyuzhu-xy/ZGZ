@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.AdvancedSearchActivity;
 import test.leco.com.zgz.t.NearWorkActivity;
 import test.leco.com.zgz.t.PartTimeJobActivity;
+import test.leco.com.zgz.t.PositionDetailsActivity;
 import test.leco.com.zgz.t.WhoSeeMeActivity;
 import test.leco.com.zgz.t.adapter.RecommendAdapter;
 import test.leco.com.zgz.t.data.RecommendListItem;
@@ -41,6 +43,13 @@ public class HomePageFragment extends Fragment {
         getData();
         listView.setAdapter(new RecommendAdapter(getActivity(),list));
         listView.setFocusable(false);//设置默认不聚焦，即进去之后显示在页面的最上面
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                intent = new Intent(getActivity(), PositionDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //设置点击事件
         advancedSearch.setOnClickListener(onClickListener);

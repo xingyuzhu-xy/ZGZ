@@ -56,7 +56,7 @@
         android:text="约起"
         android:textColor="@android:color/white"
         android:textSize="14sp"
-        android:background="@drawable/deliver_button1"
+        android:background="@drawable/position_textview"
         android:paddingLeft="26dp"
         android:paddingRight="26dp"
         android:layout_centerVertical="true"

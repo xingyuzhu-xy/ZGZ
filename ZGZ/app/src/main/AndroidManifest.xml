@@ -28,6 +28,7 @@
         <activity android:name=".t.CompanyDetailsActivity"/>
         <activity android:name=".t.IndustryInvolvedActivity"/>
         <activity android:name=".t.InvolvedItemActivity"/>
+        <activity android:name=".t.MePositionActivity"/>
 
         <!--zxy-->
         <activity android:name=".zxy.MyResumeActivity"/>
@@ -38,7 +39,7 @@
         <activity android:name=".zxy.MyAttentionActivity"/>
         <activity android:name=".zxy.MySysSettingActivity"/>
         <activity android:name=".zxy.MyAdviceActivity"/>
-
+        <activity android:name=".zxy.ReferCompanyActivity"/>
         <activity android:name=".zxy.PositionDetailActivity"/>
 
         <activity android:name=".zxy.MySettingActivity"/>

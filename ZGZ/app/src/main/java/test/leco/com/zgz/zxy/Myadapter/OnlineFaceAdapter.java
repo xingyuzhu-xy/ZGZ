@@ -55,10 +55,10 @@ public class OnlineFaceAdapter extends BaseAdapter {
         }
         viewHolder= (ViewHolder) convertView.getTag();
         HashMap<String,Object> map=list.get(position);
-        viewHolder.cpimage.setImageResource((Integer) map.get("unCpimage"));
-        viewHolder.cpname.setText(map.get("unCpname").toString());
-        viewHolder.position.setText(map.get("unPosition").toString());
-        viewHolder.pay.setText(map.get("unPay").toString());
+        viewHolder.cpimage.setImageResource((Integer) map.get("onCpimage"));
+        viewHolder.cpname.setText(map.get("onCpname").toString());
+        viewHolder.position.setText(map.get("onPosition").toString());
+        viewHolder.pay.setText(map.get("onPay").toString());
         return convertView;
     }
     class ViewHolder{

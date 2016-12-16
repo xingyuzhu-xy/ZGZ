@@ -42,6 +42,7 @@
             android:layout_marginBottom="18dp"
             android:layout_marginLeft="10dp"/>
         <TextView
+            android:id="@+id/interview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="直约面试"
@@ -59,6 +60,7 @@
         android:layout_height="1dp"
         android:background="@color/line"/>
     <LinearLayout
+        android:id="@+id/me_position"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
