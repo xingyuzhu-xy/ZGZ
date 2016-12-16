@@ -41,11 +41,8 @@
 
         <activity android:name=".zxy.PositionDetailActivity"/>
 
-        <activity android:name=".zxy.MySettingActivity"/>
-
         <activity android:name=".zxy.InterviewFaceActivity"/>
         <activity android:name=".zxy.InterviewMessageActivity"/>
-        <!--<activity android:name=".zxy.PositionActivity"/>-->
         
 
 

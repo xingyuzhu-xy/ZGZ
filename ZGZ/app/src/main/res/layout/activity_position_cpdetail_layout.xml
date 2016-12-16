@@ -14,7 +14,7 @@
                 android:layout_height="43dp"
                 android:background="@color/my_setting_blue1">
                 <TextView
-                    android:id="@+id/position_detaile"
+                    android:id="@+id/position_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="职位详情"
@@ -28,6 +28,7 @@
                     android:paddingRight="15dp"
                     android:layout_marginLeft="130dp"/>
                 <TextView
+                    android:id="@+id/company_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="公司信息"
