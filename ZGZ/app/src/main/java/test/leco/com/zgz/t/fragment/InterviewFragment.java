@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import test.leco.com.zgz.R;
-import test.leco.com.zgz.t.MePositionActivity;
+import test.leco.com.zgz.t.Z.MePositionActivity;
 import test.leco.com.zgz.zxy.InterviewFaceActivity;
 
 /**
