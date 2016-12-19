@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import test.leco.com.zgz.R;
@@ -65,7 +63,7 @@ public class MyResumeActivity extends Activity {
         name = (RelativeLayout) findViewById(R.id.resume_name);
         place = (RelativeLayout) findViewById(R.id.resume_hukou);
         resumeArrow= (ImageView) findViewById(R.id.resume_arrow);
-        userSex= (TextView) findViewById(R.id.man_or_woman);
+        userSex = (TextView) findViewById(R.id.man_or_woman);
         sexChange= (RelativeLayout) findViewById(R.id.resume_sex);
 
         name.setOnClickListener(clickListener);
@@ -87,7 +85,6 @@ public class MyResumeActivity extends Activity {
             }
         }
     };
-
 
 
     PopupWindow sexChangeWindow;
