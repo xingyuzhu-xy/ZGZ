@@ -39,6 +39,7 @@ public class AdvancedSearchActivity extends Activity{
                 case R.id.back_icon:
                     finish();
                     break;
+                //IndustryInvolvedActivity.class
             }
         }
     };

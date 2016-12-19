@@ -15,6 +15,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"/>
         <TextView
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="我约过的公司职位"
