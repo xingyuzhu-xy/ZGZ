@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".zxy.RegistActivity">
+        <activity android:name=".t.HomePageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,7 +48,9 @@
         <activity android:name=".t.other.PositionMeActivity"/>  <!--约过我的公司职位-->
         <activity android:name=".t.other.AlterNameActivity"/>  <!--修改姓名-->
         <activity android:name=".t.other.AlterPlaceActivity"/> <!--修改籍贯-->
-        <activity android:name=".t.HomePageActivity"/><!--首页-->
+
+
+
         <!--zxy-->
         <activity android:name=".zxy.MyResumeActivity"/><!--我的简历-->
         <activity android:name=".zxy.MyDeliverActivity"/><!--投递记录-->
@@ -65,7 +67,7 @@
 
         <activity android:name=".zxy.InterviewFaceActivity"/><!--直约面试-->
         <activity android:name=".zxy.InterviewMessageActivity"/><!--职位里的消息-->
-        <!--<activity android:name=".zxy.RegistActivity"/>&lt;!&ndash;注册页面&ndash;&gt;-->
+        <activity android:name=".zxy.RegistActivity"/><!--注册页面-->
 
 
 
