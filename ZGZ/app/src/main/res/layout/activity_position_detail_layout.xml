@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="@color/my_setting_blue1">
+        <ImageView
+            android:id="@+id/position_detail_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/my_arrow_white"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/position_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="职位详情"
+            android:textSize="16sp"
+            android:textColor="@color/my_setting_blue1"
+            android:layout_centerVertical="true"
+            android:background="@drawable/position_detail_solid"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginLeft="130dp"/>
+        <TextView
+            android:id="@+id/company_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公司信息"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="210dp"
+            android:background="@drawable/position_detail"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" />
+
+    </RelativeLayout>
    <ScrollView
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
@@ -9,47 +51,6 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:orientation="vertical">
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="43dp"
-               android:background="@color/my_setting_blue1">
-               <ImageView
-                   android:id="@+id/resume_arrow"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_marginLeft="10dp"
-                   android:src="@mipmap/my_arrow_white"
-                   android:layout_centerVertical="true"/>
-               <TextView
-                   android:id="@+id/position_detail"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="职位详情"
-                   android:textSize="16sp"
-                   android:textColor="@color/my_setting_blue1"
-                   android:layout_centerVertical="true"
-                   android:background="@drawable/position_detail_solid"
-                   android:paddingTop="5dp"
-                   android:paddingBottom="5dp"
-                   android:paddingLeft="15dp"
-                   android:paddingRight="15dp"
-                   android:layout_marginLeft="130dp"/>
-               <TextView
-                   android:id="@+id/company_detail"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="公司信息"
-                   android:textSize="16sp"
-                   android:textColor="@android:color/white"
-                   android:layout_centerVertical="true"
-                   android:layout_marginLeft="210dp"
-                   android:background="@drawable/position_detail"
-                   android:paddingTop="5dp"
-                   android:paddingBottom="5dp"
-                   android:paddingLeft="15dp"
-                   android:paddingRight="15dp" />
-
-           </RelativeLayout>
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
@@ -186,18 +187,18 @@
                    <LinearLayout
                        android:layout_width="0dp"
                        android:layout_weight="1"
-                       android:layout_height="16dp"
+                       android:layout_height="18dp"
                        android:orientation="horizontal">
                        <TextView
-                           android:layout_width="59dp"
+                           android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:text="@string/wuxian"
-                           android:textSize="12sp"
+                           android:textSize="11sp"
                            android:textColor="@color/font_black2"
                            android:layout_marginLeft="11dp"
                            android:gravity="center"
                            android:paddingTop="2dp"
-                           android:paddingBottom="2dp"
+                           android:paddingBottom="3dp"
                            android:paddingLeft="7dp"
                            android:paddingRight="7dp"
                            android:background="@drawable/position_textview"/>
@@ -205,13 +206,13 @@
                    <LinearLayout
                        android:layout_width="0dp"
                        android:layout_weight="1"
-                       android:layout_height="16dp"
+                       android:layout_height="18dp"
                        android:orientation="horizontal">
                        <TextView
                            android:layout_width="59dp"
                            android:layout_height="wrap_content"
                            android:text="@string/jixiao"
-                           android:textSize="12sp"
+                           android:textSize="11sp"
                            android:textColor="@color/font_black2"
                            android:layout_marginLeft="11dp"
                            android:gravity="center"
@@ -224,13 +225,13 @@
                    <LinearLayout
                        android:layout_width="0dp"
                        android:layout_weight="1"
-                       android:layout_height="16dp"
+                       android:layout_height="18dp"
                        android:orientation="horizontal">
                        <TextView
                            android:layout_width="59dp"
                            android:layout_height="wrap_content"
                            android:text="@string/quanqin"
-                           android:textSize="12sp"
+                           android:textSize="11sp"
                            android:textColor="@color/font_black2"
                            android:layout_marginLeft="11dp"
                            android:gravity="center"
@@ -243,14 +244,14 @@
                    <LinearLayout
                        android:layout_width="0dp"
                        android:layout_weight="1"
-                       android:layout_height="16dp"
+                       android:layout_height="18dp"
                        android:orientation="horizontal"
                        android:weightSum="1">
                        <TextView
                            android:layout_width="59dp"
                            android:layout_height="wrap_content"
                            android:text="@string/daixin"
-                           android:textSize="12sp"
+                           android:textSize="11sp"
                            android:textColor="@color/font_black2"
                            android:layout_marginLeft="11dp"
                            android:gravity="center"
@@ -264,13 +265,13 @@
                    <LinearLayout
                        android:layout_width="0dp"
                        android:layout_weight="1"
-                       android:layout_height="16dp"
+                       android:layout_height="18dp"
                        android:orientation="horizontal">
                        <TextView
                            android:layout_width="59dp"
                            android:layout_height="wrap_content"
                            android:text="@string/jieri"
-                           android:textSize="12sp"
+                           android:textSize="11sp"
                            android:textColor="@color/font_black2"
                            android:layout_marginLeft="11dp"
                            android:gravity="center"
