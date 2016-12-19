@@ -13,17 +13,17 @@ import test.leco.com.zgz.R;
 
 public class ReferCompanyActivity extends Activity {
     ImageView back;
-    @Override
+    ImageView referArrow;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        referArrow= (ImageView) findViewById(R.id.refer_arrow);
         setContentView(R.layout.activity_refer_company_layout);
         back = (ImageView) findViewById(R.id.resume_arrow);
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+       back.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               finish();
+           }
+       });
     }
 }
