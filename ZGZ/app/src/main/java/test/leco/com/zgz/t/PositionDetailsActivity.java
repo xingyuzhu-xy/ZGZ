@@ -22,7 +22,6 @@ public class PositionDetailsActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.t_position_details);
-
         back = (ImageView) findViewById(R.id.back_icon);
         enterprise = (TextView) findViewById(R.id.enterprise_consultation);
         //结束当前页面，返回上级页面

@@ -45,6 +45,7 @@
         <activity android:name=".t.IndustryInvolvedActivity"/>  <!--所属行业-->
         <activity android:name=".t.InvolvedItemActivity"/>  <!--行业分类下的子页面-->
         <activity android:name=".t.Z.MePositionActivity"/>  <!--我约过的公司职位-->
+        <activity android:name=".t.Z.PositionMeActivity"/>  <!--约过我的公司职位-->
 
         <!--zxy-->
         <activity android:name=".zxy.MyResumeActivity"/><!--我的简历-->
