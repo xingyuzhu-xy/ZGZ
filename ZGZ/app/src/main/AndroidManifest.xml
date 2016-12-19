@@ -44,6 +44,10 @@
         <activity android:name=".t.CompanyDetailsActivity"/>  <!--公司详情-->
         <activity android:name=".t.IndustryInvolvedActivity"/>  <!--所属行业-->
         <activity android:name=".t.InvolvedItemActivity"/>  <!--行业分类下的子页面-->
+        <activity android:name=".t.other.MePositionActivity"/>  <!--我约过的公司职位-->
+        <activity android:name=".t.other.PositionMeActivity"/>  <!--约过我的公司职位-->
+        <activity android:name=".t.other.AlterNameActivity"/>  <!--修改姓名-->
+        <activity android:name=".t.other.AlterPlaceActivity"/> <!--修改籍贯-->
         <!--zxy-->
         <activity android:name=".zxy.MyResumeActivity"/><!--我的简历-->
         <activity android:name=".zxy.MyDeliverActivity"/><!--投递记录-->

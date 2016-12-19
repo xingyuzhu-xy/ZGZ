@@ -75,11 +75,11 @@ public class MyResumeActivity extends Activity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.resume_name:
-                  //  intent = new Intent(MyResumeActivity.this, AlterNameActivity.class);
+                    //intent = new Intent(MyResumeActivity.this, AlterNameActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.resume_hukou:
-                    //intent = new Intent(MyResumeActivity.this, AlterPlaceActivity.class);
+                   // intent = new Intent(MyResumeActivity.this, AlterPlaceActivity.class);
                     startActivity(intent);
                     break;
             }
