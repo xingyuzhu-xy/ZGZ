@@ -36,7 +36,6 @@ public class MePositionActivity extends Activity {
 
         getData();
         listView.setAdapter(new MePositionAdapter(this,list));
-
     }
 
     public void getData(){

@@ -34,18 +34,17 @@
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
 
-        <activity android:name=".t.AdvancedSearchActivity"/>
-        <activity android:name=".t.NearWorkActivity"/>
-        <activity android:name=".t.WhoSeeMeActivity"/>
-
-        <activity android:name=".t.SearchListActivity"/>
-        <activity android:name=".t.PositionDetailsActivity"/>
-        <activity android:name=".t.EnterpriseDetailsActivity"/>
-        <activity android:name=".t.PartTimeJobActivity"/>
-        <activity android:name=".t.CompanyDetailsActivity"/>
-        <activity android:name=".t.IndustryInvolvedActivity"/>
-        <activity android:name=".t.InvolvedItemActivity"/>
-        <activity android:name=".t.MePositionActivity"/>
+        <activity android:name=".t.AdvancedSearchActivity"/>  <!--高级搜索页面-->
+        <activity android:name=".t.NearWorkActivity"/>  <!--附近的工作-->
+        <activity android:name=".t.WhoSeeMeActivity"/>   <!--谁看过我-->
+        <activity android:name=".t.SearchListActivity"/>   <!--高级搜索下的三级页面搜索列表-->
+        <activity android:name=".t.PositionDetailsActivity"/>   <!--职位详情-->
+        <activity android:name=".t.EnterpriseDetailsActivity"/>  <!--企业详情-->
+        <activity android:name=".t.PartTimeJobActivity"/>  <!--兼职-->
+        <activity android:name=".t.CompanyDetailsActivity"/>  <!--公司详情-->
+        <activity android:name=".t.IndustryInvolvedActivity"/>  <!--所属行业-->
+        <activity android:name=".t.InvolvedItemActivity"/>  <!--行业分类下的子页面-->
+        <activity android:name=".t.MePositionActivity"/>  <!--我约过的公司职位-->
 
         <!--zxy-->
         <activity android:name=".zxy.MyResumeActivity"/><!--我的简历-->
