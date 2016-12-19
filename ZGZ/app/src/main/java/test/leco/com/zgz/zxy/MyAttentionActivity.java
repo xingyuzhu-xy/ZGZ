@@ -2,6 +2,8 @@ package test.leco.com.zgz.zxy;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -18,14 +20,21 @@ import test.leco.com.zgz.zxy.Myadapter.MyAttentionAdapter;
 public class MyAttentionActivity extends Activity {
     ListView listView;
     List<HashMap<String,Object>> list;
-
+    ImageView attentionArrow;
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_my_attention_layout);
         listView= (ListView) findViewById(R.id.attention_listview);
+        attentionArrow= (ImageView) findViewById(R.id.attention_arrow);
         list=new ArrayList<>();
         getDate();
         listView.setAdapter(new MyAttentionAdapter(list,this));
         super.onCreate(savedInstanceState);
+        attentionArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     public void getDate(){
         for (int i=0;i<5;i++){

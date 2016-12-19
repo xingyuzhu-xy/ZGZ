@@ -3,6 +3,7 @@ package test.leco.com.zgz.zxy;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,15 +16,23 @@ import test.leco.com.zgz.R;
 public class PositionDetailActivity extends Activity {
     TextView positionDetail,companyDetail;
     LinearLayout positionLinearlayout,companyLinearlayout;
+    ImageView pdArrow;//返回箭头
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_position_detail_layout);
         positionDetail= (TextView) findViewById(R.id.position_detail);
         companyDetail= (TextView) findViewById(R.id.company_detail);
         positionLinearlayout= (LinearLayout) findViewById(R.id.position_linearlayout);
         companyLinearlayout= (LinearLayout) findViewById(R.id.company_linearlayout);
+        pdArrow= (ImageView) findViewById(R.id.position_detail_arrow);
         positionDetail.setOnClickListener(listener);
         companyDetail.setOnClickListener(listener);
         super.onCreate(savedInstanceState);
+        pdArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     View.OnClickListener listener=new View.OnClickListener() {
