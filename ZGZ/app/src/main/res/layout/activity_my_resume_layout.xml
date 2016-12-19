@@ -71,7 +71,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"/>
                 <ImageView
-                    android:id="@+id/arrow1"
+                    android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/my_arrow"
@@ -84,7 +84,7 @@
                     android:text="@string/username"
                     android:textSize="14sp"
                     android:textColor="@color/font_black1"
-                    android:layout_toLeftOf="@id/arrow1"
+                    android:layout_toLeftOf="@id/name"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="12dp"/>
             </RelativeLayout>
@@ -109,6 +109,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14dp"/>
                 <TextView
+                    android:id="@+id/man_or_woman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sex"
