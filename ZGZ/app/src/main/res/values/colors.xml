@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="blue">#46b2ea</color>
+    <color name="gray">#cccccc</color>
+    <color name="line_color">#e6e6e6</color>
+    <color name="dark_gray">#A6A6A6</color>
+    <color name="light_black">#666666</color>
+    <color name="advanced_search_button">#43bfff</color>
+    <color name="advanced_search_edt">#3DB0E9</color>
+    <color name="certified_line">#656666</color>
+    <color name="benefits">#d7d8d9</color>
+
+
+   <!-- zxy-->
+
+    <color name="my_setting_blue1">#43BFFF</color>
+    <color name="my_setting_blue2">#CEE9F4</color>
+    <color name="font_black1">#666666</color>
+    <color name="black230">#CDCDCD</color>
+    <color name="font_grey1">#CCCCCC</color>
+    <color name="deliver_grey">#F2F2F2</color>
+    <color name="font_black2">#A6A6A6</color>
+    <color name="line">#E6E6E6</color>
+    <color name="font_black3">#797979</color>
+    <color name="font_black4">#868686</color>
+    <color name="blue3">#9BDDFF</color>
+    <color name="grey">#A1A1A1</color>
+</resources>

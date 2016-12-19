@@ -1,0 +1,163 @@
+<resources>
+    <string name="app_name">ZGZ</string>
+
+    <!--t-->
+    <string name="home_page">首页</string>
+    <string name="advanced_search">高级搜索</string>
+    <string name="who_see">谁看过我</string>
+    <string name="part_job">兼职</string>
+    <string name="near_work">附近的工作</string>
+    <string name="recommend">根据你的简历，为你推荐的职位</string>
+    <string name="position">职位</string>
+    <string name="input_job">请输入职位</string>
+    <string name="vocation">行业</string>
+    <string name="regio">地区</string>
+    <string name="salary_range">薪资范围</string>
+    <string name="to">至</string>
+    <string name="yuan">元</string>
+    <string name="release_time">发布时间</string>
+    <string name="unlimited">不限</string>
+    <string name="search">搜索</string>
+    <string name="position_type">职位类别</string>
+    <string name="salary">薪资</string>
+    <string name="position_details">职位详情</string>
+    <string name="certified">已认证</string>
+    <string name="profession_status">职业状态</string>
+    <string name="login_time">企业最近登陆时间:</string>
+    <string name="resume_dispose">简历处理率</string>
+    <string name="resume_reply_time">简历平均回复时长</string>
+    <string name="position_statement">岗位职责</string>
+    <string name="enterprise_consultation">企业咨询</string>
+    <string name="phone">电话</string>
+    <string name="chat">先聊聊</string>
+    <string name="send_resume">投递简历</string>
+    <string name="who_see_me">谁看过我的简历</string>
+    <string name="enterprise_details">企业详情</string>
+    <string name="care_enterprise">关注企业</string>
+    <string name="part_time_job">兼职</string>
+    <string name="work_place">工作地点</string>
+    <string name="choose_position">职位选择</string>
+    <string name="update_time">刷新时间</string>
+    <string name="company_details">公司详情</string>
+    <string name="company_education">学历要求:</string>
+    <string name="company_sex">性别要求:</string>
+    <string name="company_share">分享</string>
+    <string name="company_consultation">咨询</string>
+    <string name="company_apply">报名</string>
+    <string name="position_value">职位关键词</string>
+    <string name="position_value_input">请输入关键词，最多8个字</string>
+    <string name="vocation_type">行业类别</string>
+    <string name="min_salary">最低薪资</string>
+    <string name="min_salary_input">请输入最低薪资</string>
+    <string name="distance_range">距离范围</string>
+    <string name="distance_numb">10公里以内</string>
+    <string name="industry_involved">所属行业</string>
+    <string name="save">保存</string>
+    <string name="involved_type1">互联网/游戏/软件</string>
+    <string name="entry_notice">入职通知</string>
+    <string name="nihao">你好!</string>
+    <string name="email_notification1">感谢您对我公司的关注!您的情况我们已经了解，
+        现通知您参加入职。</string>
+    <string name="email_notification2">入职时间和地点如下，请知晓，希望可以准时到达！</string>
+    <string name="email_time">入职时间:</string>
+    <string name="email_address">入职地点:</string>
+    <string name="email_contacts">联系人:</string>
+    <string name="email_contacts_phone">联系电话:</string>
+    <string name="email_road">乘车路线:</string>
+
+    <string name="enterprise_profile">文林创意传媒有限公司，简称文林创意
+        位于重庆市渝中区大坪英利国际。成立于2014年，注册资本500万。是一家
+        专注于移动狐狸王产品设计的公司。公司产品涉及到品牌策划和互联网产品设计等</string>
+    <string name="part_time_position_name">沁园工厂实习生</string>
+    <string name="part_time_address">九龙坡区-白市驿</string>
+    <string name="part_time_time">周末</string>
+    <string name="part_time_top">置顶</string>
+    <string name="part_time_salary">3500/月</string>
+    <string name="company_name">重庆沁园食品有限公司</string>
+    <string name="company_address">锦驿路5号贝迪颐园温泉附近</string>
+    <string name="company_salary">3500元/月</string>
+    <string name="company_salary_pay_time">(月结)</string>
+    <string name="company_need_number">招聘50人，需要面试</string>
+    <string name="company_work_time">2016-12-01至2016-12-30</string>
+    <string name="company_explain">重庆新沁园食品有限公司诚招短期普工，男女不限，
+        年龄18周岁 以上，工作至2017年3月初，工厂提供住宿及工作餐，每周轮休1 天，计
+        时计件工资多劳多得，月工资2400--3500，有意向请在周 一到周五9:00--16:00在锦驿
+        路5号沁园工厂人力资源部面 试，联系人叶老师：13527347129。</string>
+    <string name="email_name">王XX(先生、女生)</string>
+    <string name="email_time1">16年12月15日</string>
+    <string name="email_address1">重庆市两江新区栖霞路18号融创近毛时代10栋15楼</string>
+    <string name="email_contacts1">邓经理</string>
+    <string name="email_contacts_phone1">188xxxx5555</string>
+    <string name="email_road1">168路、轻轨三号线</string>
+    <string name="email_company_name">重庆汇策广告传媒有限公司</string>
+   <!-- zxy-->
+    <!--我的-->
+    <string name="login">登录</string>
+    <string name="my">我的</string>
+    <string name="regist">注册</string>
+    <string  name="username">李黎明</string>
+    <string name="phonenumber">电话:13527***770</string>
+    <string name="myresume">我的简历</string>
+    <string name="mydeliver">投递记录</string>
+    <string name="mydownload">谁下载了我的简历</string>
+    <string name="mymessage">面试通知</string>
+    <string name="mycollect">职位收藏</string>
+    <string name="myattention">我的关注</string>
+    <string name="mysystemset">系统设置</string>
+    <string name="myadvice">意见反馈</string>
+   <!-- 我的简历-->
+    <string name="sex">男</string>
+    <string name="binding">（已绑定）</string>
+    <string name="unbinding">（未绑定）</string>
+    <string name="number">13527***770</string>
+    <string name="email_adress">输入邮箱地址</string>
+    <!--投递记录-->
+    <string name="date">10月20日</string>
+    <string name="cpname">绿色之家装饰</string>
+    <string name="design_director">设计总监</string>
+    <string name="time">2016-10-20 16:20</string>
+    <string name="look">已查看</string>
+    <string name="unlook">未查看</string>
+    <!--面试通知-->
+    <string name="site">重庆江北区-观音桥嘉华大厦五楼(苏宁电器楼上)</string>
+    <!--职位收藏-->
+    <string name="location">江北区</string>
+    <string name="experience">大专/两年以上</string>
+    <string name="paymoney">5000-10000元/月</string>
+    <!--我的关注-->
+    <string name="cp_introduce">装饰,装修设计,基装</string>
+    <string name="cancel_attention">取消关注</string>
+
+    <string name="city">西安</string>
+    <string name="someday">今天</string>
+    <string name="money">4千-6千</string>
+
+    <!--职位详情-->
+    <string name="exp">经验不限</string>
+    <string name="edu">学历不限</string>
+    <string name="pep">4人</string>
+    <string name="age">年龄不限</string>
+    <string name="sex1">性别不限</string>
+    <string name="who">应届生亦可</string>
+    <string name="wuxian">五险一金</string>
+    <string name="jixiao">绩效奖金</string>
+    <string name="quanqin">全勤奖</string>
+    <string name="daixin">带薪年假</string>
+    <string name="jieri">节日福利</string>
+    <string name="respon_num">52%</string>
+    <string name="respon_day">18天内</string>
+    <string name="duty1">1、负责腾讯新媒体软文和广告表现文字的编辑，以及广告创意的策划；</string>
+    <string name="duty2">2、负责选题策划、稿件组织、专题编辑策划；</string>
+    <string name="duty3">3、负责公司类宣传策划方案的设计和攥写；</string>
+    <string name="duty4">4、负责微信公众号的日常运营工作，包含内容编辑、日常维护、活动策划、 粉丝互动、社区运营、兼职维护等，扩大粉丝数及提升粉丝的活跃度、互动 率和粘性，同时提高公众号的线下影响力；</string>
+    <string name="duty5">5、根据项目制定的内容方向发布各种优质、有传播性的内容；方案的策划、 创意、执行、运营；</string>
+    <string name="duty6">6、挖掘和分析微信用户需求，收集用户反馈，分析用户行为及需求；</string>
+    <string name="business">广告,会展,公关</string>
+    <string name="chara">民营</string>
+    <string name="scale">20-99人</string>
+    <string name="website">http://company.zhaopin.conm/CC435821510.htm</string>
+    <string name="cp_introduce1">汇策传媒集团是由国内知名媒体传播界人士联合于2007年12月24日组建，是集合媒介计划及购买于一体的专业媒介传播公司，年销售额近亿元。 </string>
+    <string name="cp_introduce2">汇策传媒集团在传播领域拥有汇策广告传媒、兆策广告传媒、策云信息科技等多家传播及网络科技公司，构成全方位的传播解决体系。 </string>
+    <string name="cp_introduce3">秉承“汇聚同人 共享发展”的企业理念，通过对媒体资源、客户资源、渠道资源、人力资源的高效整合，立足打造专业化的媒体综合平台。 </string>
+
+</resources>
