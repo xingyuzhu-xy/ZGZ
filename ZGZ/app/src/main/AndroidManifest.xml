@@ -56,12 +56,13 @@
         <activity android:name=".zxy.MyAttentionActivity"/><!--我的关注-->
         <activity android:name=".zxy.MySysSettingActivity"/><!--系统设置-->
         <activity android:name=".zxy.MyAdviceActivity"/><!--意见反馈-->
+        <activity android:name=".zxy.SetNewPasswordActivity"></activity><!--系统设置里修改密码-->
 
         <activity android:name=".zxy.ReferCompanyActivity"/><!--咨询企业-->
         <activity android:name=".zxy.PositionDetailActivity"/><!--职位详情 公司信息-->
 
         <activity android:name=".zxy.InterviewFaceActivity"/><!--直约面试-->
-        <activity android:name=".zxy.InterviewMessageActivity"/><!--消息-->
+        <activity android:name=".zxy.InterviewMessageActivity"/><!--职位里的消息-->
         <activity android:name=".zxy.RegistActivity"/><!--注册页面-->
 
 
