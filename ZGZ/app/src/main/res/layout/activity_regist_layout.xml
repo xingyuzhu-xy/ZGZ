@@ -36,6 +36,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"/>
         <EditText
+            android:background="@null"
+            android:id="@+id/phonenumb"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -61,6 +63,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"/>
         <EditText
+            android:background="@null"
+            android:id="@+id/yanzhengma"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -69,7 +73,8 @@
             android:textSize="14sp"
             android:layout_marginLeft="20dp"/>
         <Button
-            android:layout_width="80dp"
+            android:id="@+id/get_yanzhengma"
+            android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="获取验证码"
             android:textSize="14sp"
@@ -95,6 +100,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"/>
         <EditText
+            android:background="@null"
+            android:id="@+id/password"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"

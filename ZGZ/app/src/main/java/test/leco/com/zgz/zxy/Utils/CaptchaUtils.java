@@ -20,11 +20,11 @@ public class CaptchaUtils {
     String phoneNumb;
     public CaptchaUtils(Context context){
         this.context = context;
-        bool = false;
+
         init();
     }
 
-    public boolean bool;
+    public boolean bool = false;
 
     public void init(){
         SMSSDK.initSDK(context,APPKEY,APPSECRET);
@@ -39,7 +39,6 @@ public class CaptchaUtils {
                             bool = true;
                         } else {
                             Log.i("验证码===>","验证失败");
-                            bool = false;
                         }
                         break;
                     case SMSSDK.EVENT_GET_VERIFICATION_CODE:
