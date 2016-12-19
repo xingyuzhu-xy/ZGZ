@@ -10,7 +10,7 @@ import test.leco.com.zgz.R;
  */
 
 public class RegistActivity extends Activity {
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_regist_layout);
         super.onCreate(savedInstanceState);
