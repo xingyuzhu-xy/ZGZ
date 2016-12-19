@@ -1,0 +1,362 @@
+[
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_position_details.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_position_details.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_collect_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_my_collect_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listitem_my_message_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\listitem_my_message_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_who_see_me_item.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_who_see_me_item.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listitem_my_deliver_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\listitem_my_deliver_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_advanced_search.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_advanced_search.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_advanced_search_list_item.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_advanced_search_list_item.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\acitivity_my_advice_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\acitivity_my_advice_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listitem_position_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\listitem_position_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_deliver_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_my_deliver_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_homepage.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_homepage.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_attention_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_my_attention_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\home_page.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\home_page.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\z_me_position.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\z_me_position.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_recommend_list_item.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_recommend_list_item.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_part_time_job.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_part_time_job.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_setting_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_my_setting_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_position_detail_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_position_detail_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_interview_onlineface_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\item_interview_onlineface_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_download_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_my_download_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listitem_my_attention_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\listitem_my_attention_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_involved_item_list.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_involved_item_list.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_entry_notice.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_entry_notice.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_modification_passwordlayout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_modification_passwordlayout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_message_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_my_message_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_who_see_me.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_who_see_me.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_involved_item_list_item.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_involved_item_list_item.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_lines.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_position_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_position_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_interview_message_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\item_interview_message_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_industry_involved_item.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_industry_involved_item.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login_setpassword_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_login_setpassword_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_industry_involved.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_industry_involved.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_part_time_company_details.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_part_time_company_details.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_near_job.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_near_job.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_interview_message_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_interview_message_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_part_time_job_item.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_part_time_job_item.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_position_cpdetail_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_position_cpdetail_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_systemset_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_my_systemset_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_enterprise_details.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_enterprise_details.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login_forgetpassword_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_login_forgetpassword_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_regist_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_regist_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_refer_company_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_refer_company_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listitem_my_download_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\listitem_my_download_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_interview_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_interview_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_advanced_search_list.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_advanced_search_list.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_interview_face_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_interview_face_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\t_start_page.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\t_start_page.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listitem_my_collect_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\listitem_my_collect_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_login_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_interview_unlineface_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\item_interview_unlineface_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_my_resume_layout.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\layout\\activity_my_resume_layout.xml"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_select_dialog_material.xml"
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\point_bottom.png",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\mipmap-mdpi\\point_bottom.png"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\company_icon.png",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\mipmap-mdpi\\company_icon.png"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\care_enterprise.png",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\mipmap-mdpi\\care_enterprise.png"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\location.png",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\mipmap-mdpi\\location.png"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\clicked.png",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\mipmap-mdpi\\clicked.png"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\location_icon.png",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\mipmap-mdpi\\location_icon.png"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ask_enterprise.png",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\mipmap-mdpi\\ask_enterprise.png"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\professional_status.png",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\mipmap-mdpi\\professional_status.png"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\not_clicked.png",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\mipmap-mdpi\\not_clicked.png"
+    },
+    {
+        "merged": "E:\\Documents\\ZGZ\\ZGZ\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
+        "source": "E:\\Documents\\ZGZ\\ZGZ\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    }
+]

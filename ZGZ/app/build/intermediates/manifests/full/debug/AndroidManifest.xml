@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="test.leco.com.zgz"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="24" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme" >
+        <activity android:name="test.leco.com.zgz.t.HomePageActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="test.leco.com.zgz.t.AdvancedSearchActivity" />
+        <activity android:name="test.leco.com.zgz.t.NearWorkActivity" />
+        <activity android:name="test.leco.com.zgz.t.WhoSeeMeActivity" />
+        <activity android:name="test.leco.com.zgz.t.SearchListActivity" />
+        <activity android:name="test.leco.com.zgz.t.PositionDetailsActivity" />
+        <activity android:name="test.leco.com.zgz.t.EnterpriseDetailsActivity" />
+        <activity android:name="test.leco.com.zgz.t.PartTimeJobActivity" />
+        <activity android:name="test.leco.com.zgz.t.CompanyDetailsActivity" />
+        <activity android:name="test.leco.com.zgz.t.IndustryInvolvedActivity" />
+        <activity android:name="test.leco.com.zgz.t.InvolvedItemActivity" />
+        <activity android:name="test.leco.com.zgz.t.MePositionActivity" />
+
+        <!-- zxy -->
+        <activity android:name="test.leco.com.zgz.zxy.MyResumeActivity" />
+        <activity android:name="test.leco.com.zgz.zxy.MyDeliverActivity" />
+        <activity android:name="test.leco.com.zgz.zxy.MyDownloadActivity" />
+        <activity android:name="test.leco.com.zgz.zxy.MyMessageActivity" />
+        <activity android:name="test.leco.com.zgz.zxy.MyCollectActivity" />
+        <activity android:name="test.leco.com.zgz.zxy.MyAttentionActivity" />
+        <activity android:name="test.leco.com.zgz.zxy.MySysSettingActivity" />
+        <activity android:name="test.leco.com.zgz.zxy.MyAdviceActivity" />
+        <activity android:name="test.leco.com.zgz.zxy.ReferCompanyActivity" />
+        <activity android:name="test.leco.com.zgz.zxy.PositionDetailActivity" />
+        <activity android:name="test.leco.com.zgz.zxy.InterviewFaceActivity" />
+        <activity android:name="test.leco.com.zgz.zxy.InterviewMessageActivity" />
+    </application>
+
+</manifest>

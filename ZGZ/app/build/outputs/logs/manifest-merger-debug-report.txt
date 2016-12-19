@@ -1,0 +1,165 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:2:1-53:12
+	package
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:3:5-32
+		INJECTED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:4:5-71
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:4:22-68
+application
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:5:5-51:19
+MERGED from [com.android.support:appcompat-v7:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:support-compat:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\AndroidManifest.xml:25:5-20
+	android:label
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:8:9-41
+	android:supportsRtl
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:9:9-36
+	android:allowBackup
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:6:9-36
+	android:icon
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:10:9-40
+activity#test.leco.com.zgz.t.HomePageActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:11:9-17:20
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:11:19-53
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:12:13-16:29
+action#android.intent.action.MAIN
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:13:17-69
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:13:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:15:17-77
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:15:27-74
+activity#test.leco.com.zgz.t.AdvancedSearchActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:20:9-61
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:20:19-59
+activity#test.leco.com.zgz.t.NearWorkActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:21:9-55
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:21:19-53
+activity#test.leco.com.zgz.t.WhoSeeMeActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:22:9-55
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:22:19-53
+activity#test.leco.com.zgz.t.SearchListActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:24:9-57
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:24:19-55
+activity#test.leco.com.zgz.t.PositionDetailsActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:25:9-62
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:25:19-60
+activity#test.leco.com.zgz.t.EnterpriseDetailsActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:26:9-64
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:26:19-62
+activity#test.leco.com.zgz.t.PartTimeJobActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:27:9-58
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:27:19-56
+activity#test.leco.com.zgz.t.CompanyDetailsActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:28:9-61
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:28:19-59
+activity#test.leco.com.zgz.t.IndustryInvolvedActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:29:9-63
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:29:19-61
+activity#test.leco.com.zgz.t.InvolvedItemActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:30:9-59
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:30:19-57
+activity#test.leco.com.zgz.t.MePositionActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:31:9-57
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:31:19-55
+activity#test.leco.com.zgz.zxy.MyResumeActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:34:9-57
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:34:19-55
+activity#test.leco.com.zgz.zxy.MyDeliverActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:35:9-58
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:35:19-56
+activity#test.leco.com.zgz.zxy.MyDownloadActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:36:9-59
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:36:19-57
+activity#test.leco.com.zgz.zxy.MyMessageActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:37:9-58
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:37:19-56
+activity#test.leco.com.zgz.zxy.MyCollectActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:38:9-58
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:38:19-56
+activity#test.leco.com.zgz.zxy.MyAttentionActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:39:9-60
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:39:19-58
+activity#test.leco.com.zgz.zxy.MySysSettingActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:40:9-61
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:40:19-59
+activity#test.leco.com.zgz.zxy.MyAdviceActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:41:9-57
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:41:19-55
+activity#test.leco.com.zgz.zxy.ReferCompanyActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:42:9-61
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:42:19-59
+activity#test.leco.com.zgz.zxy.PositionDetailActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:43:9-63
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:43:19-61
+activity#test.leco.com.zgz.zxy.InterviewFaceActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:45:9-62
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:45:19-60
+activity#test.leco.com.zgz.zxy.InterviewMessageActivity
+ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:46:9-65
+	android:name
+		ADDED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml:46:19-63
+uses-sdk
+INJECTED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:support-compat:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\AndroidManifest.xml:21:5-23:58
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:24.2.1] E:\Documents\ZGZ\ZGZ\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Documents\ZGZ\ZGZ\app\src\main\AndroidManifest.xml
