@@ -1,13 +1,15 @@
 package test.leco.com.zgz.zxy;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,11 +41,19 @@ public class LoginActivity extends Activity {
     int status;
     String message;
     int id;
+    //返回箭头
+    ImageView loginArrow;
+    //清除账号内容
+    ImageView clearAccount;
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_login_layout);
         findViewById();
         super.onCreate(savedInstanceState);
         login.setOnClickListener(listener);
+        loginArrow.setOnClickListener(listener);
+        clearAccount.setOnClickListener(listener);
+        forgetPassword.setOnClickListener(listener);
+        regist.setOnClickListener(listener);
     }
     View.OnClickListener listener=new View.OnClickListener() {
         @Override
@@ -58,6 +68,20 @@ public class LoginActivity extends Activity {
                             Looper.loop();
                         }
                     }.start();
+                    break;
+                case R.id.login_arrow:
+                    finish();
+                    break;
+                case R.id.clear_account:
+                    accountEdit.setText("");
+                    break;
+                case R.id.forget_password:
+                    Intent intent=new Intent(LoginActivity.this, LoginForgetPassword.class);
+                    startActivity(intent);
+                    break;
+                case R.id.regist:
+                    Intent intent1=new Intent(LoginActivity.this,RegistActivity.class);
+                    startActivity(intent1);
                     break;
             }
         }
@@ -88,6 +112,7 @@ public class LoginActivity extends Activity {
                 if(status==200){
                    JSONObject jsonObject1=jsonObject.getJSONObject("result");
                     id =jsonObject1.getInt("user_id");
+                    sharePreferences();
                     Intent intent=new Intent(LoginActivity.this, HomePageActivity.class);
                     startActivity(intent);
                     Toast.makeText(LoginActivity.this,"登录成功!",Toast.LENGTH_SHORT).show();
@@ -104,7 +129,12 @@ public class LoginActivity extends Activity {
         }
     }
 
-
+    public void sharePreferences(){
+        SharedPreferences sharedPreferences=getSharedPreferences("ZGZ", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putInt("user_id",id);
+        editor.commit();
+    }
 
     public void findViewById(){
         accountEdit= (EditText) findViewById(R.id.account_edittext);
@@ -112,5 +142,7 @@ public class LoginActivity extends Activity {
         login= (Button) findViewById(R.id.login);
         forgetPassword= (TextView) findViewById(R.id.forget_password);
         regist= (TextView) findViewById(R.id.regist);
+        loginArrow= (ImageView) findViewById(R.id.login_arrow);
+        clearAccount= (ImageView) findViewById(R.id.clear_account);
     }
 }

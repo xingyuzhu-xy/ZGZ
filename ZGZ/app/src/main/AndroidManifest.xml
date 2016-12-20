@@ -49,7 +49,6 @@
         <activity android:name=".t.other.AlterPlaceActivity"/> <!--修改籍贯-->
 
 
-
         <!--zxy-->
         <activity android:name=".zxy.MyResumeActivity"/><!--我的简历-->
         <activity android:name=".zxy.MyDeliverActivity"/><!--投递记录-->
@@ -67,6 +66,8 @@
         <activity android:name=".zxy.InterviewFaceActivity"/><!--直约面试-->
         <activity android:name=".zxy.InterviewMessageActivity"/><!--职位里的消息-->
         <activity android:name=".zxy.RegistActivity"/><!--注册页面-->
+        <activity android:name=".zxy.LoginForgetPassword"/><!--登录 忘记密码-->
+        <activity android:name=".zxy.LoginActivity"/><!--登录界面-->
 
 
 
