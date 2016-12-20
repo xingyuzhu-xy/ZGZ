@@ -9,13 +9,16 @@
         android:orientation="horizontal"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="16dp"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:descendantFocusability="blocksDescendants">
         <CheckBox
+            android:id="@+id/checkbox"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:button="@null"
             android:layout_gravity="center"
-            android:background="@drawable/t_choose_involved"/>
+            android:background="@drawable/t_choose_involved"
+            />
         <TextView
             android:id="@+id/type"
             android:layout_width="wrap_content"
