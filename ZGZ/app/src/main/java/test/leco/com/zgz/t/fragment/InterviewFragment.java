@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import test.leco.com.zgz.R;
+import test.leco.com.zgz.t.other.MePositionActivity;
+import test.leco.com.zgz.t.other.PositionMeActivity;
 import test.leco.com.zgz.zxy.InterviewFaceActivity;
 
 /**
@@ -41,6 +43,15 @@ public class InterviewFragment extends Fragment {
                     intent = new Intent(getActivity(), InterviewFaceActivity.class);
                     startActivity(intent);
                     break;
+                case R.id.me_position:
+                    intent = new Intent(getActivity(), MePositionActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.position_me:
+                    intent = new Intent(getActivity(), PositionMeActivity.class);
+                    startActivity(intent);
+                    break;
+
 
             }
         }
