@@ -33,7 +33,6 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
-
         <activity android:name=".t.AdvancedSearchActivity"/>  <!--高级搜索页面-->
         <activity android:name=".t.NearWorkActivity"/>  <!--附近的工作-->
         <activity android:name=".t.WhoSeeMeActivity"/>   <!--谁看过我-->
