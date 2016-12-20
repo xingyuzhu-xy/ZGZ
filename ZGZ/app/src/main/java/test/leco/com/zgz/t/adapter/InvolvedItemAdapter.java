@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.List;
@@ -48,6 +49,7 @@ public class InvolvedItemAdapter extends BaseAdapter {
             holder = new Holder();
             convertView = inflater.inflate(R.layout.t_involved_item_list_item,null);
             holder.type = (TextView) convertView.findViewById(R.id.type);
+            holder.checkBox = (CheckBox) convertView.findViewById(R.id.checkbox);
             convertView.setTag(holder);
         }else {
             holder = (Holder) convertView.getTag();
@@ -60,5 +62,6 @@ public class InvolvedItemAdapter extends BaseAdapter {
 
     class Holder{
         TextView type;
+        CheckBox checkBox;
     }
 }

@@ -1,10 +1,14 @@
 package test.leco.com.zgz.t;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +25,9 @@ public class InvolvedItemActivity extends Activity {
     ImageView back;
     ListView listView;
     List<IndustryInvolvedItem> list;
+    TextView save;
+    CheckBox checkBox;
+    private static final int SIGNATURE_ZHIYECODE = 1010;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,16 +35,14 @@ public class InvolvedItemActivity extends Activity {
 
         back = (ImageView) findViewById(R.id.back_icon);
         listView = (ListView) findViewById(R.id.listView);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        save = (TextView) findViewById(R.id.save);
+
+        save.setOnClickListener(onClickListener);
+        back.setOnClickListener(onClickListener);
 
         getData();
         listView.setAdapter(new InvolvedItemAdapter(this,list));
-
+        checkBox = (CheckBox) listView.findViewById(R.id.checkbox);
     }
 
     public void getData(){
@@ -49,4 +54,25 @@ public class InvolvedItemActivity extends Activity {
             list.add(industryInvolvedItem);
         }
     }
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.back_icon:
+                    finish();
+                    break;
+                case R.id.save:
+                    if(checkBox!=null){
+                        Intent saveIntentBtn = getIntent();
+                        saveIntentBtn.putExtra("ischeck","");
+                        setResult(SIGNATURE_ZHIYECODE,saveIntentBtn);
+                        Toast.makeText(InvolvedItemActivity.this, "传递成功", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }else {
+                        Toast.makeText(InvolvedItemActivity.this, "请填写完整", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+            }
+        }
+    };
 }
