@@ -3,7 +3,6 @@ package test.leco.com.zgz.t;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.GridView;
 import android.widget.ImageView;
 
 import test.leco.com.zgz.R;
@@ -14,7 +13,7 @@ import test.leco.com.zgz.R;
 
 public class CompanyDetailsActivity extends Activity {
     ImageView back;
-    GridView gridView; //星期下的选择项
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +23,6 @@ public class CompanyDetailsActivity extends Activity {
     
     public void findView(){
         back = (ImageView) findViewById(R.id.back_icon);
-        gridView = (GridView) findViewById(R.id.gr);
         back.setOnClickListener(onClickListener);
 
 

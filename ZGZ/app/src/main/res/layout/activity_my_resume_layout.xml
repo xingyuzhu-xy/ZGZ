@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -139,26 +140,35 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14dp"/>
             </RelativeLayout>
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/resume_edu"
                 android:layout_width="match_parent"
                 android:layout_height="41dp">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="学历"
                     android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_marginLeft="10dp"
-                    android:layout_centerVertical="true"/>
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:id="@+id/education"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="大学"
+                    android:textSize="14sp"
+                    android:textColor="@color/font_black1"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="12dp"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/my_arrow"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
                     android:layout_marginRight="14dp"/>
-            </RelativeLayout>
+            </LinearLayout>
             <RelativeLayout
                 android:id="@+id/resume_born"
                 android:layout_width="match_parent"

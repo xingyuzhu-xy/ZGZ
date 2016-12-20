@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="籍贯"
+            android:text="出生年月"
             android:textSize="16sp"
             android:gravity="center"
             android:textColor="@color/white" />
@@ -42,13 +42,17 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="45dp"
-            android:hint="请填写省"
+            android:hint="年份"
+            android:numeric="integer"
+            android:inputType="number"
+            android:maxLength="4"
             android:paddingLeft="10dp"
-            android:background="@drawable/z_alter_name"/>
+            android:background="@drawable/z_alter_name"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="省级"
+            android:text="年"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="5dp"
             android:textSize="20sp"/>
@@ -63,14 +67,42 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="45dp"
-            android:hint="请填写市"
+            android:hint="月份"
+            android:numeric="integer"
+            android:inputType="number"
+            android:maxLength="2"
             android:paddingLeft="10dp"
             android:background="@drawable/z_alter_name"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="市级"
+            android:text="月"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp">
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="45dp"
+            android:hint="日期"
+            android:numeric="integer"
+            android:inputType="number"
+            android:maxLength="2"
+            android:paddingLeft="10dp"
+            android:background="@drawable/z_alter_name"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="日"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="5dp"
             android:textSize="20sp"/>
