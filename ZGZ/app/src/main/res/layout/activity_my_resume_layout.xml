@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:background="@color/my_setting_blue1">
@@ -20,44 +20,39 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:src="@mipmap/my_arrow_white"
-                    android:layout_centerVertical="true"/>
+                    android:layout_gravity="center"/>
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
                     android:text="@string/myresume"
                     android:textSize="18sp"
                     android:textColor="@android:color/white"
-                    android:layout_centerInParent="true"/>
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="保存"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_marginRight="14dp"/>
 
-            </RelativeLayout>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="150dp"
                 android:orientation="vertical"
                 android:background="@color/my_setting_blue2">
                 <ImageView
                     android:id="@+id/headimg"
                     android:layout_width="96dp"
                     android:layout_height="96dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="25dp"
                     android:layout_gravity="center"
                     android:background="@mipmap/myheadimg"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/username"
-                    android:textColor="@color/font_black1"
-                    android:textSize="14dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="9dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/phonenumber"
-                    android:textSize="13sp"
-                    android:layout_gravity="center"
-                    android:textColor="@color/font_black1"
-                    android:layout_marginTop="5dp"/>
+
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -80,6 +75,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14dp"/>
                 <TextView
+                    android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/username"
@@ -120,30 +116,43 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="12dp"/>
             </RelativeLayout>
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/resume_hukou"
                 android:layout_width="match_parent"
-                android:layout_height="41dp">
+                android:layout_height="41dp"
+                android:orientation="horizontal">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="籍贯"
                     android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_marginLeft="10dp"
-                    android:layout_centerVertical="true"/>
+                   android:layout_gravity="center"/>
+                <TextView
+                    android:id="@+id/jiguan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="重庆渝中"
+                    android:textSize="14sp"
+                    android:textColor="@color/font_black1"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="12dp"/>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/my_arrow"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="14dp"/>
-            </RelativeLayout>
+                    android:layout_marginRight="14dp"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
             <LinearLayout
                 android:id="@+id/resume_edu"
                 android:layout_width="match_parent"
-                android:layout_height="41dp">
+                android:layout_height="41dp"
+                android:orientation="horizontal">
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -157,7 +166,7 @@
                     android:id="@+id/education"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="大学"
+                    android:text="大学本科"
                     android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_gravity="center"
@@ -169,27 +178,38 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="14dp"/>
             </LinearLayout>
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/resume_born"
                 android:layout_width="match_parent"
-                android:layout_height="41dp">
+                android:layout_height="41dp"
+                android:orientation="horizontal">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="出生年月"
                     android:textSize="14sp"
                     android:textColor="@color/font_black1"
                     android:layout_marginLeft="10dp"
-                    android:layout_centerVertical="true"/>
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:id="@+id/burn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="19900910"
+                    android:textSize="14sp"
+                    android:textColor="@color/font_black1"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="12dp"/>
                 <ImageView
                     android:id="@+id/arrow3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/my_arrow"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
                     android:layout_marginRight="14dp"/>
-            </RelativeLayout>
+            </LinearLayout>
+
             <RelativeLayout
                 android:id="@+id/resume_good"
                 android:layout_width="match_parent"
@@ -203,13 +223,25 @@
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"/>
                 <ImageView
+                    android:id="@+id/arrow6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/my_arrow"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14dp"/>
+                <TextView
+                    android:id="@+id/position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="安卓开发工程师"
+                    android:textSize="14sp"
+                    android:textColor="@color/font_black1"
+                    android:layout_toLeftOf="@id/arrow6"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="12dp"/>
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/resume_exp"
                 android:layout_width="match_parent"
@@ -223,12 +255,25 @@
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"/>
                 <ImageView
+                    android:id="@+id/arrow10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/my_arrow"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14dp"/>
+                <TextView
+                    android:id="@+id/experience"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/number"
+                    android:textSize="14sp"
+                    android:ellipsize="marquee"
+                    android:lines="1"
+                    android:textColor="@color/font_black1"
+                    android:layout_toLeftOf="@id/arrow10"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="12dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/resume_phonenumber"
@@ -261,6 +306,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14dp"/>
                 <TextView
+                    android:id="@+id/userPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/number"
@@ -291,11 +337,12 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="14dp"/>
                 <TextView
+                    android:id="@+id/email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/email_adress"
                     android:textSize="14sp"
-                    android:textColor="@color/font_grey1"
+                    android:textColor="@color/font_black1"
                     android:layout_toLeftOf="@id/arrow5"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="12dp"/>

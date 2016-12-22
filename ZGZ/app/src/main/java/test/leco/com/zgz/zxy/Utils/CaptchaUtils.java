@@ -1,7 +1,6 @@
 package test.leco.com.zgz.zxy.Utils;
 
 import android.content.Context;
-import android.util.Log;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.OnSendMessageHandler;
@@ -18,39 +17,15 @@ public class CaptchaUtils {
     private static final String COUNTRY = "+86";
     Context context;
     String phoneNumb;
-    public CaptchaUtils(Context context){
+    public CaptchaUtils(Context context,EventHandler eh){
         this.context = context;
-
-        init();
+        init(eh);
     }
 
-    public boolean bool = false;
 
-    public void init(){
+    public void init(EventHandler eh){
         SMSSDK.initSDK(context,APPKEY,APPSECRET);
-        EventHandler eh=new EventHandler(){
 
-            public void afterEvent(int event, int result, Object data) {
-
-                switch (event) {
-                    case SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE:
-                        if (result == SMSSDK.RESULT_COMPLETE) {
-                            Log.i("验证码===>","验证成功");
-                            bool = true;
-                        } else {
-                            Log.i("验证码===>","验证失败");
-                        }
-                        break;
-                    case SMSSDK.EVENT_GET_VERIFICATION_CODE:
-                        if (result == SMSSDK.RESULT_COMPLETE) {
-                            Log.i("验证码===>","获取验证码成功");
-                        } else {
-                            Log.i("验证码===>","获取验证码失败");
-                        }
-                        break;
-                }
-            }
-        };
         SMSSDK.registerEventHandler(eh); //注册短信回调
     }
     public void sendCaptcha( String phoneNumb){ //发送验证码
