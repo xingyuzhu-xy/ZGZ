@@ -9,15 +9,24 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import test.leco.com.zgz.R;
+import test.leco.com.zgz.t.adapter.IndustryInvolvedAdapter;
+import test.leco.com.zgz.t.adapter.InvolvedItemAdapter;
+import test.leco.com.zgz.t.data.IndustryInvolvedItem;
 import test.leco.com.zgz.t.other.AlterPlaceActivity;
 
 /**
@@ -25,6 +34,7 @@ import test.leco.com.zgz.t.other.AlterPlaceActivity;
  */
 
 public class AdvancedSearchActivity extends Activity{
+    List<IndustryInvolvedItem> list;
     Button search;//搜索
     ImageView back; //返回上级页面
     LinearLayout linearLayout; // 行业
@@ -32,9 +42,12 @@ public class AdvancedSearchActivity extends Activity{
     LinearLayout time_search; //发布时间
     LinearLayout search_area; //地区
     TextView area_text;
+    TextView zhiye_text;
     String area;
+    String zhiye;
     TextView shijian;
     private static final int SIGNATURE_REQUESTCODE = 1010;
+    private static final int SIGNATURE_ZHIYECODE = 1020;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +62,7 @@ public class AdvancedSearchActivity extends Activity{
         search_area = (LinearLayout) findViewById(R.id.search_area);
         area_text = (TextView) findViewById(R.id.area_text);
         shijian = (TextView) findViewById(R.id.time);
+        zhiye_text = (TextView) findViewById(R.id.zhiye_text);
 
         search_area.setOnClickListener(clickListener);
         time_search.setOnClickListener(clickListener);
@@ -73,9 +87,10 @@ public class AdvancedSearchActivity extends Activity{
             }
         });
     }
+
     String shijian_time;
     String[] time = {"一个月前","一周前","今天","不限"};
-    public void createDialog(){
+    public void createTimeDialog(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(AdvancedSearchActivity.this);
         dialog.setTitle("选择发布时间");
         dialog.setSingleChoiceItems(time, 0, new DialogInterface.OnClickListener() {
@@ -96,6 +111,7 @@ public class AdvancedSearchActivity extends Activity{
         dialog.create();
         dialog.show();
     }
+
     Intent intent;
     //点击事件
     View.OnClickListener clickListener = new View.OnClickListener() {
@@ -111,17 +127,20 @@ public class AdvancedSearchActivity extends Activity{
                     break;
                 case R.id.hangye:
                     intent = new Intent(AdvancedSearchActivity.this,IndustryInvolvedActivity.class);
-                    startActivity(intent);
-                    break;
-                case R.id.search_area:
-                    intent = new Intent(AdvancedSearchActivity.this,AlterPlaceActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("ischeck", "fause");
                     intent.putExtras(bundle);//在用bundle 来Put数据后必需再Put到intent里面，否则没有传递
+                    startActivityForResult(intent,SIGNATURE_ZHIYECODE);//第二个参数为请求码
+                    break;
+                case R.id.search_area:
+                    intent = new Intent(AdvancedSearchActivity.this,AlterPlaceActivity.class);
+                    Bundle bundle1 = new Bundle();
+                    bundle1.putString("ischeck", "fause");
+                    intent.putExtras(bundle1);//在用bundle 来Put数据后必需再Put到intent里面，否则没有传递
                     startActivityForResult(intent,SIGNATURE_REQUESTCODE);//第二个参数为请求码
                     break;
                 case R.id.time_search:
-                    createDialog();
+                    createTimeDialog();
                     break;
             }
         }

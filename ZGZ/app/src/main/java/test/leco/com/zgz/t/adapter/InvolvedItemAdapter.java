@@ -1,14 +1,18 @@
 package test.leco.com.zgz.t.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.data.IndustryInvolvedItem;
@@ -56,10 +60,31 @@ public class InvolvedItemAdapter extends BaseAdapter {
         }
         IndustryInvolvedItem industryInvolvedItem = list.get(position);
         holder.type.setText(industryInvolvedItem.getType());
-
+        convertView.setTag(R.id.ps,position);
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Holder holder= (Holder) v.getTag();
+                if(!holder.checkBox.isChecked()){
+                    holder.checkBox.setChecked(true);
+                }else {
+                    holder.checkBox.setChecked(false);
+                }
+                int ps=(int)v.getTag(R.id.ps);
+                String test = (String) holder.type.getText();
+                itemClickListener.click(ps,test);
+            }
+        });
         return convertView;
     }
+    ItemClickListener itemClickListener;
+    public void setOnItemClickListener(ItemClickListener itemClickListener){
+        this.itemClickListener=itemClickListener;
+    }
 
+    public interface ItemClickListener{
+        void click(int poistion,String text);
+    }
     class Holder{
         TextView type;
         CheckBox checkBox;
