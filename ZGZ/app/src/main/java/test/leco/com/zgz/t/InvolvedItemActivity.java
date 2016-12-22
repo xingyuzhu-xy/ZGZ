@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,8 +25,7 @@ public class InvolvedItemActivity extends Activity {
     ListView listView;
     List<IndustryInvolvedItem> list;
     TextView save;
-    CheckBox checkBox;
-    private static final int SIGNATURE_ZHIYECODE = 1010;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,19 +39,28 @@ public class InvolvedItemActivity extends Activity {
         back.setOnClickListener(onClickListener);
 
         getData();
-        listView.setAdapter(new InvolvedItemAdapter(this,list));
-        checkBox = (CheckBox) listView.findViewById(R.id.checkbox);
+        InvolvedItemAdapter involvedItemAdapter=new InvolvedItemAdapter(this,list);
+        involvedItemAdapter.setOnItemClickListener(new InvolvedItemAdapter.ItemClickListener() {
+            @Override
+            public void click(int poistion,String text) {
+                //Toast.makeText(InvolvedItemActivity.this,""+poistion+text,Toast.LENGTH_SHORT).show();
+                zhiye = text;
+            }
+        });
+        listView.setAdapter(involvedItemAdapter);
     }
-
+    String[] data = {"互联网/游戏/软件","互联网/移动互联/电子商务","游戏","软件","IT服务/系统集成"};
+    IndustryInvolvedItem industryInvolvedItem;
     public void getData(){
         list = new ArrayList<IndustryInvolvedItem>();
-        String[] data = {"互联网/游戏/软件","互联网/移动互联/电子商务","游戏","软件","IT服务/系统集成"};
         for (int i = 0; i < data.length; i++){
-            IndustryInvolvedItem industryInvolvedItem = new IndustryInvolvedItem();
+            industryInvolvedItem = new IndustryInvolvedItem();
             industryInvolvedItem.setType(data[i]);
+            industryInvolvedItem.setCheckBox(false);
             list.add(industryInvolvedItem);
         }
     }
+    String zhiye;
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -62,12 +69,9 @@ public class InvolvedItemActivity extends Activity {
                     finish();
                     break;
                 case R.id.save:
-                    if(checkBox!=null){
-                        Intent saveIntentBtn = getIntent();
-                        saveIntentBtn.putExtra("ischeck","");
-                        setResult(SIGNATURE_ZHIYECODE,saveIntentBtn);
-                        Toast.makeText(InvolvedItemActivity.this, "传递成功", Toast.LENGTH_SHORT).show();
-                        finish();
+                    if(zhiye!=null){
+                        Intent saveIntentBtn = new Intent(InvolvedItemActivity.this,AdvancedSearchActivity.class);
+                        startActivity(saveIntentBtn);
                     }else {
                         Toast.makeText(InvolvedItemActivity.this, "请填写完整", Toast.LENGTH_SHORT).show();
                     }
