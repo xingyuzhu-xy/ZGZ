@@ -16,6 +16,8 @@ import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.HomePageActivity;
 import test.leco.com.zgz.zxy.Utils.CaptchaUtils;
@@ -38,7 +40,35 @@ public class RegistActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_regist_layout);
         findViewById();
-        captchaUtils=new CaptchaUtils(RegistActivity.this);
+        captchaUtils=new CaptchaUtils(this,new EventHandler(){
+
+            public void afterEvent(int event, int result, Object data) {
+
+                switch (event) {
+                    case SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE:
+                        if (result == SMSSDK.RESULT_COMPLETE) {
+                            Log.i("验证码===>","验证成功");
+
+                            new Thread(){
+                                @Override
+                                public void run() {
+                                    getData();
+                                }
+                            }.start();
+                        } else {
+                            Log.i("验证码===>","验证失败");
+                        }
+                        break;
+                    case SMSSDK.EVENT_GET_VERIFICATION_CODE:
+                        if (result == SMSSDK.RESULT_COMPLETE) {
+                            Log.i("验证码===>","获取验证码成功");
+                        } else {
+                            Log.i("验证码===>","获取验证码失败");
+                        }
+                        break;
+                }
+            }
+        });
         super.onCreate(savedInstanceState);
         register.setOnClickListener(listener);
         sendCode.setOnClickListener(listener);
@@ -53,18 +83,6 @@ public class RegistActivity extends Activity {
                     captchaUtils.sendCaptcha(phoneNumb.getText().toString().trim());
                     break;
                 case R.id.regist://立即注册
-
-                    if(captchaUtils.bool){
-
-                        new Thread(){
-                            @Override
-                            public void run() {
-                                getData();
-                            }
-                        }.start();
-                    }else {
-
-                    }
                     captchaUtils.commint(yanzhengma.getText().toString().trim());
                     captchaUtils.cancellation();
                     break;
