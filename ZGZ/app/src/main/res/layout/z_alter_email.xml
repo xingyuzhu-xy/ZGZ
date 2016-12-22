@@ -25,6 +25,7 @@
             android:gravity="center"
             android:textColor="@color/white" />
         <TextView
+            android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="保存"
@@ -34,7 +35,7 @@
             android:layout_marginRight="15dp"/>
     </LinearLayout>
     <EditText
-        android:id="@+id/email_edittext"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:gravity="center|left"

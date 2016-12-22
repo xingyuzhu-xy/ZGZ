@@ -1,7 +1,6 @@
 package test.leco.com.zgz.zxy.Utils;
 
 import android.content.Context;
-import android.util.Log;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.OnSendMessageHandler;
@@ -20,11 +19,9 @@ public class CaptchaUtils {
     String phoneNumb;
     public CaptchaUtils(Context context,EventHandler eh){
         this.context = context;
-
         init(eh);
     }
 
-    public boolean bool = false;
 
     public void init(EventHandler eh){
         SMSSDK.initSDK(context,APPKEY,APPSECRET);

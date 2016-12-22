@@ -43,13 +43,11 @@ public class RegistActivity extends Activity {
         captchaUtils=new CaptchaUtils(this,new EventHandler(){
 
             public void afterEvent(int event, int result, Object data) {
-
                 switch (event) {
                     case SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE:
                         if (result == SMSSDK.RESULT_COMPLETE) {
                             Log.i("验证码===>","验证成功");
-
-                            new Thread(){
+                            new Thread() {
                                 @Override
                                 public void run() {
                                     getData();
