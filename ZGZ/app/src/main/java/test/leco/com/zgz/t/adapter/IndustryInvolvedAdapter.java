@@ -20,6 +20,7 @@ public class IndustryInvolvedAdapter extends BaseAdapter {
     Context context;
     List<IndustryInvolvedItem> list;
     LayoutInflater inflater;
+    private int position = 0;
     public IndustryInvolvedAdapter( Context context,List<IndustryInvolvedItem> list){
         this.context = context;
         this.list = list;
@@ -56,6 +57,13 @@ public class IndustryInvolvedAdapter extends BaseAdapter {
         holder.type.setText(industryInvolvedItem.getType());
 
         return convertView;
+    }
+    public void setSelectItem(int position) {
+        this.position = position;
+    }
+
+    public int getSelectItem() {
+        return position;
     }
     class Holder{
         TextView type;
