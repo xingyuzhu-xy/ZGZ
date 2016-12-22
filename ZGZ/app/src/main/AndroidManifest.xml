@@ -15,6 +15,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
+        android:name=".t.data.MyAppLication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label= "@string/app_name"
@@ -53,6 +54,7 @@
         <activity android:name=".t.other.AlterExperienceActivity"/> <!-- 工作经历-->
         <activity android:name=".t.other.AlterPhoneActivity"/>  <!--绑定手机号-->
         <activity android:name=".t.other.AlterEmailActivity"/> <!--邮箱地址-->
+        <activity android:name=".t.other.JiGuanActivity"/>  <!--籍贯-->
         <!--zxy-->
         <activity android:name=".zxy.MyResumeActivity"/><!--我的简历-->
         <activity android:name=".zxy.MyDeliverActivity"/><!--投递记录-->

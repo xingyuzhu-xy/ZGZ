@@ -26,6 +26,7 @@ import java.net.URL;
 
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.HomePageActivity;
+import test.leco.com.zgz.t.data.MyAppLication;
 
 /**
  * Created by Administrator on 2016/12/20.
@@ -48,6 +49,7 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_login_layout);
         findViewById();
+        isLogin = false;
         super.onCreate(savedInstanceState);
         login.setOnClickListener(listener);
         loginArrow.setOnClickListener(listener);
@@ -86,6 +88,7 @@ public class LoginActivity extends Activity {
             }
         }
     };
+    boolean isLogin;
     public void login(){
         telephone=accountEdit.getText().toString().trim();
         password=passwordEdit.getText().toString().trim();
@@ -110,11 +113,13 @@ public class LoginActivity extends Activity {
                 status=jsonObject.getInt("status");
                 message=jsonObject.getString("message");
                 if(status==200){
-                   JSONObject jsonObject1=jsonObject.getJSONObject("result");
+                    isLogin = true;
+                    JSONObject jsonObject1=jsonObject.getJSONObject("result");
                     id =jsonObject1.getInt("user_id");
                     sharePreferences();
                     Intent intent=new Intent(LoginActivity.this, HomePageActivity.class);
                     startActivity(intent);
+
                     Toast.makeText(LoginActivity.this,"登录成功!",Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(LoginActivity.this,""+message,Toast.LENGTH_SHORT).show();
@@ -133,7 +138,12 @@ public class LoginActivity extends Activity {
         SharedPreferences sharedPreferences=getSharedPreferences("ZGZ", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
         editor.putInt("user_id",id);
+        editor.putBoolean("isLogin",isLogin);
         editor.commit();
+
+        MyAppLication myAppLication = (MyAppLication) getApplication();
+        myAppLication.setLogin(isLogin);
+        myAppLication.setId(id);
     }
 
     public void findViewById(){

@@ -11,21 +11,22 @@ import android.widget.TextView;
 import test.leco.com.zgz.R;
 
 /**
- * Created by Administrator on 2016/12/0020.
+ * Created by Administrator on 2016/12/0022.
  */
 
-public class AlterPositionActivity extends Activity {
+public class JiGuanActivity extends Activity {
     ImageView back;
     TextView save;
-    EditText position;
+    EditText sheng,shi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.z_alter_position);
+        setContentView(R.layout.z_alter_place);
 
         back = (ImageView) findViewById(R.id.back_icon);
         save = (TextView) findViewById(R.id.save);
-        position = (EditText) findViewById(R.id.position);
+        sheng = (EditText) findViewById(R.id.area_sheng);
+        shi = (EditText) findViewById(R.id.area_city);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,13 +36,14 @@ public class AlterPositionActivity extends Activity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = AlterPositionActivity.this.getIntent();
+                Intent intent = JiGuanActivity.this.getIntent();
                 Bundle bundle = intent.getExtras();
-                bundle.putString("mPosition",position.getText().toString());
+                bundle.putString("mJiGuan",sheng.getText().toString()+shi.getText().toString());
                 intent.putExtras(bundle);
                 setResult(Activity.RESULT_OK,intent);
                 finish();
             }
         });
+
     }
 }
