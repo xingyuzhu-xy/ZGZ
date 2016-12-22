@@ -4,7 +4,8 @@
 
 # with others. This method can be used for locally-generated files that you
 
-# donâ€™t expect other users to generate, like files created by your editor.
+# don¡¯t expect other users to generate, like files created by your editor.
+
 
 .settings
 
@@ -53,3 +54,17 @@ proguard-project.txt
 .idea/
 
 *.iml
+
+*~
+
+*.iws
+
+atlassian-ide-plugin.xml
+
+target
+
+build
+
+.gradle
+
+out
