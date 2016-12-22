@@ -1,8 +1,11 @@
 package test.leco.com.zgz.t.other;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import test.leco.com.zgz.R;
@@ -13,11 +16,9 @@ import test.leco.com.zgz.R;
 
 public class AlterEmailActivity extends Activity {
     ImageView back;
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.z_alter_email);
-
         back = (ImageView) findViewById(R.id.back_icon);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,5 +26,7 @@ public class AlterEmailActivity extends Activity {
                 finish();
             }
         });
+
     }
+
 }
