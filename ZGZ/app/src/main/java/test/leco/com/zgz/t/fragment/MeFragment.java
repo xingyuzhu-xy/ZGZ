@@ -52,6 +52,11 @@ public class MeFragment extends Fragment {
         public void onClick(View v) {
             Intent intent;
             switch (v.getId()){
+
+
+
+
+//                uytujgjk
                 case R.id.my_resume:
                     intent=new Intent(getActivity(),MyResumeActivity.class);
                     startActivity(intent);
