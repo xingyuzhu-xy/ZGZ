@@ -279,7 +279,7 @@ public class MyResumeActivity extends Activity {
         });
     }
     String[] edu = {"硕士","大学本科","大专","中专/技校/高中/职高"};
-    String string;
+    String string = "硕士";
     int i = 1;
     public void createDialog(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(MyResumeActivity.this);
@@ -295,7 +295,7 @@ public class MyResumeActivity extends Activity {
         dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MyResumeActivity.this,"你选择了"+which,Toast.LENGTH_LONG).show();
+                Toast.makeText(MyResumeActivity.this,"你选择了"+string,Toast.LENGTH_LONG).show();
                 educa.setText(string);
             }
         });
