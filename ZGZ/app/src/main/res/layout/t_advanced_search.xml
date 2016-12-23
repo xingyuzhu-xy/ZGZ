@@ -1,196 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:orientation="horizontal"
-        android:background="@color/blue">
+        android:background="@color/blue"
+        android:orientation="horizontal">
+
         <ImageView
             android:id="@+id/back_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/advanced_list_top_get_back"
             android:layout_gravity="center"
-            android:layout_marginLeft="11dp"/>
+            android:layout_marginLeft="11dp"
+            android:src="@mipmap/advanced_list_top_get_back" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/advanced_search"
-            android:textSize="16sp"
             android:gravity="center"
-            android:textColor="@color/white" />
+            android:text="@string/advanced_search"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/position_linear"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/position"
-            android:layout_gravity="center"
-            android:layout_marginLeft="11dp"
-            android:textSize="13sp"
-            android:textColor="@color/light_black"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/input_job"
-            android:layout_gravity="center"
-            android:textSize="13sp"
-            android:textColor="@color/gray"
-            android:layout_marginRight="12sp"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/advanced_list_main_body_arrows"
-            android:layout_gravity="center"
-            android:layout_marginRight="12dp"/>
-    </LinearLayout>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/line_color"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
             android:text="@string/vocation"
-            android:layout_gravity="center"
-            android:layout_marginLeft="11dp"
-            android:textSize="13sp"
-            android:textColor="@color/light_black"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/advanced_list_main_body_arrows"
-            android:layout_gravity="center"
-            android:layout_marginRight="12dp"/>
-    </LinearLayout>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/line_color"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/regio"
-            android:layout_gravity="center"
-            android:layout_marginLeft="11dp"
-            android:textSize="13sp"
-            android:textColor="@color/light_black"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/advanced_list_main_body_arrows"
-            android:layout_gravity="center"
-            android:layout_marginRight="12dp"/>
-    </LinearLayout>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/line_color"/>
+            android:textColor="@color/light_black"
+            android:textSize="13sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal">
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/salary_range"
             android:layout_gravity="center"
-            android:layout_marginLeft="11dp"
-            android:textSize="13sp"
-            android:textColor="@color/light_black"/>
-        <EditText
-            android:layout_width="60dp"
-            android:layout_height="21dp"
-            android:background="@drawable/t_salary_range"
-            android:layout_gravity="center"
-            android:layout_marginLeft="55dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/to"
-            android:textSize="13sp"
-            android:textColor="@color/dark_gray"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"/>
-        <EditText
-            android:layout_width="60dp"
-            android:layout_height="21dp"
-            android:background="@drawable/t_salary_range"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/yuan"
-            android:textSize="13sp"
-            android:textColor="@color/dark_gray"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"/>
+            android:padding="10dp"
+            android:src="@mipmap/advanced_list_main_body_arrows" />
     </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/line_color"/>
+        android:background="@color/line_color" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/release_time"
             android:layout_gravity="center"
-            android:layout_marginLeft="11dp"
-            android:textSize="13sp"
-            android:textColor="@color/light_black"/>
-        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/position"
+            android:textColor="@color/light_black"
+            android:textSize="13sp" />
+
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/unlimited"
             android:layout_gravity="center"
-            android:textSize="13sp"
+            android:layout_marginRight="12sp"
+            android:background="@drawable/edittext_white"
+            android:hint="@string/input_job"
+            android:maxLength="25"
+            android:maxLines="1"
+            android:padding="10dp"
             android:textColor="@color/gray"
-            android:layout_marginRight="12sp"/>
+            android:textSize="13sp" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/advanced_list_main_body_arrows"
             android:layout_gravity="center"
-            android:layout_marginRight="12dp"/>
+            android:padding="10dp"
+            android:src="@mipmap/advanced_list_main_body_arrows" />
     </LinearLayout>
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/line_color"/>
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/regio"
+            android:textColor="@color/light_black"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:src="@mipmap/advanced_list_main_body_arrows" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:text="@string/salary_range"
+            android:textColor="@color/light_black"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/t_salary_range"
+                android:maxLength="8"
+                android:maxLines="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:text="@string/to"
+                android:textColor="@color/dark_gray"
+                android:textSize="13sp" />
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/t_salary_range"
+                android:maxLength="8"
+                android:maxLines="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:text="@string/yuan"
+                android:textColor="@color/dark_gray"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/release_time"
+            android:textColor="@color/light_black"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="12sp"
+            android:text="@string/unlimited"
+            android:textColor="@color/gray"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:src="@mipmap/advanced_list_main_body_arrows" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
     <Button
         android:id="@+id/search_btn"
         android:layout_width="match_parent"
-        android:layout_height="41dp"
-        android:layout_marginTop="95dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="12dp"
+        android:layout_marginTop="95dp"
         android:background="@drawable/t_advanced_search_button"
-        android:textColor="@color/white"
         android:text="@string/search"
-        android:textSize="15sp"/>
+        android:textColor="@color/white"
+        android:textSize="15sp" />
 
 </LinearLayout>

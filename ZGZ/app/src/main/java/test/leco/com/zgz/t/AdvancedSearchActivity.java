@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import test.leco.com.zgz.R;
 
@@ -16,6 +17,7 @@ import test.leco.com.zgz.R;
 public class AdvancedSearchActivity extends Activity{
     Button search;//搜索
     ImageView back; //返回上级页面
+    LinearLayout positionLinear;//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,8 @@ public class AdvancedSearchActivity extends Activity{
 
         search = (Button) findViewById(R.id.search_btn);
         back = (ImageView) findViewById(R.id.back_icon);
+
+
         search.setOnClickListener(clickListener);
         back.setOnClickListener(clickListener);
     }
@@ -42,4 +46,5 @@ public class AdvancedSearchActivity extends Activity{
             }
         }
     };
+    
 }
