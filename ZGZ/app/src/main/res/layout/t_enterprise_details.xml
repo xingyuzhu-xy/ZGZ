@@ -123,62 +123,67 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="8dp"
-        android:layout_marginLeft="11dp">
-
+        android:layout_marginLeft="11dp"
+        android:id="@+id/fuli">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="福利"
             android:textSize="13sp"
-            android:textColor="@color/light_black" />
-        <TextView
-            android:id="@+id/wuxian"
-            android:layout_width="51dp"
-            android:layout_height="wrap_content"
-            android:text="五险"
-            android:textSize="10sp"
-            android:textColor="@color/dark_gray"
-            android:gravity="center"
-            android:paddingBottom="3dp"
-            android:paddingTop="4dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/t_benefits"/>
-        <TextView
-            android:id="@+id/shuangxui"
-            android:layout_width="51dp"
-            android:layout_height="wrap_content"
-            android:text="周末双休"
-            android:textSize="10sp"
-            android:textColor="@color/dark_gray"
-            android:gravity="center"
-            android:paddingBottom="3dp"
-            android:paddingTop="4dp"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/t_benefits"/>
-        <TextView
-            android:id="@+id/daixin"
-            android:layout_width="51dp"
-            android:layout_height="wrap_content"
-            android:text="带薪休假"
-            android:textSize="10sp"
-            android:textColor="@color/dark_gray"
-            android:gravity="center"
-            android:paddingBottom="3dp"
-            android:paddingTop="4dp"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/t_benefits"/>
-        <TextView
-            android:id="@+id/jieri"
-            android:layout_width="51dp"
-            android:layout_height="wrap_content"
-            android:text="带薪休假"
-            android:textSize="10sp"
-            android:textColor="@color/dark_gray"
-            android:gravity="center"
-            android:paddingBottom="3dp"
-            android:paddingTop="4dp"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/t_benefits"/>
+            android:textColor="@color/light_black"
+            android:layout_marginRight="15dp"/>
+        <!--<TextView-->
+            <!--android:id="@+id/wuxian"-->
+            <!--android:layout_width="51dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="五险"-->
+            <!--android:textSize="10sp"-->
+            <!--android:textColor="@color/dark_gray"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingBottom="3dp"-->
+            <!--android:paddingTop="4dp"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:background="@drawable/t_benefits"-->
+            <!--android:visibility="visible"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/shuangxui"-->
+            <!--android:layout_width="51dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="周末双休"-->
+            <!--android:textSize="10sp"-->
+            <!--android:textColor="@color/dark_gray"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingBottom="3dp"-->
+            <!--android:paddingTop="4dp"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:background="@drawable/t_benefits"-->
+            <!--android:visibility="visible"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/daixin"-->
+            <!--android:layout_width="51dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="带薪休假"-->
+            <!--android:textSize="10sp"-->
+            <!--android:textColor="@color/dark_gray"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingBottom="3dp"-->
+            <!--android:paddingTop="4dp"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:background="@drawable/t_benefits"-->
+            <!--android:visibility="visible"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/jieri"-->
+            <!--android:layout_width="51dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="带薪休假"-->
+            <!--android:textSize="10sp"-->
+            <!--android:textColor="@color/dark_gray"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingBottom="3dp"-->
+            <!--android:paddingTop="4dp"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:background="@drawable/t_benefits"-->
+            <!--android:visibility="visible"/>-->
     </LinearLayout>
     <ImageView
         android:layout_width="match_parent"
