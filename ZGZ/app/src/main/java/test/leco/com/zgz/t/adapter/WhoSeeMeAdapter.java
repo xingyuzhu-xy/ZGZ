@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.List;
 
 import test.leco.com.zgz.R;
@@ -51,6 +52,7 @@ public class WhoSeeMeAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.t_who_see_me_item,null);
             holder.companyName = (TextView) convertView.findViewById(R.id.companyName);
             holder.seeTime = (TextView) convertView.findViewById(R.id.seeTime);
+            holder.company = (TextView) convertView.findViewById(R.id.company);
             convertView.setTag(holder);
         }else {
             holder = (Holder) convertView.getTag();
@@ -58,6 +60,7 @@ public class WhoSeeMeAdapter extends BaseAdapter {
         WhoSeeMeItem whoSeeMeItem = list.get(position);
         holder.companyName.setText(whoSeeMeItem.getCompanyName());
         holder.seeTime.setText(whoSeeMeItem.getTime());
+        holder.company.setText(whoSeeMeItem.getPd());
 
         return convertView;
     }
@@ -65,5 +68,6 @@ public class WhoSeeMeAdapter extends BaseAdapter {
     class Holder {
         TextView companyName;
         TextView seeTime;
+        TextView company;
     }
 }

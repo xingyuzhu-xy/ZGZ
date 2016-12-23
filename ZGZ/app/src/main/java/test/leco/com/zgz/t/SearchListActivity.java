@@ -66,39 +66,47 @@ public class SearchListActivity extends Activity {
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(SearchListActivity.this,android.R.layout.simple_spinner_dropdown_item,zhiye_sp);
         position_type.setAdapter(arrayAdapter);
-        position_type.setOnItemSelectedListener(onItemSelectedListener);
+        position_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("======",""+parent.getItemAtPosition(position));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(SearchListActivity.this,android.R.layout.simple_spinner_dropdown_item,regio_sp);
         regio.setAdapter(arrayAdapter1);
-        regio.setOnItemSelectedListener(onItemSelectedListener);
+        regio.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("======>>",""+parent.getItemAtPosition(position));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(SearchListActivity.this,android.R.layout.simple_spinner_dropdown_item,salary_sp);
         salary.setAdapter(arrayAdapter2);
-        salary.setOnItemSelectedListener(onItemSelectedListener);
+        salary.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("======>>>",""+parent.getItemAtPosition(position));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         //点击结束当前页面，返回上级页面
         back.setOnClickListener(onClickListener);
-//        position_type.setOnClickListener(onClickListener);
     }
-    String shijian_time;
-    String[] time = {"一个月前","一周前","今天","不限"};
-    public void createDialog(){
-        AlertDialog.Builder dialog = new AlertDialog.Builder(SearchListActivity.this);
-        dialog.setTitle("选择发布时间");
-        dialog.setSingleChoiceItems(time, 0, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-//                Toast.makeText(AdvancedSearchActivity.this,"你选择了"+time[which],Toast.LENGTH_LONG).show();
-                shijian_time = time[which];
-            }
-        });
-        dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-//                Toast.makeText(AdvancedSearchActivity.this,"你选择了"+which,Toast.LENGTH_LONG).show();
-            }
-        });
-        dialog.create();
-        dialog.show();
-    }
-
 
     public void getData(){
         list = new ArrayList<SearchListItem>();
@@ -118,13 +126,6 @@ public class SearchListActivity extends Activity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.position_type:
-//                    createDialog();
-                    break;
-                case R.id.regio:
-                    break;
-                case R.id.salary:
-                    break;
                 case R.id.back_icon:
                     finish();
                     break;
@@ -132,26 +133,5 @@ public class SearchListActivity extends Activity {
         }
     };
 
-    AdapterView.OnItemSelectedListener onItemSelectedListener = new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            //parent.getItemAtPosition(position)
-            Log.i("======",""+parent.getItemAtPosition(position));
-            switch (view.getId()){
-                case R.id.position_type1:
-                    Toast.makeText(SearchListActivity.this,"您选择了"+zhiye_sp[position],Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.regio1:
-                    break;
-                case R.id.salary1:
-                    break;
-            }
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-
-        }
-    };
 
 }
