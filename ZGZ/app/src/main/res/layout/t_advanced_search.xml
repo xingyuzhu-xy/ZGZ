@@ -36,14 +36,16 @@
             android:layout_marginLeft="11dp"
             android:textSize="13sp"
             android:textColor="@color/light_black"/>
-        <TextView
+        <EditText
+            android:id="@+id/input_position_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/input_job"
+            android:hint="@string/input_job"
             android:layout_gravity="center"
             android:textSize="13sp"
-            android:textColor="@color/gray"
-            android:layout_marginRight="12sp"/>
+            android:textColorHint="@color/gray"
+            android:layout_marginRight="12sp"
+            android:background="@null"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,6 +58,7 @@
         android:layout_height="1dp"
         android:background="@color/line_color"/>
     <LinearLayout
+        android:id="@+id/hangye"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:orientation="horizontal">
@@ -64,6 +67,15 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/vocation"
+            android:layout_gravity="center"
+            android:layout_marginLeft="11dp"
+            android:textSize="13sp"
+            android:textColor="@color/light_black"/>
+        <TextView
+            android:id="@+id/zhiye_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
             android:textSize="13sp"
@@ -80,6 +92,7 @@
         android:layout_height="1dp"
         android:background="@color/line_color"/>
     <LinearLayout
+        android:id="@+id/search_area"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:orientation="horizontal">
@@ -88,6 +101,15 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/regio"
+            android:layout_gravity="center"
+            android:layout_marginLeft="11dp"
+            android:textSize="13sp"
+            android:textColor="@color/light_black"/>
+        <TextView
+            android:id="@+id/area_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
             android:textSize="13sp"
@@ -150,6 +172,7 @@
         android:layout_height="1dp"
         android:background="@color/line_color"/>
     <LinearLayout
+        android:id="@+id/time_search"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:orientation="horizontal">
@@ -163,6 +186,7 @@
             android:textSize="13sp"
             android:textColor="@color/light_black"/>
         <TextView
+            android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/unlimited"

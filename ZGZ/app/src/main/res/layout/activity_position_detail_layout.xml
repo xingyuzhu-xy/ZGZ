@@ -8,7 +8,7 @@
         android:layout_height="43dp"
         android:background="@color/my_setting_blue1">
         <ImageView
-            android:id="@+id/resume_arrow"
+            android:id="@+id/position_detail_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -51,7 +51,6 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:orientation="vertical">
-
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
@@ -88,6 +87,7 @@
                        android:layout_below="@id/position"
                        android:layout_marginTop="3dp"/>
                    <TextView
+                       android:id="@+id/pay"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="@string/money"
@@ -97,6 +97,7 @@
                        android:layout_alignParentRight="true"
                        android:layout_marginRight="10dp"/>
                    <TextView
+                       android:id="@+id/site"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="@string/city"
@@ -112,6 +113,7 @@
                    android:orientation="horizontal"
                    android:layout_marginTop="8dp">
                    <TextView
+                       android:id="@+id/exp"
                        android:layout_width="0dp"
                        android:layout_weight="1"
                        android:layout_height="wrap_content"
@@ -123,6 +125,7 @@
                        android:gravity="fill_vertical"
                        android:drawablePadding="5dp"/>
                    <TextView
+                       android:id="@+id/edu"
                        android:layout_width="0dp"
                        android:layout_weight="1"
                        android:layout_height="wrap_content"
@@ -133,6 +136,7 @@
                        android:drawableLeft="@mipmap/advanced2"
                        android:gravity="fill_vertical"/>
                    <TextView
+                       android:id="@+id/num"
                        android:layout_width="0dp"
                        android:layout_weight="1"
                        android:layout_height="wrap_content"
@@ -149,6 +153,7 @@
                    android:orientation="horizontal"
                    android:layout_marginTop="8dp">
                    <TextView
+                       android:id="@+id/age"
                        android:layout_width="0dp"
                        android:layout_weight="1"
                        android:layout_height="wrap_content"
@@ -160,6 +165,7 @@
                        android:gravity="fill_vertical"
                        android:drawablePadding="5dp"/>
                    <TextView
+                       android:id="@+id/sex"
                        android:layout_width="0dp"
                        android:layout_weight="1"
                        android:layout_height="wrap_content"
@@ -170,6 +176,7 @@
                        android:drawableLeft="@mipmap/advanced5"
                        android:gravity="fill_vertical"/>
                    <TextView
+                       android:id="@+id/isfresh"
                        android:layout_width="0dp"
                        android:layout_weight="1"
                        android:layout_height="wrap_content"
@@ -306,6 +313,7 @@
                        android:textColor="@color/font_black1"
                        android:layout_gravity="center"/>
                    <TextView
+                       android:id="@+id/desite"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:text="@string/site"
@@ -503,6 +511,7 @@
                  android:layout_marginTop="20dp"
                  android:layout_gravity="center"/>
              <TextView
+                 android:id="@+id/cpname_cp"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="@string/cpname"
@@ -528,6 +537,7 @@
                      android:textColor="@color/font_black1"
                      android:layout_marginLeft="10dp"/>
                  <TextView
+                     android:id="@+id/industry_cp"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:text="@string/business"
@@ -548,6 +558,7 @@
                      android:textColor="@color/font_black1"
                      android:layout_marginLeft="10dp"/>
                  <TextView
+                     android:id="@+id/nature_cp"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:text="@string/chara"
@@ -568,6 +579,7 @@
                      android:textColor="@color/font_black1"
                      android:layout_marginLeft="10dp"/>
                  <TextView
+                     android:id="@+id/scale_cp"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:text="@string/scale"
@@ -588,6 +600,7 @@
                      android:textColor="@color/font_black1"
                      android:layout_marginLeft="10dp"/>
                  <TextView
+                     android:id="@+id/url_cp"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:text="@string/website"
@@ -621,6 +634,7 @@
                      android:layout_marginLeft="5dp"
                      android:textSize="12sp"/>
                  <TextView
+                     android:id="@+id/site_cp"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:text="@string/site"

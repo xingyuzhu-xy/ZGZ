@@ -14,5 +14,13 @@ public class IndustryInvolvedItem {
     }
 
     private  String type;
+    boolean checkBox = false;
 
+    public boolean isCheckBox() {
+        return checkBox;
+    }
+
+    public void setCheckBox(boolean checkBox) {
+        this.checkBox = checkBox;
+    }
 }
