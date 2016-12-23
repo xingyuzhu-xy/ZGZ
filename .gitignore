@@ -6,6 +6,7 @@
 
 # don¡¯t expect other users to generate, like files created by your editor.
 
+
 .settings
 
 .classpath
@@ -31,6 +32,28 @@ lint-results_files
 local.properties
 
 monkey.txt
+
+*~
+
+*.iws
+
+atlassian-ide-plugin.xml
+
+target
+
+build
+
+.gradle
+
+out
+
+build.xml
+
+proguard-project.txt
+
+.idea/
+
+*.iml
 
 *~
 

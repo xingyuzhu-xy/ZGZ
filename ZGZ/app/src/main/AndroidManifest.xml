@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="test.leco.com.zgz">
-    <!--短信验证权限-->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
-        android:name=".t.data.MyAppLication"
-        android:allowBackup="true"
-        android:icon="@mipmap/applogo"
-        android:label= "@string/app_name"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
         <activity android:name=".t.HomePageActivity">
@@ -28,52 +15,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.mob.tools.MobUIShell"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
-        <!--<activity android:name=".t.HomePageActivity"/>-->
-        <activity android:name=".t.AdvancedSearchActivity"/>  <!--高级搜索页面-->
-        <activity android:name=".t.NearWorkActivity"/>  <!--附近的工作-->
-        <activity android:name=".t.WhoSeeMeActivity"/>   <!--谁看过我-->
-        <activity android:name=".t.SearchListActivity"/>   <!--高级搜索下的三级页面搜索列表-->
-        <activity android:name=".t.PositionDetailsActivity"/>   <!--职位详情-->
-        <activity android:name=".t.EnterpriseDetailsActivity"/>  <!--企业详情-->
-        <activity android:name=".t.PartTimeJobActivity"/>  <!--兼职-->
-        <activity android:name=".t.CompanyDetailsActivity"/>  <!--公司详情-->
-        <activity android:name=".t.IndustryInvolvedActivity"/>  <!--所属行业-->
-        <activity android:name=".t.InvolvedItemActivity"/>  <!--行业分类下的子页面-->
-        <activity android:name=".t.other.MePositionActivity"/>  <!--我约过的公司职位-->
-        <activity android:name=".t.other.PositionMeActivity"/>  <!--约过我的公司职位-->
-        <activity android:name=".t.other.AlterNameActivity"/>  <!--修改姓名-->
-        <activity android:name=".t.other.AlterPlaceActivity"/><!--修改籍贯-->
 
-        <activity android:name=".t.other.AlterTimeActivity"/>  <!--出生年月-->
-        <activity android:name=".t.other.AlterPositionActivity"/> <!--应聘职位-->
-        <activity android:name=".t.other.AlterExperienceActivity"/> <!-- 工作经历-->
-        <activity android:name=".t.other.AlterPhoneActivity"/>  <!--绑定手机号-->
-        <activity android:name=".t.other.AlterEmailActivity"/> <!--邮箱地址-->
-        <activity android:name=".t.other.JiGuanActivity"/>  <!--籍贯-->
+
+        <activity android:name=".t.AdvancedSearchActivity"/>
+        <activity android:name=".t.NearWorkActivity"/>
+        <activity android:name=".t.WhoSeeMeActivity"/>
+
+        <activity android:name=".t.SearchListActivity"/>
+        <activity android:name=".t.PositionDetailsActivity"/>
+        <activity android:name=".t.EnterpriseDetailsActivity"/>
+        <activity android:name=".t.PartTimeJobActivity"/>
+        <activity android:name=".t.CompanyDetailsActivity"/>
+        <activity android:name=".t.IndustryInvolvedActivity"/>
+        <activity android:name=".t.InvolvedItemActivity"/>
+        <activity android:name=".t.MePositionActivity"/>
+
         <!--zxy-->
-        <activity android:name=".zxy.MyResumeActivity"/><!--我的简历-->
-        <activity android:name=".zxy.MyDeliverActivity"/><!--投递记录-->
-        <activity android:name=".zxy.MyDownloadActivity"/><!--谁下载了我的简历-->
-        <activity android:name=".zxy.MyMessageActivity"/><!--面试通知-->
-        <activity android:name=".zxy.MyCollectActivity"/><!--我的收藏-->
-        <activity android:name=".zxy.MyAttentionActivity"/><!--我的关注-->
-        <activity android:name=".zxy.MySysSettingActivity"/><!--系统设置-->
-        <activity android:name=".zxy.MyAdviceActivity"/><!--意见反馈-->
-        <activity android:name=".zxy.SetNewPasswordActivity"></activity><!--系统设置里修改密码-->
+        <activity android:name=".zxy.MyResumeActivity"/>
+        <activity android:name=".zxy.MyDeliverActivity"/>
+        <activity android:name=".zxy.MyDownloadActivity"/>
+        <activity android:name=".zxy.MyMessageActivity"/>
+        <activity android:name=".zxy.MyCollectActivity"/>
+        <activity android:name=".zxy.MyAttentionActivity"/>
+        <activity android:name=".zxy.MySysSettingActivity"/>
+        <activity android:name=".zxy.MyAdviceActivity"/>
+        <activity android:name=".zxy.ReferCompanyActivity"/>
+        <activity android:name=".zxy.PositionDetailActivity"/>
 
-        <activity android:name=".zxy.ReferCompanyActivity"/><!--咨询企业-->
-        <activity android:name=".zxy.PositionDetailActivity"/><!--职位详情 公司信息-->
-
-        <activity android:name=".zxy.InterviewFaceActivity"/><!--直约面试-->
-        <activity android:name=".zxy.InterviewMessageActivity"/><!--职位里的消息-->
-        <activity android:name=".zxy.RegistActivity"/><!--注册页面-->
-        <activity android:name=".zxy.LoginForgetPassword"/><!--登录 忘记密码-->
-        <activity android:name=".zxy.LoginActivity"/><!--登录界面-->
+        <activity android:name=".zxy.InterviewFaceActivity"/>
+        <activity android:name=".zxy.InterviewMessageActivity"/>
+        
 
 
 

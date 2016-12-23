@@ -2,8 +2,6 @@ package test.leco.com.zgz.zxy;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -20,21 +18,13 @@ import test.leco.com.zgz.zxy.Myadapter.MyMessageAdapter;
 public class MyMessageActivity extends Activity {
     List<HashMap<String,Object>> list;
     ListView listView;
-    ImageView interviewArrow;
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_my_message_layout);
         listView= (ListView) findViewById(R.id.my_message_listview);
-        interviewArrow= (ImageView) findViewById(R.id.interview_arrow);
         list=new ArrayList<>();
         getDate();
         listView.setAdapter(new MyMessageAdapter(list,this));
         super.onCreate(savedInstanceState);
-        interviewArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
     public void getDate(){
         for(int i=0;i<5;i++){

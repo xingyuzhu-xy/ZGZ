@@ -8,7 +8,7 @@
         android:layout_height="43dp"
         android:background="@color/my_setting_blue1">
         <ImageView
-            android:id="@+id/interview_arrow"
+            android:id="@+id/download_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

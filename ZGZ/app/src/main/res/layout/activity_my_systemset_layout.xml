@@ -8,7 +8,7 @@
         android:layout_height="43dp"
         android:background="@color/my_setting_blue1">
         <ImageView
-            android:id="@+id/sys_arrow"
+            android:id="@+id/resume_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -62,7 +62,6 @@
         android:layout_height="1dp"
         android:background="@color/black230"/>
     <LinearLayout
-        android:id="@+id/set_password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
