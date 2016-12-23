@@ -61,7 +61,7 @@ public class PositionAdapter extends BaseAdapter {
         viewHolder= (ViewHolder) convertView.getTag();
         HashMap<String,Object> map =list.get(position);
         viewHolder.cpimage.setImageResource((Integer) map.get("cpimage"));
-        viewHolder.position.setText(map.get("position").toString());
+            viewHolder.position.setText(map.get("position").toString());
         viewHolder.cpname.setText(map.get("cpname").toString());
         viewHolder.city.setText(map.get("city").toString());
         viewHolder.someday.setText(map.get("someday").toString());
