@@ -1,12 +1,15 @@
 package test.leco.com.zgz.t;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -26,7 +29,7 @@ import java.util.List;
 
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.adapter.WhoSeeMeAdapter;
-import test.leco.com.zgz.t.data.WhoSeeMeItem;
+
 
 /**
  * Created by Administrator on 2016/12/0014.
@@ -36,11 +39,22 @@ public class EnterpriseDetailsActivity extends Activity {
     ImageView back; //返回上级页面
     RelativeLayout consultation,care; // 咨询企业、关注企业
     TextView companyName,companyname,pepole_number,jinying,hangye,wuxian,shuangxui,daixin,jieri,area,context;
+    LinearLayout fuli;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.t_enterprise_details);
+
+        companyName = (TextView) findViewById(R.id.companyName);
+        companyname = (TextView) findViewById(R.id.companyname);
+        pepole_number = (TextView) findViewById(R.id.pepole_number);
+        jinying = (TextView) findViewById(R.id.jinying);
+        hangye = (TextView) findViewById(R.id.hangye);
+        companyName = (TextView) findViewById(R.id.companyName);
+        area = (TextView) findViewById(R.id.area);
+        context = (TextView) findViewById(R.id.context);
+        fuli = (LinearLayout) findViewById(R.id.fuli);
         findView();
         new Thread(new Runnable() {
             @Override
@@ -48,6 +62,10 @@ public class EnterpriseDetailsActivity extends Activity {
                 gethomeenterprise();
             }
         }).start();
+
+        Intent intent = getIntent();
+        String numb = intent.getStringExtra("enter");
+        enterprise_id = numb;
     }
 
     public void findView(){
@@ -85,9 +103,9 @@ public class EnterpriseDetailsActivity extends Activity {
     String industry;//经营范围
     String site;//地址
     String introduce;//企业简介
-    String pay_treatmenr_name;//福利名称
+    List<String> pay_treatmenr_name = new ArrayList<String>();//福利名称
     public void gethomeenterprise(){
-        String httpurl = "http://192.168.7.6/index.php/home/index/gethomeenterprise?"+"user_id="+1+"&enterprise_id="+2;
+        String httpurl = "http://192.168.7.6/index.php/home/index/gethomeenterprise?"+"user_id="+1+"&enterprise_id="+enterprise_id;
         try {
             URL url = new URL(httpurl);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -112,7 +130,6 @@ public class EnterpriseDetailsActivity extends Activity {
                     JSONObject object = jsonArray.getJSONObject(i);
                     Log.i("JSONObject","======="+object);
                     id = object.getInt("id");
-                    user_id = object.getInt("user_id");
                     enterprise_id = object.getString("enterprise_id");
                     enterprise_name = object.getString("enterprise_name");
                     isattention = object.getInt("isattention");
@@ -121,8 +138,15 @@ public class EnterpriseDetailsActivity extends Activity {
                     industry = object.getString("industry");
                     site = object.getString("site");
                     introduce = object.getString("introduce");
-                    pay_treatmenr_name = object.getString("pay_treatmenr_name");
                 }
+                JSONArray jsonArray1 = jsonObject.getJSONArray("treatmenr");
+                for(int i=0;i<jsonArray1.length();i++){
+                    JSONObject jsonObject1 = jsonArray1.getJSONObject(i);
+                    pay_treatmenr_name.add(jsonObject1.getString("pay_treatmenr_name"));
+                    Log.i("pay_treatmenr_name","======="+pay_treatmenr_name);
+
+                }
+                handler.sendEmptyMessage(0);
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -133,6 +157,27 @@ public class EnterpriseDetailsActivity extends Activity {
         }
 
     }
-
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            companyName.setText(enterprise_name);
+            Log.i("companyName","======="+companyName);
+            pepole_number.setText(scale);
+            jinying.setText(nature);
+            hangye.setText(industry);
+            area.setText(site);
+            context.setText(introduce);
+            for(int z=0;z<pay_treatmenr_name.size();z++){
+                TextView textView = new TextView(EnterpriseDetailsActivity.this);
+                textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                textView.setText(pay_treatmenr_name.get(z));
+                textView.setTextSize(10);
+                textView.setBackground(getResources().getDrawable(R.drawable.t_benefits));
+                textView.setPadding(5,3,5,4);
+                fuli.addView(textView);
+            }
+        }
+    };
 
 }

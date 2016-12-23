@@ -2,30 +2,22 @@ package test.leco.com.zgz.t;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import test.leco.com.zgz.R;
-import test.leco.com.zgz.t.adapter.IndustryInvolvedAdapter;
-import test.leco.com.zgz.t.adapter.InvolvedItemAdapter;
 import test.leco.com.zgz.t.data.IndustryInvolvedItem;
 import test.leco.com.zgz.t.other.AlterPlaceActivity;
 
@@ -37,6 +29,7 @@ public class AdvancedSearchActivity extends Activity{
     List<IndustryInvolvedItem> list;
     Button search;//搜索
     ImageView back; //返回上级页面
+    LinearLayout positionLinear;//
     LinearLayout linearLayout; // 行业
     EditText input_position_search; //职位
     LinearLayout time_search; //发布时间
@@ -49,13 +42,14 @@ public class AdvancedSearchActivity extends Activity{
     private static final int SIGNATURE_REQUESTCODE = 1010;
     private static final int SIGNATURE_ZHIYECODE = 1020;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.t_advanced_search);
-
         search = (Button) findViewById(R.id.search_btn);
         back = (ImageView) findViewById(R.id.back_icon);
+
         linearLayout = (LinearLayout) findViewById(R.id.hangye);
         input_position_search = (EditText) findViewById(R.id.input_position_search);
         time_search = (LinearLayout) findViewById(R.id.time_search);
@@ -66,6 +60,7 @@ public class AdvancedSearchActivity extends Activity{
 
         search_area.setOnClickListener(clickListener);
         time_search.setOnClickListener(clickListener);
+
         search.setOnClickListener(clickListener);
         back.setOnClickListener(clickListener);
         linearLayout.setOnClickListener(clickListener);
@@ -146,6 +141,9 @@ public class AdvancedSearchActivity extends Activity{
         }
     };
 
+    
+
+
     /*当需要从第二个页面获得数据返回的时候，重写该方法*/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -162,4 +160,5 @@ public class AdvancedSearchActivity extends Activity{
                 break;
         }
     }
+
 }

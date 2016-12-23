@@ -126,7 +126,6 @@ public class WhoSeeMeActivity extends Activity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
     Handler handler = new Handler(){
         @Override

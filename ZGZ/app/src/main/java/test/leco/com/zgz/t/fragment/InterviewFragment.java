@@ -51,8 +51,6 @@ public class InterviewFragment extends Fragment {
                     intent = new Intent(getActivity(), PositionMeActivity.class);
                     startActivity(intent);
                     break;
-
-
             }
         }
     };
