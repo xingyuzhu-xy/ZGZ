@@ -8,7 +8,7 @@
         android:layout_height="43dp"
         android:background="@color/my_setting_blue1">
         <ImageView
-            android:id="@+id/resume_arrow"
+            android:id="@+id/login_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -36,6 +36,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"/>
         <EditText
+            android:background="@null"
+            android:id="@+id/account_edittext"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -44,6 +46,7 @@
             android:textSize="14sp"
             android:layout_marginLeft="20dp"/>
         <ImageView
+            android:id="@+id/clear_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/my_log_in"
@@ -68,6 +71,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"/>
         <EditText
+            android:background="@null"
+            android:id="@+id/password_edittext"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -91,6 +96,7 @@
         android:textColor="@android:color/white"
         android:textSize="15sp"
         android:background="@drawable/deliver_button1"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -126,6 +132,7 @@
             android:textSize="12sp"
             android:textColor="@color/font_grey1"/>
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

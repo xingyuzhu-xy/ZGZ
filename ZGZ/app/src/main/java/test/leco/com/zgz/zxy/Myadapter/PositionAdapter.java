@@ -55,20 +55,23 @@ public class PositionAdapter extends BaseAdapter {
             viewHolder.city= (TextView) convertView.findViewById(R.id.city);
             viewHolder.someday= (TextView) convertView.findViewById(someday);
             viewHolder.pay= (TextView) convertView.findViewById(R.id.pay);
+            viewHolder.id= (TextView) convertView.findViewById(R.id.id);
             convertView.setTag(viewHolder);
         }
         viewHolder= (ViewHolder) convertView.getTag();
         HashMap<String,Object> map =list.get(position);
         viewHolder.cpimage.setImageResource((Integer) map.get("cpimage"));
-        viewHolder.position.setText(map.get("position").toString());
+            viewHolder.position.setText(map.get("position").toString());
         viewHolder.cpname.setText(map.get("cpname").toString());
         viewHolder.city.setText(map.get("city").toString());
         viewHolder.someday.setText(map.get("someday").toString());
         viewHolder.pay.setText(map.get("pay").toString());
+        viewHolder.id.setText(map.get("id").toString());
         return convertView;
     }
     class ViewHolder{
         ImageView cpimage;
         TextView position,cpname,city,someday,pay;
+        TextView id;
     }
 }

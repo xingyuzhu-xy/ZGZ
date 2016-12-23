@@ -1,12 +1,35 @@
 package test.leco.com.zgz.t;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import test.leco.com.zgz.R;
+import test.leco.com.zgz.t.adapter.WhoSeeMeAdapter;
+
 
 /**
  * Created by Administrator on 2016/12/0014.
@@ -15,12 +38,34 @@ import test.leco.com.zgz.R;
 public class EnterpriseDetailsActivity extends Activity {
     ImageView back; //返回上级页面
     RelativeLayout consultation,care; // 咨询企业、关注企业
+    TextView companyName,companyname,pepole_number,jinying,hangye,wuxian,shuangxui,daixin,jieri,area,context;
+    LinearLayout fuli;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.t_enterprise_details);
+
+        companyName = (TextView) findViewById(R.id.companyName);
+        companyname = (TextView) findViewById(R.id.companyname);
+        pepole_number = (TextView) findViewById(R.id.pepole_number);
+        jinying = (TextView) findViewById(R.id.jinying);
+        hangye = (TextView) findViewById(R.id.hangye);
+        companyName = (TextView) findViewById(R.id.companyName);
+        area = (TextView) findViewById(R.id.area);
+        context = (TextView) findViewById(R.id.context);
+        fuli = (LinearLayout) findViewById(R.id.fuli);
         findView();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                gethomeenterprise();
+            }
+        }).start();
+
+        Intent intent = getIntent();
+        String numb = intent.getStringExtra("enter");
+        enterprise_id = numb;
     }
 
     public void findView(){
@@ -47,4 +92,92 @@ public class EnterpriseDetailsActivity extends Activity {
             }
         }
     };
+    int user_id;
+    int status;
+    int id;
+    String enterprise_id; //企业id
+    String enterprise_name; //企业名称
+    int isattention;//是否关注（1关注）
+    String nature;//企业性质
+    String scale;//企业规模
+    String industry;//经营范围
+    String site;//地址
+    String introduce;//企业简介
+    List<String> pay_treatmenr_name = new ArrayList<String>();//福利名称
+    public void gethomeenterprise(){
+        String httpurl = "http://192.168.7.6/index.php/home/index/gethomeenterprise?"+"user_id="+1+"&enterprise_id="+enterprise_id;
+        try {
+            URL url = new URL(httpurl);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.connect();
+            if(httpURLConnection.getResponseCode()==HttpURLConnection.HTTP_OK){
+                StringBuilder stringBuilder = new StringBuilder();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String s;
+                while((s =bufferedReader.readLine()) != null){
+                    stringBuilder.append(s);
+                }
+                String data = stringBuilder.toString();
+
+                JSONObject jsonObject = new JSONObject(data);
+                status = jsonObject.getInt("status");
+                JSONArray jsonArray = jsonObject.getJSONArray("message");
+                for(int i=0;i<jsonArray.length();i++){
+                    JSONObject object = jsonArray.getJSONObject(i);
+                    Log.i("JSONObject","======="+object);
+                    id = object.getInt("id");
+                    enterprise_id = object.getString("enterprise_id");
+                    enterprise_name = object.getString("enterprise_name");
+                    isattention = object.getInt("isattention");
+                    nature = object.getString("nature");
+                    scale = object.getString("scale");
+                    industry = object.getString("industry");
+                    site = object.getString("site");
+                    introduce = object.getString("introduce");
+                }
+                JSONArray jsonArray1 = jsonObject.getJSONArray("treatmenr");
+                for(int i=0;i<jsonArray1.length();i++){
+                    JSONObject jsonObject1 = jsonArray1.getJSONObject(i);
+                    pay_treatmenr_name.add(jsonObject1.getString("pay_treatmenr_name"));
+                    Log.i("pay_treatmenr_name","======="+pay_treatmenr_name);
+
+                }
+                handler.sendEmptyMessage(0);
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            companyName.setText(enterprise_name);
+            Log.i("companyName","======="+companyName);
+            pepole_number.setText(scale);
+            jinying.setText(nature);
+            hangye.setText(industry);
+            area.setText(site);
+            context.setText(introduce);
+            for(int z=0;z<pay_treatmenr_name.size();z++){
+                TextView textView = new TextView(EnterpriseDetailsActivity.this);
+                textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                textView.setText(pay_treatmenr_name.get(z));
+                textView.setTextSize(10);
+                textView.setBackground(getResources().getDrawable(R.drawable.t_benefits));
+                textView.setPadding(5,3,5,4);
+                fuli.addView(textView);
+            }
+        }
+    };
+
 }

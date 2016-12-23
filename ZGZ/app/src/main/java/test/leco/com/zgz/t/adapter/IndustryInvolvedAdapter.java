@@ -20,8 +20,8 @@ public class IndustryInvolvedAdapter extends BaseAdapter {
     Context context;
     List<IndustryInvolvedItem> list;
     LayoutInflater inflater;
-
-    public IndustryInvolvedAdapter(Context context, List<IndustryInvolvedItem> list) {
+    private int position = 0;
+    public IndustryInvolvedAdapter( Context context,List<IndustryInvolvedItem> list){
         this.context = context;
         this.list = list;
         inflater = LayoutInflater.from(context);
@@ -45,12 +45,12 @@ public class IndustryInvolvedAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Holder holder = null;
-        if (convertView == null) {
+        if (convertView == null){
             holder = new Holder();
-            convertView = inflater.inflate(R.layout.t_industry_involved_item, null);
+            convertView = inflater.inflate(R.layout.t_industry_involved_item,null);
             holder.type = (TextView) convertView.findViewById(R.id.type);
             convertView.setTag(holder);
-        } else {
+        }else {
             holder = (Holder) convertView.getTag();
         }
         IndustryInvolvedItem industryInvolvedItem = list.get(position);
@@ -58,8 +58,14 @@ public class IndustryInvolvedAdapter extends BaseAdapter {
 
         return convertView;
     }
+    public void setSelectItem(int position) {
+        this.position = position;
+    }
 
-    class Holder {
+    public int getSelectItem() {
+        return position;
+    }
+    class Holder{
         TextView type;
     }
 }
