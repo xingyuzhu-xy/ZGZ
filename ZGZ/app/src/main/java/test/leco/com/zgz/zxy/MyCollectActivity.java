@@ -3,6 +3,8 @@ package test.leco.com.zgz.zxy;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -19,14 +21,21 @@ import test.leco.com.zgz.zxy.Myadapter.MyCollectAdapter;
 public class MyCollectActivity extends Activity {
     ListView listView;
     List<HashMap<String,Object>> list;
-    LayoutInflater layoutInflater;
+    ImageView collectArrow;
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_my_collect_layout);
         listView= (ListView) findViewById(R.id.my_collect_listview);
         list=new ArrayList<>();
+        collectArrow= (ImageView) findViewById(R.id.collect_arrow);
         getDate();
         listView.setAdapter(new MyCollectAdapter(list,this));
         super.onCreate(savedInstanceState);
+        collectArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     public void getDate(){
         for(int i =0;i<5;i++){
