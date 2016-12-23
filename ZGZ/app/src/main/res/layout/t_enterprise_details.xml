@@ -30,6 +30,7 @@
         android:orientation="vertical"
         android:layout_marginLeft="11dp">
         <TextView
+            android:id="@+id/companyName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="文林创意传媒"
@@ -37,6 +38,7 @@
             android:textColor="@color/light_black"
             android:layout_marginTop="16dp"/>
         <TextView
+            android:id="@+id/companyname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="渝中区文林图文制作部"
@@ -62,6 +64,7 @@
             android:textSize="13sp"
             android:textColor="@color/light_black" />
         <TextView
+            android:id="@+id/pepole_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="50人以下"
@@ -83,6 +86,7 @@
             android:textSize="13sp"
             android:textColor="@color/light_black" />
         <TextView
+            android:id="@+id/jinying"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="民营"
@@ -105,6 +109,7 @@
             android:textSize="13sp"
             android:textColor="@color/light_black" />
         <TextView
+            android:id="@+id/hangye"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="互联网/移动互联网/电子商务"
@@ -127,6 +132,7 @@
             android:textSize="13sp"
             android:textColor="@color/light_black" />
         <TextView
+            android:id="@+id/wuxian"
             android:layout_width="51dp"
             android:layout_height="wrap_content"
             android:text="五险"
@@ -138,6 +144,7 @@
             android:layout_marginLeft="15dp"
             android:background="@drawable/t_benefits"/>
         <TextView
+            android:id="@+id/shuangxui"
             android:layout_width="51dp"
             android:layout_height="wrap_content"
             android:text="周末双休"
@@ -149,6 +156,19 @@
             android:layout_marginLeft="5dp"
             android:background="@drawable/t_benefits"/>
         <TextView
+            android:id="@+id/daixin"
+            android:layout_width="51dp"
+            android:layout_height="wrap_content"
+            android:text="带薪休假"
+            android:textSize="10sp"
+            android:textColor="@color/dark_gray"
+            android:gravity="center"
+            android:paddingBottom="3dp"
+            android:paddingTop="4dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/t_benefits"/>
+        <TextView
+            android:id="@+id/jieri"
             android:layout_width="51dp"
             android:layout_height="wrap_content"
             android:text="带薪休假"
@@ -176,6 +196,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="13dp"/>
         <TextView
+            android:id="@+id/area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="重庆渝中区大坪英利国际"
@@ -189,6 +210,7 @@
         android:layout_height="3dp"
         android:background="@color/line_color"/>
     <TextView
+        android:id="@+id/context"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="11dp"

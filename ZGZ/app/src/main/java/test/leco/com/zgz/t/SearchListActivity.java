@@ -3,8 +3,10 @@ package test.leco.com.zgz.t;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -49,6 +51,10 @@ public class SearchListActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+
+        //点击结束当前页面，返回上级页面
+        back.setOnClickListener(onClickListener);
     }
 
     public void getData(){
@@ -65,5 +71,16 @@ public class SearchListActivity extends Activity {
             list.add(searchListItem);
         }
     }
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.back_icon:
+                    finish();
+                    break;
+            }
+        }
+    };
+
 
 }

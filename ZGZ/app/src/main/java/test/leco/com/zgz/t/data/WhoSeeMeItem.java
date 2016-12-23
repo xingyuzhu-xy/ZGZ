@@ -7,6 +7,15 @@ package test.leco.com.zgz.t.data;
 public class WhoSeeMeItem {
     private String companyName;
     private String time;
+    String pd;
+
+    public String getPd() {
+        return pd;
+    }
+
+    public void setPd(String pd) {
+        this.pd = pd;
+    }
 
     public String getTime() {
         return time;
