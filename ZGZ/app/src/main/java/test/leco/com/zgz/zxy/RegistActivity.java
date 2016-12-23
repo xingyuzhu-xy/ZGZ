@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -34,6 +35,7 @@ public class RegistActivity extends Activity {
     EditText yanzhengma;//验证码
     Button sendCode;//获取验证码
     Button register;//注册
+    ImageView resume_arrow;//返回
     CaptchaUtils captchaUtils;//短信验证
     RegisterHttp registerHttp;//注册接口
     Intent intent;
@@ -71,6 +73,7 @@ public class RegistActivity extends Activity {
         super.onCreate(savedInstanceState);
         register.setOnClickListener(listener);
         sendCode.setOnClickListener(listener);
+        resume_arrow.setOnClickListener(listener);
     }
 
     View.OnClickListener listener=new View.OnClickListener() {
@@ -85,6 +88,9 @@ public class RegistActivity extends Activity {
                     captchaUtils.commint(yanzhengma.getText().toString().trim());
                     captchaUtils.cancellation();
                     break;
+                case R.id.resume_arrow:
+                    finish();
+                    break;
             }
         }
     };
@@ -94,6 +100,7 @@ public class RegistActivity extends Activity {
         yanzhengma= (EditText) findViewById(R.id.yanzhengma);
         sendCode= (Button) findViewById(R.id.get_yanzhengma);
         register= (Button) findViewById(R.id.regist);
+        resume_arrow = (ImageView) findViewById(R.id.resume_arrow);
     }
     public void getData(){
         Message message=new Message();
