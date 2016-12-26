@@ -279,7 +279,7 @@ public class MyResumeActivity extends Activity {
         });
     }
     String[] edu = {"硕士","大学本科","大专","中专/技校/高中/职高"};
-    String string;
+    String string = "硕士";
     int i = 1;
     public void createDialog(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(MyResumeActivity.this);
