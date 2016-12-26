@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +23,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import test.leco.com.zgz.R;
@@ -57,7 +55,7 @@ public class WhoSeeMeActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 integerList.get(position);
-                Toast.makeText(WhoSeeMeActivity.this,""+integerList.get(position), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(WhoSeeMeActivity.this,""+integerList.get(position), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(WhoSeeMeActivity.this,EnterpriseDetailsActivity.class);
                 intent.putExtra("enter",integerList.get(position));
                 startActivity(intent);
