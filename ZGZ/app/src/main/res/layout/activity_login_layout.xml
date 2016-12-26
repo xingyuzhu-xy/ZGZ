@@ -42,6 +42,8 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:hint="请输入账号"
+            android:lines="1"
+            android:maxLength="11"
             android:textColorHint="@color/font_grey1"
             android:textSize="14sp"
             android:layout_marginLeft="20dp"/>
@@ -79,6 +81,8 @@
             android:hint="请输入密码"
             android:textColorHint="@color/font_grey1"
             android:textSize="14sp"
+            android:lines="1"
+            android:inputType="textPassword"
             android:layout_marginLeft="20dp"/>
     </LinearLayout>
     <View
