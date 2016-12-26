@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import test.leco.com.zgz.R;
-import test.leco.com.zgz.t.adapter.WhoSeeMeAdapter;
 
 
 /**
