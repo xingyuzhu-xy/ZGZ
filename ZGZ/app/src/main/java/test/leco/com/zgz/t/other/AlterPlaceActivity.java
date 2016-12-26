@@ -83,7 +83,7 @@ public class AlterPlaceActivity extends Activity {
                 case R.id.save:
                     if(sheng != null && city != null){
                         Intent saveIntentBtn = getIntent();
-                        saveIntentBtn.putExtra("ischeck",""+sheng+city);
+                        saveIntentBtn.putExtra("ischeck",""+sheng + "-"+ city);
                         setResult(SIGNATURE_REQUESTCODE,saveIntentBtn);
                         Toast.makeText(AlterPlaceActivity.this, "传递成功", Toast.LENGTH_SHORT).show();
                         finish();
