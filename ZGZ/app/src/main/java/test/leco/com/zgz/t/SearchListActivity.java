@@ -99,7 +99,6 @@ public class SearchListActivity extends Activity {
 
     public void getData(){
         list = new ArrayList<SearchListItem>();
-
         for (int i = 0; i < 10; i++){
             SearchListItem searchListItem = new SearchListItem();
             searchListItem.setCompanyName("飞成机密磨具");

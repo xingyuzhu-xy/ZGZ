@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -95,6 +96,19 @@ public class PartTimeJobActivity extends Activity {
     AdapterView.OnItemSelectedListener onItemSelectedListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            parent.getItemAtPosition(position);
+            switch (parent.getId()){
+                case R.id.work_area:
+                    partsite = parent.getItemAtPosition(position).toString();
+                    Log.i("partsite","======"+partsite);
+                    break;
+                case R.id.zhiwei_choose:
+                    Toast.makeText(PartTimeJobActivity.this,"你点击了"+zhiwei_choose+parent.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.push_time:
+                    Toast.makeText(PartTimeJobActivity.this,"你点击了"+push_time+parent.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
+                    break;
+            }
 
         }
 
@@ -116,7 +130,8 @@ public class PartTimeJobActivity extends Activity {
 
     int status;
     String message;
-    String currenttime ;
+    String partsite;
+    String parttime;
     int part_time_job_details_id;//兼职的ID
     String part_name; //兼职的名称
     String part_site;//兼职的地点
@@ -126,8 +141,14 @@ public class PartTimeJobActivity extends Activity {
     List<Integer> integerList = new ArrayList<>();
     public void part(){
         gettime();
+        String httpurl;
+        if(partsite == null){
+            httpurl = "http://192.168.7.6/index.php/home/index/part?"+"currenttime="+string+"&partsite="+"&parttime=";
+        }else {
+            httpurl = "http://192.168.7.6/index.php/home/index/part?"+"currenttime="+string+"&partsite="+partsite+"&parttime=";
+        }
         try {
-            URL url = new URL("http://192.168.7.6/index.php/home/index/part?"+"currenttime="+string);
+            URL url = new URL(httpurl);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setConnectTimeout(5000);
@@ -160,6 +181,11 @@ public class PartTimeJobActivity extends Activity {
                     partTimeJobItem.setAddress(part_site);
                     partTimeJobItem.setSalary(part_money);
                     partTimeJobItem.setWorkTime(part_time);
+                    if(isstick == 0){
+                        partTimeJobItem.setTop("不置顶");
+                    }else {
+                        partTimeJobItem.setTop("置顶");
+                    }
                     list.add(partTimeJobItem);
                     integerList.add(part_time_job_details_id);
                 }
