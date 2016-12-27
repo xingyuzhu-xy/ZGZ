@@ -44,6 +44,9 @@ public class MeFragment extends Fragment {
         advice = (RelativeLayout) view.findViewById(R.id.my_advice);//意见反馈
         login= (TextView) view.findViewById(R.id.login_textview);
         register= (TextView) view.findViewById(R.id.regist_textview);
+
+        MyAppLication myAppLication=(MyAppLication)getActivity().getApplication();
+        isLogin = myAppLication.isLogin();
         resume.setOnClickListener(listener);
         deliver.setOnClickListener(listener);
         download.setOnClickListener(listener);
@@ -54,9 +57,11 @@ public class MeFragment extends Fragment {
         advice.setOnClickListener(listener);
         login.setOnClickListener(listener);
         register.setOnClickListener(listener);
+
         return view;
     }
 
+    boolean isLogin;
     View.OnClickListener listener=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -69,42 +74,68 @@ public class MeFragment extends Fragment {
                     //所有登录或者注销能够造成登录状态改变的操作都要去修改sp里面islogin的值
                     //如果登录了，。就可以把用户的用户名和密码存在sp里，再次登录时自动调用登录接口，
                     // 而不需要用户手动登录
-                    MyAppLication myAppLication=(MyAppLication)getActivity().getApplication();
-                    boolean isLogin = myAppLication.isLogin();
                     if (isLogin){
                         intent=new Intent(getActivity(),MyResumeActivity.class);
                         startActivity(intent);
                     }else {
-                        Toast.makeText(getActivity(),"请登录账号",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(),"请登录账号",Toast.LENGTH_SHORT).show();
                     }
                     break;
-                case R.id.my_deliver:
-                    intent=new Intent(getActivity(),MyDeliverActivity.class);
-                    startActivity(intent);
+                case R.id.my_deliver: //投递记录
+                    if (isLogin){
+                        intent=new Intent(getActivity(),MyDeliverActivity.class);
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(getActivity(),"请登录账号",Toast.LENGTH_SHORT).show();
+                    }
                     break;
-                case R.id.my_download:
-                    intent=new Intent(getActivity(),MyDownloadActivity.class);
-                    startActivity(intent);
+                case R.id.my_download: //谁下载过我的简历
+                    if (isLogin){
+                        intent=new Intent(getActivity(),MyDownloadActivity.class);
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(getActivity(),"请登录账号",Toast.LENGTH_SHORT).show();
+                    }
                     break;
-                case R.id.my_message:
-                    intent=new Intent(getActivity(),MyMessageActivity.class);
-                    startActivity(intent);
+                case R.id.my_message: //面试通知
+                    if (isLogin){
+                        intent=new Intent(getActivity(),MyMessageActivity.class);
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(getActivity(),"请登录账号",Toast.LENGTH_SHORT).show();
+                    }
                     break;
-                case R.id.my_collcet:
-                    intent=new Intent(getActivity(),MyCollectActivity.class);
-                    startActivity(intent);
+                case R.id.my_collcet: //我的收藏
+                    if (isLogin){
+                        intent=new Intent(getActivity(),MyCollectActivity.class);
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(getActivity(),"请登录账号",Toast.LENGTH_SHORT).show();
+                    }
                     break;
-                case R.id.my_attention:
-                    intent=new Intent(getActivity(),MyAttentionActivity.class);
-                    startActivity(intent);
+                case R.id.my_attention: //我的关注
+                    if (isLogin){
+                        intent=new Intent(getActivity(),MyAttentionActivity.class);
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(getActivity(),"请登录账号",Toast.LENGTH_SHORT).show();
+                    }
                     break;
-                case R.id.my_setting:
-                    intent=new Intent(getActivity(),MySysSettingActivity.class);
-                    startActivity(intent);
+                case R.id.my_setting: //系统设置
+                    if (isLogin){
+                        intent=new Intent(getActivity(),MySysSettingActivity.class);
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(getActivity(),"请登录账号",Toast.LENGTH_SHORT).show();
+                    }
                     break;
-                case R.id.my_advice:
-                    intent=new Intent(getActivity(),MyAdviceActivity.class);
-                    startActivity(intent);
+                case R.id.my_advice: //意见反馈
+                    if (isLogin){
+                        intent=new Intent(getActivity(),MyAdviceActivity.class);
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(getActivity(),"请登录账号",Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case R.id.login_textview:
                     intent=new Intent(getActivity(), LoginActivity.class);
