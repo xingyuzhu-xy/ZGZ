@@ -45,6 +45,7 @@ public class MePositionActivity extends Activity {
             }
         });
         list = new ArrayList<MePositionItem>();
+        enter_id = new ArrayList<Integer>();
         new Thread() {
             @Override
             public void run() {
@@ -56,6 +57,8 @@ public class MePositionActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MePositionActivity.this, PositionDetailsActivity.class);
+                int en = enter_id.get(position);
+                intent.putExtra("en",en);
                 startActivity(intent);
             }
         });
@@ -76,10 +79,13 @@ public class MePositionActivity extends Activity {
     MyAppLication myAppLication;
     int useId;
 
+    int enterprise_id;
+    List<Integer> enter_id;
     public void getData() {
 
         myAppLication = (MyAppLication) getApplication();
         useId = myAppLication.getId();
+
 
         try {
             GetLookHttp getLookHttp = new GetLookHttp(useId);
@@ -89,11 +95,13 @@ public class MePositionActivity extends Activity {
             for (int i = 0; i < message.length(); i++) {
                 JSONObject each = message.getJSONObject(i);
                 MePositionItem mePositionItem = new MePositionItem();
+                enterprise_id = each.getInt("enterprise_id");
                 mePositionItem.setCompanyName(each.getString("enterprise_name"));
                 mePositionItem.setAddress(each.getString("enterprise_name"));
                 mePositionItem.setPositionName(each.getString("enterprise_name"));
                 mePositionItem.setTime(each.getString("time"));
                 list.add(mePositionItem);
+                enter_id.add(enterprise_id);
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
