@@ -60,17 +60,17 @@ public class InvolvedItemAdapter extends BaseAdapter {
         }
         IndustryInvolvedItem industryInvolvedItem = list.get(position);
         holder.type.setText(industryInvolvedItem.getType());
-        convertView.setTag(R.id.ps,position);
+        convertView.setTag(R.id.ps,position);//设置tag  ps：tag的唯一标识
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Holder holder= (Holder) v.getTag();
-                if(!holder.checkBox.isChecked()){
+                Holder holder= (Holder) v.getTag(); //取出tag  点击取出相对应的tag，即知道点击的是哪个
+                    if(!holder.checkBox.isChecked()){
                     holder.checkBox.setChecked(true);
                 }else {
                     holder.checkBox.setChecked(false);
                 }
-                int ps=(int)v.getTag(R.id.ps);
+                int ps=(int)v.getTag(R.id.ps); //取出设置的唯一标识
                 String test = (String) holder.type.getText();
                 itemClickListener.click(ps,test);
             }
@@ -79,10 +79,10 @@ public class InvolvedItemAdapter extends BaseAdapter {
     }
     ItemClickListener itemClickListener;
     public void setOnItemClickListener(ItemClickListener itemClickListener){
-        this.itemClickListener=itemClickListener;
+        this.itemClickListener=itemClickListener; //实现下面这个接口的监听
     }
 
-    public interface ItemClickListener{
+    public interface ItemClickListener{  //想要得得到的数据
         void click(int poistion,String text);
     }
     class Holder{
