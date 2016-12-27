@@ -29,9 +29,6 @@ public class SearchListActivity extends Activity {
     ImageView back; //返回上级页面
     ListView listView;
     List<SearchListItem> list;
-//    RelativeLayout position_type;
-//    RelativeLayout regio;
-//    RelativeLayout salary;
     Spinner position_type;
     Spinner regio;
     Spinner salary;
@@ -44,9 +41,6 @@ public class SearchListActivity extends Activity {
         setContentView(R.layout.t_advanced_search_list);
 
         back = (ImageView) findViewById(R.id.back_icon);
-//        position_type = (RelativeLayout) findViewById(R.id.position_type);
-//        regio = (RelativeLayout) findViewById(R.id.regio);
-//        salary = (RelativeLayout) findViewById(R.id.salary);
         position_type = (Spinner) findViewById(R.id.position_type1);
         regio = (Spinner) findViewById(R.id.regio1);
         salary = (Spinner) findViewById(R.id.salary1);
@@ -121,12 +115,6 @@ public class SearchListActivity extends Activity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-
-                case R.id.position_type:
-//                    createDialog();
-                    break;
-                case R.id.regio:
-                    break;
                 case R.id.salary:
                     break;
                 case R.id.back_icon:

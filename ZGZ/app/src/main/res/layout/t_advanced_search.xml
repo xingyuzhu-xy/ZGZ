@@ -43,14 +43,14 @@
             android:textColor="@color/light_black"
             android:textSize="13sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/input_position_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/input_job"
+            android:text="@string/input_job"
             android:layout_gravity="center"
             android:textSize="13sp"
-            android:textColorHint="@color/gray"
+            android:textColor="@color/light_black"
             android:layout_marginRight="12sp"
             android:background="@null"/>
 
@@ -84,16 +84,17 @@
             android:textSize="13sp" />
 
         <EditText
+            android:id="@+id/post_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="12sp"
             android:background="@drawable/edittext_white"
-            android:hint="@string/input_job"
+            android:hint="请输入职位"
             android:maxLength="25"
-            android:maxLines="1"
+            android:lines="1"
             android:padding="10dp"
-            android:textColor="@color/gray"
+            android:textColor="@color/light_black"
             android:textSize="13sp" />
 
         <TextView
@@ -158,9 +159,11 @@
         android:layout_height="1dp"
         android:background="@color/line_color" />
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="30dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -171,18 +174,15 @@
             android:textColor="@color/light_black"
             android:textSize="13sp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal">
 
             <EditText
-                android:layout_width="60dp"
+                android:id="@+id/min_money"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/t_salary_range"
-                android:maxLength="8"
+                android:maxLength="9"
                 android:maxLines="1" />
 
             <TextView
@@ -195,11 +195,13 @@
                 android:textSize="13sp" />
 
             <EditText
-                android:layout_width="60dp"
+                android:id="@+id/max_money"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/t_salary_range"
-                android:maxLength="8"
+                android:maxLength="9"
                 android:maxLines="1" />
 
             <TextView
@@ -209,9 +211,9 @@
                 android:layout_margin="10dp"
                 android:text="@string/yuan"
                 android:textColor="@color/dark_gray"
-                android:textSize="13sp" />
-        </LinearLayout>
-    </RelativeLayout>
+                android:textSize="13sp"
+                />
+    </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"

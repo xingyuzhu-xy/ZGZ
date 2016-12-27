@@ -3,6 +3,7 @@ package test.leco.com.zgz.t;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ import test.leco.com.zgz.zxy.ReferCompanyActivity;
 public class PositionDetailsActivity extends Activity{
     ImageView back; //返回上级页面
     TextView enterprise; //企业咨询
-    Intent intent;
+    int en_id; //企业的id
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +35,12 @@ public class PositionDetailsActivity extends Activity{
         enterprise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(PositionDetailsActivity.this, ReferCompanyActivity.class);
+                Intent intent = new Intent(PositionDetailsActivity.this, ReferCompanyActivity.class);
                 startActivity(intent);
             }
         });
+        Intent inte = getIntent();
+        en_id = inte.getIntExtra("en",-1);
+        Log.i("en_id===>",""+en_id);
     }
 }

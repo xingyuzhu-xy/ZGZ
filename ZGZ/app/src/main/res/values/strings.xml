@@ -9,7 +9,7 @@
     <string name="near_work">附近的工作</string>
     <string name="recommend">根据你的简历，为你推荐的职位</string>
     <string name="position">职位</string>
-    <string name="input_job">请输入职位</string>
+    <string name="input_job">请选择行业</string>
     <string name="vocation">行业</string>
     <string name="regio">地区</string>
     <string name="salary_range">薪资范围</string>
