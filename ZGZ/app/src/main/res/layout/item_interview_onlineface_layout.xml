@@ -51,6 +51,7 @@
         android:layout_alignBottom="@id/onlineface_position"
         android:layout_marginLeft="20dp"/>
     <TextView
+        android:id="@+id/interview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="约起"
