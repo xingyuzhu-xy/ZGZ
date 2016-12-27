@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.Date;
 
 /**
- * Created on 2016/12/24.
+ * Created by Administrator on 2016/12/24.
  */
 
 public class AlbumTools {

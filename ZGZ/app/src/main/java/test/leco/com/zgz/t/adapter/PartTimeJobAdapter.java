@@ -51,6 +51,7 @@ public class PartTimeJobAdapter extends BaseAdapter {
             holder.address = (TextView) convertView.findViewById(R.id.address);
             holder.workTime = (TextView) convertView.findViewById(R.id.workTime);
             holder.salary = (TextView) convertView.findViewById(R.id.salary);
+            holder.top = (TextView) convertView.findViewById(R.id.part_time_top);
             convertView.setTag(holder);
         }else {
             holder = (Holder) convertView.getTag();
@@ -60,6 +61,7 @@ public class PartTimeJobAdapter extends BaseAdapter {
         holder.address.setText(partTimeJobItem.getAddress());
         holder.workTime.setText(partTimeJobItem.getWorkTime());
         holder.salary.setText(partTimeJobItem.getSalary());
+        holder.top.setText(partTimeJobItem.getTop());
 
         return convertView;
     }
@@ -69,5 +71,6 @@ public class PartTimeJobAdapter extends BaseAdapter {
         TextView address;
         TextView workTime;
         TextView salary;
+        TextView top;
     }
 }

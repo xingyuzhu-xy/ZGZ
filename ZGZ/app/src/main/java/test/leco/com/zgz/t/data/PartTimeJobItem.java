@@ -9,6 +9,15 @@ public class PartTimeJobItem {
     private String address;
     private String workTime;
     private String salary;
+    private String top;
+
+    public String getTop() {
+        return top;
+    }
+
+    public void setTop(String top) {
+        this.top = top;
+    }
 
     public String getPositionName() {
         return positionName;

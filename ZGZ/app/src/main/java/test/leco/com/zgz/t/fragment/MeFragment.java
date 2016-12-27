@@ -38,6 +38,10 @@ import test.leco.com.zgz.zxy.Utils.ImageCat;
 
 public class MeFragment extends Fragment {
     HeadImage head_img;
+    private final static int REQUEST=100;
+    private final static int REQUEST_IMAGE_CAT=101;
+    HeadImage head;
+
     RelativeLayout resume,deliver,download,message,collect,attention,setting,advice;
     TextView login,register;//登录，注册
 
@@ -54,7 +58,7 @@ public class MeFragment extends Fragment {
         head_img = (HeadImage) view.findViewById(R.id.head_img);
         login= (TextView) view.findViewById(R.id.login_textview);
         register= (TextView) view.findViewById(R.id.regist_textview);
-
+        head = (HeadImage) view.findViewById(R.id.head_img);
         MyAppLication myAppLication=(MyAppLication)getActivity().getApplication();
         isLogin = myAppLication.isLogin();
         resume.setOnClickListener(listener);
@@ -68,6 +72,8 @@ public class MeFragment extends Fragment {
         login.setOnClickListener(listener);
         register.setOnClickListener(listener);
         head_img.setOnClickListener(listener);
+        head.setOnClickListener(listener);
+
         return view;
 
     }
@@ -163,8 +169,11 @@ public class MeFragment extends Fragment {
         }
     };
 
-    private final static int REQUEST=100;
-    private final static int REQUEST_IMAGE_CAT=101;
+//    private final static int REQUEST=100;
+//    private final static int REQUEST_IMAGE_CAT=101;
+
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -180,9 +189,9 @@ public class MeFragment extends Fragment {
                     return;
                 }
                 Bitmap bitmap=ImageCat.getBitmap(data);
-                head_img.setBitmap(bitmap);
+                head.setBitmap(bitmap);
                 try {
-                    OutputStream os=getActivity().openFileOutput("head",getActivity().MODE_PRIVATE);
+                    OutputStream os = getActivity().openFileOutput("head",getActivity().MODE_PRIVATE);
                     bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -191,5 +200,6 @@ public class MeFragment extends Fragment {
                 break;
         }
     }
+
 }
 
