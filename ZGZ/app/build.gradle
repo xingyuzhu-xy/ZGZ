@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "test.leco.com.zgz"
         minSdkVersion 15
-        targetSdkVersion 24
+        targetSdkVersion 22//改低目的是为了声网视频集成避免报java.lang.UnsatisfiedLinkError
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
