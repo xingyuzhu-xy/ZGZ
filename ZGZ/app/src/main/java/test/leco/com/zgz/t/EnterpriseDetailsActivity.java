@@ -194,7 +194,6 @@ public class EnterpriseDetailsActivity extends Activity {
         myAppLication = (MyAppLication) getApplication();
         user_id = myAppLication.getId();
         String STR_URL = "http://10.0.2.2/index.php/home/index/attentionbtn?";
-
         try {
             URL url = new URL(STR_URL+"user_id="+user_id+"&enterprise_id="+enterprise_id);
             Log.i("======>",""+url);
