@@ -29,4 +29,5 @@
     <color name="font_black4">#868686</color>
     <color name="blue3">#9BDDFF</color>
     <color name="grey">#A1A1A1</color>
+    <color name="black">#000000</color>
 </resources>
