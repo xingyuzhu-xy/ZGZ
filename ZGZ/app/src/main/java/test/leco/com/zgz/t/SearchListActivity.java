@@ -127,15 +127,7 @@ public class SearchListActivity extends Activity {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             //parent.getItemAtPosition(position)
             Log.i("======",""+parent.getItemAtPosition(position));
-            switch (view.getId()){
-                case R.id.position_type1:
-                    Toast.makeText(SearchListActivity.this,"您选择了"+zhiye_sp[position],Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.regio1:
-                    break;
-                case R.id.salary1:
-                    break;
-            }
+
         }
 
         @Override

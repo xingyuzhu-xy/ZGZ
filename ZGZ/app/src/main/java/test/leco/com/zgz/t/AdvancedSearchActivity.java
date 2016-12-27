@@ -350,7 +350,7 @@ public class AdvancedSearchActivity extends Activity {
 
     //总行业选择接口
     public void positionData() {
-        String posittionURL = "http://10.0.2.2/index.php/home/index/theirindustry";
+        String posittionURL = "http://192.168.7.6/index.php/home/index/theirindustry";
         HttpURL.sendRequest(posittionURL, new HttpCallbackListener() {
             @Override
             public void onFinish(String response) {
@@ -381,7 +381,7 @@ public class AdvancedSearchActivity extends Activity {
     //行业分类接口获取
     public void postData() {
         postItemList.clear();
-        String httpURL = "http://10.0.2.2/index.php/home/index/dustry?positionid=" + positionid;
+        String httpURL = "http://192.168.7.6/index.php/home/index/dustry?positionid=" + positionid;
         Log.i("postData =======", "" + positionid);
         HttpURLConnection httpURLConnection = null;
         try {

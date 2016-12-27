@@ -1,9 +1,12 @@
 package test.leco.com.zgz.t;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -50,12 +53,33 @@ public class PositionDetailsActivity extends Activity{
         tel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+phone));
+                intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:15823903420"));
                 startActivity(intent);
             }
         });
         Intent inte = getIntent();
         en_id = inte.getIntExtra("en",-1);
         Log.i("en_id===>",""+en_id);
+
+        checkPermisson();
+    }
+    /**
+     * 动态权限的请求
+     */
+    public void checkPermisson(){
+        if(Build.VERSION.SDK_INT>=23){
+            ActivityCompat.requestPermissions(this,//上下文
+                    new String[]{
+                            Manifest.permission.CALL_PHONE},//权限数组
+                            1001);
+        }
+    }
+
+    /**
+     * 动态权限的回调函数
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }
