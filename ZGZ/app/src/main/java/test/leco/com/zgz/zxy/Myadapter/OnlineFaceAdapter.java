@@ -51,6 +51,7 @@ public class OnlineFaceAdapter extends BaseAdapter {
             viewHolder.cpname= (TextView) convertView.findViewById(R.id.onlineface_cpname);
             viewHolder.position= (TextView) convertView.findViewById(R.id.onlineface_position);
             viewHolder.pay= (TextView) convertView.findViewById(R.id.onlineface_pay);
+            viewHolder.interview = (TextView) convertView.findViewById(R.id.interview);
             convertView.setTag(viewHolder);
         }
         viewHolder= (ViewHolder) convertView.getTag();
@@ -66,5 +67,6 @@ public class OnlineFaceAdapter extends BaseAdapter {
         TextView cpname;
         TextView position;
         TextView pay;
+        TextView interview;
     }
 }

@@ -46,9 +46,10 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="135dp"
                 android:orientation="vertical"
                 android:background="@color/my_setting_blue2">
+
                 <test.leco.com.zgz.zxy.Utils.HeadImage
                     android:id="@+id/head_img"
                     android:layout_width="wrap_content"

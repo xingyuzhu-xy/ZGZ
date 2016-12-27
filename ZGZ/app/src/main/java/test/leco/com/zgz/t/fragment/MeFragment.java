@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,11 +37,14 @@ import test.leco.com.zgz.zxy.Utils.ImageCat;
  */
 
 public class MeFragment extends Fragment {
+    HeadImage head_img;
     private final static int REQUEST=100;
     private final static int REQUEST_IMAGE_CAT=101;
     HeadImage head;
+
     RelativeLayout resume,deliver,download,message,collect,attention,setting,advice;
     TextView login,register;//登录，注册
+
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_my_setting_layout, null);
         resume = (RelativeLayout) view.findViewById(R.id.my_resume);//我的简历
@@ -51,6 +55,7 @@ public class MeFragment extends Fragment {
         attention = (RelativeLayout) view.findViewById(R.id.my_attention);//我的关注
         setting = (RelativeLayout) view.findViewById(R.id.my_setting);//系统设置
         advice = (RelativeLayout) view.findViewById(R.id.my_advice);//意见反馈
+        head_img = (HeadImage) view.findViewById(R.id.head_img);
         login= (TextView) view.findViewById(R.id.login_textview);
         register= (TextView) view.findViewById(R.id.regist_textview);
         head = (HeadImage) view.findViewById(R.id.head_img);
@@ -66,8 +71,11 @@ public class MeFragment extends Fragment {
         advice.setOnClickListener(listener);
         login.setOnClickListener(listener);
         register.setOnClickListener(listener);
+        head_img.setOnClickListener(listener);
         head.setOnClickListener(listener);
+
         return view;
+
     }
 
     boolean isLogin;
@@ -161,6 +169,10 @@ public class MeFragment extends Fragment {
         }
     };
 
+//    private final static int REQUEST=100;
+//    private final static int REQUEST_IMAGE_CAT=101;
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -188,7 +200,6 @@ public class MeFragment extends Fragment {
                 break;
         }
     }
-
 
 }
 

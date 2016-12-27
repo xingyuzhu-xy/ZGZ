@@ -6,12 +6,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.Tencent;
+import com.tencent.tauth.UiError;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,10 +47,16 @@ public class LoginActivity extends Activity {
     int status;
     String message;
     int id;
+    ImageView login_qq;
+    ImageView login_weibo;
     //返回箭头
     ImageView loginArrow;
     //清除账号内容
     ImageView clearAccount;
+    // Tencent类是SDK的主要实现类，开发者可通过Tencent类访问腾讯开放的OpenAPI。
+    private static Tencent tencent;
+    boolean isServerSideLogin;
+
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_login_layout);
         findViewById();
@@ -56,6 +67,8 @@ public class LoginActivity extends Activity {
         clearAccount.setOnClickListener(listener);
         forgetPassword.setOnClickListener(listener);
         regist.setOnClickListener(listener);
+        login_qq.setOnClickListener(listener);
+        login_weibo.setOnClickListener(listener);
     }
     View.OnClickListener listener=new View.OnClickListener() {
         @Override
@@ -85,9 +98,81 @@ public class LoginActivity extends Activity {
                     Intent intent1=new Intent(LoginActivity.this,RegistActivity.class);
                     startActivity(intent1);
                     break;
+                case R.id.login_qq:
+                    tencent = Tencent.createInstance("1105780483",getApplicationContext());
+                    intent = new Intent(LoginActivity.this,HomePageActivity.class);
+                    startActivity(intent);
+                    /** 判断是否登陆过 */
+                    if(!tencent.isSessionValid()){
+                        tencent.login(LoginActivity.this,"all",loginListener);
+                        isServerSideLogin = false;
+                        /** 登陆过注销之后在登录 */
+                    }else {
+                        tencent.logout(LoginActivity.this);
+                    }
+                    break;
+                case R.id.login_weibo:
+
+                    break;
             }
         }
     };
+
+    IUiListener loginListener = new BaseUiListener(){
+        @Override
+        protected void doComplete(JSONObject values) {
+            initOpenidAndToken(values);
+//            updateUserInfo();
+        }
+    };
+
+    private class BaseUiListener implements IUiListener {
+        @Override
+        public void onComplete(Object response) {
+            if (null == response) {
+//                Util.showResultDialog(ShunbeiLogin.this, "返回为空", "登录失败");
+                return;
+            }
+            JSONObject jsonResponse = (JSONObject) response;
+            if (null != jsonResponse && jsonResponse.length() == 0) {
+//                Util.showResultDialog(ShunbeiLogin.this, "返回为空", "登录失败");
+                return;
+            }
+            doComplete((JSONObject)response);
+        }
+
+        protected void doComplete(JSONObject values) {}
+
+        @Override
+        public void onError(UiError e) {
+//            Util.toastMessage(ShunbeiLogin.this, "onError: " + e.errorDetail);
+//            Util.dismissDialog();
+        }
+
+        @Override
+        public void onCancel() {
+//            Util.toastMessage(ShunbeiLogin.this, "onCancel: ");
+//            Util.dismissDialog();
+            if (isServerSideLogin) {
+                isServerSideLogin = false;
+            }
+        }
+    }
+
+    /** QQ登录第二步：存储token和openid */
+    public  void initOpenidAndToken(JSONObject jsonObject) {
+        try {
+            String token = jsonObject.getString(com.tencent.connect.common.Constants.PARAM_ACCESS_TOKEN);
+            String expires = jsonObject.getString(com.tencent.connect.common.Constants.PARAM_EXPIRES_IN);
+            String openId = jsonObject.getString(com.tencent.connect.common.Constants.PARAM_OPEN_ID);
+            if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty(expires)
+                    && !TextUtils.isEmpty(openId)) {
+                tencent.setAccessToken(token, expires);
+                tencent.setOpenId(openId);
+            }
+        } catch(Exception e) {
+        }
+    }
     boolean isLogin;
     public void login(){
         telephone=accountEdit.getText().toString().trim();
@@ -154,5 +239,7 @@ public class LoginActivity extends Activity {
         regist= (TextView) findViewById(R.id.regist);
         loginArrow= (ImageView) findViewById(R.id.login_arrow);
         clearAccount= (ImageView) findViewById(R.id.clear_account);
+        login_qq = (ImageView) findViewById(R.id.login_qq);
+        login_weibo = (ImageView) findViewById(R.id.login_weibo);
     }
 }
