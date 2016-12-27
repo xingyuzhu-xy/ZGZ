@@ -1,15 +1,20 @@
 package test.leco.com.zgz.t.fragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.FileNotFoundException;
+import java.io.OutputStream;
 
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.data.MyAppLication;
@@ -23,15 +28,23 @@ import test.leco.com.zgz.zxy.MyMessageActivity;
 import test.leco.com.zgz.zxy.MyResumeActivity;
 import test.leco.com.zgz.zxy.MySysSettingActivity;
 import test.leco.com.zgz.zxy.RegistActivity;
+import test.leco.com.zgz.zxy.Utils.AlbumTools;
+import test.leco.com.zgz.zxy.Utils.HeadImage;
+import test.leco.com.zgz.zxy.Utils.ImageCat;
 
 /**
  * Created by Administrator on 2016/12/14.
  */
 
 public class MeFragment extends Fragment {
+    HeadImage head_img;
+    private final static int REQUEST=100;
+    private final static int REQUEST_IMAGE_CAT=101;
+    HeadImage head;
 
     RelativeLayout resume,deliver,download,message,collect,attention,setting,advice;
     TextView login,register;//登录，注册
+
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_my_setting_layout, null);
         resume = (RelativeLayout) view.findViewById(R.id.my_resume);//我的简历
@@ -42,9 +55,10 @@ public class MeFragment extends Fragment {
         attention = (RelativeLayout) view.findViewById(R.id.my_attention);//我的关注
         setting = (RelativeLayout) view.findViewById(R.id.my_setting);//系统设置
         advice = (RelativeLayout) view.findViewById(R.id.my_advice);//意见反馈
+        head_img = (HeadImage) view.findViewById(R.id.head_img);
         login= (TextView) view.findViewById(R.id.login_textview);
         register= (TextView) view.findViewById(R.id.regist_textview);
-
+        head = (HeadImage) view.findViewById(R.id.head_img);
         MyAppLication myAppLication=(MyAppLication)getActivity().getApplication();
         isLogin = myAppLication.isLogin();
         resume.setOnClickListener(listener);
@@ -57,8 +71,11 @@ public class MeFragment extends Fragment {
         advice.setOnClickListener(listener);
         login.setOnClickListener(listener);
         register.setOnClickListener(listener);
+        head_img.setOnClickListener(listener);
+        head.setOnClickListener(listener);
 
         return view;
+
     }
 
     boolean isLogin;
@@ -145,10 +162,44 @@ public class MeFragment extends Fragment {
                     intent=new Intent(getActivity(), RegistActivity.class);
                     startActivity(intent);
                     break;
-
+                case R.id.head_img:
+                    AlbumTools.openAlbum(getActivity(),REQUEST);
+                    break;
             }
         }
     };
+
+//    private final static int REQUEST=100;
+//    private final static int REQUEST_IMAGE_CAT=101;
+
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case REQUEST:
+                if(data==null){
+                    return;
+                }
+                ImageCat.cat(data.getData(),120,120,getActivity(),REQUEST_IMAGE_CAT);//取得图像后，进行剪切
+                break;
+            case REQUEST_IMAGE_CAT:
+                if(data==null){
+                    return;
+                }
+                Bitmap bitmap=ImageCat.getBitmap(data);
+                head.setBitmap(bitmap);
+                try {
+                    OutputStream os = getActivity().openFileOutput("head",getActivity().MODE_PRIVATE);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                //upload();
+                break;
+        }
+    }
 
 }
 

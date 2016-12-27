@@ -1,5 +1,7 @@
 package test.leco.com.zgz.t;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,6 +13,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.io.FileNotFoundException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +23,8 @@ import test.leco.com.zgz.t.fragment.HomePageFragment;
 import test.leco.com.zgz.t.fragment.InterviewFragment;
 import test.leco.com.zgz.t.fragment.MeFragment;
 import test.leco.com.zgz.t.fragment.PositionFragment;
+import test.leco.com.zgz.zxy.Utils.HeadImage;
+import test.leco.com.zgz.zxy.Utils.ImageCat;
 
 
 /**
@@ -181,6 +187,33 @@ public class HomePageActivity extends FragmentActivity {
         });
         
     }
-
-
+    HeadImage head_img;
+    private final static int REQUEST=100;
+    private final static int REQUEST_IMAGE_CAT=100;
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        switch (requestCode){
+//            case 100:
+//                if(data==null){
+//                    return;
+//                }
+//                ImageCat.cat(data.getData(),120,120,this,REQUEST_IMAGE_CAT);//取得图像后，进行剪切
+//                break;
+//            case 100:
+//                if(data==null){
+//                    return;
+//                }
+//                Bitmap bitmap=ImageCat.getBitmap(data);
+//                head_img.setBitmap(bitmap);
+//                try {
+//                    OutputStream os=openFileOutput("head",MODE_PRIVATE);
+//                    bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
+//                } catch (FileNotFoundException e) {
+//                    e.printStackTrace();
+//                }
+//                //upload();
+//                break;
+//        }
+//    }
 }
