@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -23,13 +24,30 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import test.leco.com.zgz.R;
-import test.leco.com.zgz.t.data.IndustryInvolvedItem;
+import test.leco.com.zgz.t.adapter.PositionAdapter;
+import test.leco.com.zgz.t.data.PositionItem;
+import test.leco.com.zgz.t.http.HttpCallbackListener;
+import test.leco.com.zgz.t.http.HttpURL;
 import test.leco.com.zgz.t.other.AlterPlaceActivity;
 
 /**
@@ -37,7 +55,6 @@ import test.leco.com.zgz.t.other.AlterPlaceActivity;
  */
 
 public class AdvancedSearchActivity extends Activity {
-    List<IndustryInvolvedItem> list;
     Button search;//搜索
     ImageView back; //返回上级页面
     LinearLayout positionLinear;//行业选择按钮
@@ -50,7 +67,6 @@ public class AdvancedSearchActivity extends Activity {
     TextView area_text;
     TextView zhiye_text;
     String area;
-    String zhiye;
     TextView shijian;
     private static final int SIGNATURE_REQUESTCODE = 1010;
     private static final int SIGNATURE_ZHIYECODE = 1020;
@@ -91,12 +107,15 @@ public class AdvancedSearchActivity extends Activity {
         minMoneyEditText.addTextChangedListener(minMoneyTextWatcher);
         maxMoneyEditText.addTextChangedListener(manMoneyTextWatcher);
 
-        site =  area_text.getText().toString();
+        site = area_text.getText().toString();
+
+        positionData();
     }
 
     String shijian_time = "不限";
     String[] time = {"一个月前", "一周前", "今天", "不限"};
     int which1 = 3;
+
     public void createTimeDialog() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(AdvancedSearchActivity.this);
         dialog.setTitle("选择发布时间");
@@ -146,7 +165,12 @@ public class AdvancedSearchActivity extends Activity {
                     createTimeDialog();
                     break;
                 case R.id.position_linear:
-                    pupouwindposition();
+                    if (pos == false) {
+                        pupouwindposition();
+                    }else {
+                        popupWindow.dismiss();
+                        pos = false;
+                    }
                     break;
             }
         }
@@ -173,15 +197,14 @@ public class AdvancedSearchActivity extends Activity {
 
     PopupWindow popupWindow;
     ListView listView2;
-    ArrayAdapter<String> arrayAdapterListView1;
-    ArrayAdapter<String> arrayAdapterListView2;
-    String listView1Array[] = {"1", "2", "3"};
-    int pos = 0;
-    private String[] city = new String[]{"北京", "上海", "天津", "重庆"};
-    String[][] pandc = new String[][]{{"北京", "上海", "天津", "重庆"}, {"香港", "澳门"},
-            {"哈尔滨", "齐齐哈尔", "牡丹江", "大庆", "伊春", "双鸭山", "鹤岗", "鸡西", "佳木斯",
-                    "七台河", "黑河", "绥化", "大兴安岭"}};
+    ListView listView1;
 
+    PositionAdapter positionAdapter;
+    ArrayList<PositionItem> positionList = new ArrayList<PositionItem>();
+    ArrayList<String> postItemList = new ArrayList<String>();
+    boolean pos;
+    int positionid;
+    ArrayAdapter postAdapter;
     //行业选择框
     public void pupouwindposition() {
         LayoutInflater layoutInflater = LayoutInflater.from(AdvancedSearchActivity.this);
@@ -192,58 +215,51 @@ public class AdvancedSearchActivity extends Activity {
         Drawable drawable = getResources().getDrawable(R.drawable.edittext_white);
         popupWindow.setBackgroundDrawable(drawable);
         popupWindow.showAsDropDown(positionLinear);
+        pos = popupWindow.isShowing();
 
-        ListView listView1 = (ListView) view.findViewById(R.id.listview1);
+        listView1 = (ListView) view.findViewById(R.id.listview1);
         listView2 = (ListView) view.findViewById(R.id.listview2);
 
-        arrayAdapterListView1 = new ArrayAdapter<String>(this,
-                android.R.layout.simple_expandable_list_item_1, listView1Array);
+        positionAdapter = new PositionAdapter(AdvancedSearchActivity.this,
+                positionList);
+        positionAdapter.setOnItemClickListener(new PositionAdapter.ItemClickListener() {
+            @Override
+            public void click(int poistion, String text, String posititoName) {
+                positionid = Integer.parseInt(text);
+                new Thread() {
+                    @Override
+                    public void run() {
+                        super.run();
+                        postData();
+                        Message msg = new Message();
+                        msg.what = 0;
+                        positionHandler.sendMessage(msg);
+                    }
+                }.start();
+                Log.i("=============", "+++++++++");
+            }
+        });
 
-        listView1.setAdapter(arrayAdapterListView1);
-        listView1.setOnItemClickListener(onItemClickListener);
 
+        listView1.setAdapter(positionAdapter);
+        //listView1.setOnItemClickListener(onItemClickListener);
+
+        postAdapter = new ArrayAdapter(this,
+                R.layout.post_item,postItemList);
         listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                positionName = pandc[pos][i];
+                Log.i("====", "" + adapterView.getItemAtPosition(i));
+                positionName =  adapterView.getItemAtPosition(i).toString();
+                Log.i("positionName====", "" + positionName);
                 input_position_search.setText(positionName);
                 popupWindow.dismiss();
-                Log.i("postname=======>", "" + positionName);
             }
         });
     }
 
-    AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            pos = i;
-            Log.i("pandc=======>", "" + pandc[pos]);
-            arrayAdapterListView2 = new ArrayAdapter<String>(AdvancedSearchActivity.this,
-                    android.R.layout.simple_expandable_list_item_1, pandc[pos]);
-            new Thread() {
-                @Override
-                public void run() {
-                    super.run();
-                    Message message = new Message();
-                    message.what = 1111;
-                    handler.sendMessage(message);
-                }
-            }.start();
 
-        }
-    };
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            if (msg.what == 1111) {
-                Log.i("pos=======>", "" + pos);
-                Log.i("pandc+++++++>", "" + pandc[pos]);
-                // arrayAdapterListView2.notifyDataSetChanged();
-                listView2.setAdapter(arrayAdapterListView2);
-            }
-        }
-    };
+
     //职位名称监听
     TextWatcher postNameText = new TextWatcher() {
         @Override
@@ -298,8 +314,9 @@ public class AdvancedSearchActivity extends Activity {
             Log.i("maxPay=======>", "" + maxPay);
         }
     };
+
     //对时间进行的操作
-    public void istime(){
+    public void istime() {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat
                 ("yyyy-MM-dd");//可以方便地修改日期格式
@@ -308,30 +325,117 @@ public class AdvancedSearchActivity extends Activity {
         Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH) + 1;
-        Log.i("month====>", ""+month);
+        Log.i("month====>", "" + month);
         int date = c.get(Calendar.DATE);
-        Log.i("month====>", ""+date);
-        int hour = c.get(Calendar.HOUR_OF_DAY);
-        int minute = c.get(Calendar.MINUTE);
-        int second = c.get(Calendar.SECOND);
+        Log.i("month====>", "" + date);
         tingtime = shijian.getText().toString();
-        if (tingtime.equals(null)){
-            inssueTime = 19700101+"";
-        }else if (tingtime.equals("一个月前")){
-            inssueTime = ""+ year + (month - 1) + date;
-            Log.i("inssueTime++++++>", ""+inssueTime);
-        }else if (tingtime.equals("一周前")){
-            inssueTime = ""+ year + (month - 1) + date;
-            Log.i("inssueTime====>", ""+inssueTime);
-        }else if(tingtime.equals("今天")){
-            inssueTime = ""+ year + month + date;
-            Log.i("inssueTime********>", ""+inssueTime);
-        }else if (tingtime.equals("不限")){
-            inssueTime = 19700101+"";
-            Log.i("inssueTime/////////>", ""+inssueTime);
-        }else {
-            Log.i("inssueTime-*-*-*-*-*-*>", ""+inssueTime);
+        if (tingtime.equals(null)) {
+            inssueTime = 19700101 + "";
+        } else if (tingtime.equals("一个月前")) {
+            inssueTime = "" + year + (month - 1) + date;
+            Log.i("inssueTime++++++>", "" + inssueTime);
+        } else if (tingtime.equals("一周前")) {
+            inssueTime = "" + year + (month - 1) + date;
+            Log.i("inssueTime====>", "" + inssueTime);
+        } else if (tingtime.equals("今天")) {
+            inssueTime = "" + year + month + date;
+            Log.i("inssueTime********>", "" + inssueTime);
+        } else if (tingtime.equals("不限")) {
+            inssueTime = 19700101 + "";
+            Log.i("inssueTime/////////>", "" + inssueTime);
+        } else {
+            Log.i("inssueTime-*-*-*-*-*-*>", "" + inssueTime);
         }
     }
 
+    //总行业选择接口
+    public void positionData() {
+        String posittionURL = "http://10.0.2.2/index.php/home/index/theirindustry";
+        HttpURL.sendRequest(posittionURL, new HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    int status = jsonObject.getInt("status");
+                    String message = jsonObject.getString("message");
+                    JSONArray positiondata = jsonObject.getJSONArray("positiondata");
+                    for (int i = 0; i < positiondata.length(); i++) {
+                        PositionItem positionItem = new PositionItem();
+                        JSONObject object = positiondata.getJSONObject(i);
+                        positionItem.setPositionID(object.getInt("position_id"));
+                        positionItem.setPositionName(object.getString("position_name"));
+                        positionList.add(positionItem);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(Exception e) {
+
+            }
+        });
+    }
+
+    //行业分类接口获取
+    public void postData() {
+        postItemList.clear();
+        String httpURL = "http://10.0.2.2/index.php/home/index/dustry?positionid=" + positionid;
+        Log.i("postData =======", "" + positionid);
+        HttpURLConnection httpURLConnection = null;
+        try {
+            URL url = new URL(httpURL);
+            httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setConnectTimeout(5000);
+            InputStream inputStream = httpURLConnection.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
+            StringBuilder stringBuilder = new StringBuilder();
+            String data;
+            while ((data = bufferedReader.readLine()) != null) {
+                stringBuilder.append(data);
+            }
+            JSONObject jsonObject = new JSONObject(stringBuilder.toString());
+            int status = jsonObject.getInt("status");
+            String message = jsonObject.getString("message");
+            JSONArray postdata = jsonObject.getJSONArray("postdata");
+            for (int i = 0; i < postdata.length(); i++) {
+
+                JSONObject object = postdata.getJSONObject(i);
+                int post_id = object.getInt("post_id");
+//                postItem.setPositionID(post_id);
+//                Log.i("post_id++++++", "" + post_id);
+                String post_name = object.getString("post_name");
+                Log.i("post_name+++++++", "" + post_name);
+                postItemList.add(post_name);
+                Log.i("postItemList+++++++", "" + postItemList);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    Handler positionHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 0:
+                    Log.i("++++++++++++", "================");
+
+                    listView2.setAdapter(postAdapter);
+                    postAdapter.notifyDataSetChanged();
+                    break;
+            }
+        }
+    };
 }
