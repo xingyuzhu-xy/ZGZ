@@ -7,11 +7,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,7 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import test.leco.com.zgz.R;
-import test.leco.com.zgz.t.adapter.WhoSeeMeAdapter;
+import test.leco.com.zgz.t.data.MyAppLication;
+import test.leco.com.zgz.zxy.ReferCompanyActivity;
 
 
 /**
@@ -51,7 +52,6 @@ public class EnterpriseDetailsActivity extends Activity {
         pepole_number = (TextView) findViewById(R.id.pepole_number);
         jinying = (TextView) findViewById(R.id.jinying);
         hangye = (TextView) findViewById(R.id.hangye);
-        companyName = (TextView) findViewById(R.id.companyName);
         area = (TextView) findViewById(R.id.area);
         context = (TextView) findViewById(R.id.context);
         fuli = (LinearLayout) findViewById(R.id.fuli);
@@ -86,12 +86,22 @@ public class EnterpriseDetailsActivity extends Activity {
                     finish();
                     break;
                 case R.id.enterprise_consultation:
+                    Intent intent = new Intent(EnterpriseDetailsActivity.this, ReferCompanyActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.care_enterprise:
+                    new Thread(){
+                        @Override
+                        public void run() {
+                            setCare();
+                        }
+                    }.start();
                     break;
             }
         }
     };
+
+    MyAppLication myAppLication;
     int user_id;
     int status;
     int id;
@@ -173,9 +183,46 @@ public class EnterpriseDetailsActivity extends Activity {
                 textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                 textView.setText(pay_treatmenr_name.get(z));
                 textView.setTextSize(10);
-                textView.setBackground(getResources().getDrawable(R.drawable.t_benefits));
+                textView.setBackgroundDrawable(getResources().getDrawable(R.drawable.t_benefits));
                 textView.setPadding(5,3,5,4);
                 fuli.addView(textView);
+            }
+        }
+    };
+
+    public void setCare(){
+        myAppLication = (MyAppLication) getApplication();
+        user_id = myAppLication.getId();
+        String STR_URL = "http://10.0.2.2/index.php/home/index/attentionbtn?";
+        try {
+            URL url = new URL(STR_URL+"user_id="+user_id+"&enterprise_id="+enterprise_id);
+            Log.i("======>",""+url);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setConnectTimeout(2000);
+            httpURLConnection.connect();
+            Message ms = new Message();
+            if (httpURLConnection.getResponseCode() ==httpURLConnection.HTTP_OK){
+                ms.arg1 = 200;
+                hand.sendMessage(ms);
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    Handler hand = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.arg1 == 200){
+                Toast.makeText(EnterpriseDetailsActivity.this,"关注成功",Toast.LENGTH_SHORT).show();
+                care.setBackgroundDrawable(getResources().getDrawable(R.drawable.deliver_button2));
+                care.setClickable(false);
+            }else {
+                Toast.makeText(EnterpriseDetailsActivity.this,"关注失败",Toast.LENGTH_SHORT).show();
             }
         }
     };
