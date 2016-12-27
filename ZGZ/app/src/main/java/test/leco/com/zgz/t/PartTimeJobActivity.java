@@ -3,6 +3,9 @@ package test.leco.com.zgz.t;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,7 +13,20 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import test.leco.com.zgz.R;
@@ -24,7 +40,7 @@ import test.leco.com.zgz.t.data.PartTimeJobItem;
 public class PartTimeJobActivity extends Activity {
     ImageView back; //返回上级页面
     ListView listView; //兼职列表
-    List<PartTimeJobItem> list;
+    List<PartTimeJobItem> list = new ArrayList<PartTimeJobItem>();
     Spinner work_area;
     Spinner zhiwei_choose;
     Spinner push_time;
@@ -49,12 +65,12 @@ public class PartTimeJobActivity extends Activity {
             }
         });
 
-        getData();
-        listView.setAdapter(new PartTimeJobAdapter(PartTimeJobActivity.this,list));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                integerList.get(position);
                 Intent intent = new Intent(PartTimeJobActivity.this,CompanyDetailsActivity.class);
+                intent.putExtra("gongsiid",integerList.get(position));
                 startActivity(intent);
             }
         });
@@ -67,19 +83,15 @@ public class PartTimeJobActivity extends Activity {
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(PartTimeJobActivity.this,android.R.layout.simple_spinner_dropdown_item,push_time_sp);
         push_time.setAdapter(arrayAdapter2);
         push_time.setOnItemSelectedListener(onItemSelectedListener);
-    }
-    public void getData(){
-        list = new ArrayList<PartTimeJobItem>();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                part();
+            }
+        }).start();
 
-        for (int i = 0; i < 10; i++){
-            PartTimeJobItem partTimeJobItem = new PartTimeJobItem();
-            partTimeJobItem.setPositionName("沁园工厂实习生");
-            partTimeJobItem.setAddress("九龙坡区-白市驿");
-            partTimeJobItem.setWorkTime("周末");
-            partTimeJobItem.setSalary("3500元/月");
-            list.add(partTimeJobItem);
-        }
     }
+
     AdapterView.OnItemSelectedListener onItemSelectedListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -89,6 +101,84 @@ public class PartTimeJobActivity extends Activity {
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
 
+        }
+    };
+
+    //获得当前时间
+    String string;
+    public void gettime(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        Date date = new Date(System.currentTimeMillis());
+        string= simpleDateFormat.format(date);
+        Log.i("currenttime","===="+string);
+    }
+
+
+    int status;
+    String message;
+    String currenttime ;
+    int part_time_job_details_id;//兼职的ID
+    String part_name; //兼职的名称
+    String part_site;//兼职的地点
+    String part_time;//兼职形式
+    String part_money;//多少钱
+    int isstick;//是否已经置顶 1、置顶 0、不置顶
+    List<Integer> integerList = new ArrayList<>();
+    public void part(){
+        gettime();
+        try {
+            URL url = new URL("http://192.168.7.6/index.php/home/index/part?"+"currenttime="+string);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.connect();
+            if(httpURLConnection.getResponseCode()==HttpURLConnection.HTTP_OK){
+                StringBuilder stringBuilder = new StringBuilder();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String s;
+                while ((s=bufferedReader.readLine())!=null){
+                    stringBuilder.append(s);
+                }
+                String date = stringBuilder.toString();
+                JSONObject jsonObject = new JSONObject(date);
+                status = jsonObject.getInt("status");
+                message = jsonObject.getString("message");
+                JSONArray jsonArray = jsonObject.getJSONArray("partjobdetailsdata");
+                for(int i =0;i<jsonArray.length();i++){
+                    JSONObject object = jsonArray.getJSONObject(i);
+                    part_time_job_details_id = object.getInt("part_time_job_details_id");
+                    part_name = object.getString("part_name");
+                    part_site = object.getString("part_site");
+                    part_time = object.getString("part_time");
+                    part_money = object.getString("part_money");
+                    isstick = object.getInt("isstick");
+                    Log.i("object","object==="+object);
+                    PartTimeJobItem partTimeJobItem = new PartTimeJobItem();
+                    partTimeJobItem.setPositionName(part_name);
+                    partTimeJobItem.setAddress(part_site);
+                    partTimeJobItem.setSalary(part_money);
+                    partTimeJobItem.setWorkTime(part_time);
+                    list.add(partTimeJobItem);
+                    integerList.add(part_time_job_details_id);
+                }
+                handler.sendEmptyMessage(0);
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            PartTimeJobAdapter partTimeJobAdapter = new PartTimeJobAdapter(PartTimeJobActivity.this,list);
+            listView.setAdapter(partTimeJobAdapter);
         }
     };
 }

@@ -40,6 +40,7 @@
                 android:layout_marginLeft="11dp"
                 android:layout_marginRight="20dp">
                 <TextView
+                    android:id="@+id/part_name"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -47,6 +48,7 @@
                     android:textSize="14sp"
                     android:textColor="@color/light_black"/>
                 <TextView
+                    android:id="@+id/time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/part_time_time"
@@ -63,6 +65,7 @@
                 android:layout_height="1dp"
                 android:background="@color/line_color"/>
             <TextView
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/company_name"
@@ -74,6 +77,7 @@
                 android:gravity="center"
                 android:drawablePadding="13dp"/>
             <TextView
+                android:id="@+id/site"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/company_address"
@@ -91,6 +95,7 @@
                 android:layout_marginLeft="17dp"
                 android:layout_marginTop="12dp">
                 <TextView
+                    android:id="@+id/money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/company_salary"
@@ -100,6 +105,7 @@
                     android:gravity="center"
                     android:drawablePadding="13dp"/>
                 <TextView
+                    android:id="@+id/part_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/company_salary_pay_time"
@@ -121,17 +127,40 @@
                 android:drawablePadding="13dp"
                 android:id="@+id/textView"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/company_work_time"
-                android:layout_marginLeft="17dp"
-                android:layout_marginTop="12dp"
-                android:textSize="13sp"
-                android:textColor="@color/light_black"
-                android:drawableLeft="@mipmap/part_time_job_company_details_date"
-                android:gravity="center"
-                android:drawablePadding="13dp"/>
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:id="@+id/zhitime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20161215"
+                    android:layout_marginLeft="17dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/light_black"
+                    android:drawableLeft="@mipmap/part_time_job_company_details_date"
+                    android:gravity="center"
+                    android:drawablePadding="13dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="至"
+                    android:textSize="13sp"
+                    android:textColor="@color/light_black"
+                    android:gravity="center"
+                    android:layout_marginLeft="17dp"/>
+                <TextView
+                    android:id="@+id/jeisutime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20161217"
+                    android:layout_marginLeft="17dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/light_black"
+                    android:gravity="center" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -160,6 +189,7 @@
                             android:textSize="13sp"
                             android:textColor="@color/light_black"/>
                         <TextView
+                            android:id="@+id/xueli"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/unlimited"
@@ -178,6 +208,7 @@
                             android:textSize="13sp"
                             android:textColor="@color/light_black"/>
                         <TextView
+                            android:id="@+id/xinbie"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/unlimited"
@@ -185,6 +216,7 @@
                             android:textColor="@color/light_black"/>
                     </LinearLayout>
                     <TextView
+                        android:id="@+id/context"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
