@@ -78,7 +78,7 @@ public class LoginActivity extends Activity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.login:
+                case R.id.login: //登录
                     new Thread(){
                         @Override
                         public void run() {
@@ -88,21 +88,21 @@ public class LoginActivity extends Activity {
                         }
                     }.start();
                     break;
-                case R.id.login_arrow:
+                case R.id.login_arrow:  //返回上级页面
                     finish();
                     break;
-                case R.id.clear_account:
+                case R.id.clear_account: //清除
                     accountEdit.setText("");
                     break;
-                case R.id.forget_password:
+                case R.id.forget_password: //忘记密码
                     Intent intent=new Intent(LoginActivity.this, LoginForgetPassword.class);
                     startActivity(intent);
                     break;
-                case R.id.regist:
+                case R.id.regist: //注册
                     Intent intent1=new Intent(LoginActivity.this,RegistActivity.class);
                     startActivity(intent1);
                     break;
-                case R.id.login_qq:
+                case R.id.login_qq: //qq登录
                     tencent = Tencent.createInstance("1105780483",getApplicationContext());
                     intent = new Intent(LoginActivity.this,HomePageActivity.class);
                     startActivity(intent);
@@ -115,7 +115,7 @@ public class LoginActivity extends Activity {
                         tencent.logout(LoginActivity.this);
                     }
                     break;
-                case R.id.login_weibo:
+                case R.id.login_weibo:  //微博登录
                    vbRegister= new VBRegister(LoginActivity.this);
                     break;
             }
