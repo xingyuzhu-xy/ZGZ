@@ -85,6 +85,11 @@
             android:textColor="@color/dark_gray"
             android:layout_marginRight="11dp"
             android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/position_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
     </LinearLayout>
     <ImageView
         android:layout_width="match_parent"
