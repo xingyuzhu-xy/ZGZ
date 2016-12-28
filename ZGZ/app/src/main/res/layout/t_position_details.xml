@@ -36,6 +36,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/position"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11dp"
@@ -45,6 +46,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
@@ -66,6 +68,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/jinyan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
@@ -77,6 +80,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/education"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
@@ -88,6 +92,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/people_numb"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
@@ -106,6 +111,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/age"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
@@ -117,6 +123,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/sex"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
@@ -128,6 +135,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/graduate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
@@ -152,6 +160,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/site"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -175,6 +184,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/site_xiang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -195,6 +205,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/enterprise_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -214,6 +225,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/enterprise_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="飞成精密模具"
@@ -231,6 +243,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/industry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -422,7 +435,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
-                android:text="@string/position_statement"
+                android:text="任职要求"
                 android:layout_marginTop="11dp"
                 android:textSize="10dp"
                 android:textColor="@color/light_black"/>
