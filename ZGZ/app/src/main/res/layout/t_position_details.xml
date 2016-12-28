@@ -498,6 +498,7 @@
                 android:layout_marginLeft="9dp"
                 android:background="@drawable/t_enterprise_consultation_phone">
                 <TextView
+                    android:id="@+id/phone_call"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/phone"

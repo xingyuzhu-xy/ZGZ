@@ -26,6 +26,7 @@ public class PositionDetailsActivity extends Activity{
     Intent intent;
     RelativeLayout tel; //打电话
     int en_id; //企业的id
+    TextView phone; //电话
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class PositionDetailsActivity extends Activity{
         setContentView(R.layout.t_position_details);
         back = (ImageView) findViewById(R.id.back_icon);
         enterprise = (TextView) findViewById(R.id.enterprise_consultation);
+        phone = (TextView) findViewById(R.id.phone_call);
         tel = (RelativeLayout) findViewById(R.id.tel);
         //结束当前页面，返回上级页面
         back.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +43,7 @@ public class PositionDetailsActivity extends Activity{
                 finish();
             }
         });
+        //跳转到企业咨询页面
         enterprise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +63,17 @@ public class PositionDetailsActivity extends Activity{
         Intent inte = getIntent();
         en_id = inte.getIntExtra("en",-1);
         Log.i("en_id===>",""+en_id);
+        //打电话
+
+//        phone.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Intent.ACTION_DIAL);
+//                Uri data = Uri.parse("tel:" + "");
+//                intent.setData(data);
+//                startActivity(intent);
+//            }
+//        });
 
         checkPermisson();
     }
