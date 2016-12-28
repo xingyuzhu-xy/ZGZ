@@ -5,11 +5,21 @@ package test.leco.com.zgz.t.data;
  */
 
 public class SearchListItem {
-    private String companyName;
-    private String tiem;
-    private String positionName;
-    private String address;
-    private String education;
+    private String postid;//职位id
+    private String companyName;//公司名
+    private String tiem;//时间
+    private String positionName;//职位名
+    private String address;//地址
+    private String education;//学历
+    private String salary;//薪资
+
+    public String getPostid() {
+        return postid;
+    }
+
+    public void setPostid(String postid) {
+        this.postid = postid;
+    }
 
     public String getEducation() {
         return education;
@@ -59,5 +69,5 @@ public class SearchListItem {
         this.salary = salary;
     }
 
-    private String salary;
+
 }
