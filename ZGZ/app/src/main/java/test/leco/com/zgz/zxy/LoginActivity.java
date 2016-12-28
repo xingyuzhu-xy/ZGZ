@@ -27,6 +27,7 @@ import java.net.URL;
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.HomePageActivity;
 import test.leco.com.zgz.t.data.MyAppLication;
+import test.leco.com.zgz.zxy.vb.VBRegister;
 
 /**
  * Created by Administrator on 2016/12/20.
@@ -46,6 +47,7 @@ public class LoginActivity extends Activity {
     ImageView loginArrow;
     //清除账号内容
     ImageView clearAccount;
+    ImageView weiboLogin;
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_login_layout);
         findViewById();
@@ -56,7 +58,9 @@ public class LoginActivity extends Activity {
         clearAccount.setOnClickListener(listener);
         forgetPassword.setOnClickListener(listener);
         regist.setOnClickListener(listener);
+        weiboLogin.setOnClickListener(listener);
     }
+    VBRegister vbRegister;
     View.OnClickListener listener=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -84,6 +88,9 @@ public class LoginActivity extends Activity {
                 case R.id.regist:
                     Intent intent1=new Intent(LoginActivity.this,RegistActivity.class);
                     startActivity(intent1);
+                    break;
+                case R.id.login_weibo:
+                   vbRegister= new VBRegister(LoginActivity.this);
                     break;
             }
         }
@@ -154,5 +161,12 @@ public class LoginActivity extends Activity {
         regist= (TextView) findViewById(R.id.regist);
         loginArrow= (ImageView) findViewById(R.id.login_arrow);
         clearAccount= (ImageView) findViewById(R.id.clear_account);
+        weiboLogin= (ImageView) findViewById(R.id.login_weibo);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        vbRegister.callBack(requestCode,resultCode,data);
     }
 }
