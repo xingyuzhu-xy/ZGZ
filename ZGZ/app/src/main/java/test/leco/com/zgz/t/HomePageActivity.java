@@ -312,10 +312,8 @@ public class HomePageActivity extends FragmentActivity {
             connection.connect();
             if(connection.getResponseCode()==200)
             {
-
                 read=new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String lien=read.readLine();
-
             }
         } catch (IOException e) {
             e.printStackTrace();
