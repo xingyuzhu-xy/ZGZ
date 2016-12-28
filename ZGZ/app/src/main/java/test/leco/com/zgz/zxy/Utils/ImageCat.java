@@ -16,12 +16,12 @@ public class ImageCat {
         Intent intent = new Intent("com.android.camera.action.CROP")
                 .setDataAndType(photoUri, "image/*").putExtra("crop", "true")
                 .putExtra("return-data", true);
-        // .putExtra("scale", true)
+         //.putExtra("scale", true);
         // // 黑边
         // .putExtra("scaleUpIfNeeded", true)
         // // 黑边
-        intent.putExtra("aspectX", outWith);
-        intent.putExtra("aspectY", outHeight);
+        intent.putExtra("aspectX",1);
+        intent.putExtra("aspectY", 1);
         intent.putExtra("outputX", outWith);
         intent.putExtra("outputY", outHeight);
         activity.startActivityForResult(intent,code);

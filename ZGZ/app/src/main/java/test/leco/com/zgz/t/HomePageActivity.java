@@ -1,29 +1,46 @@
 package test.leco.com.zgz.t;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.telecom.Connection;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import test.leco.com.zgz.R;
+import test.leco.com.zgz.t.data.MyAppLication;
 import test.leco.com.zgz.t.fragment.HomePageFragment;
 import test.leco.com.zgz.t.fragment.InterviewFragment;
 import test.leco.com.zgz.t.fragment.MeFragment;
 import test.leco.com.zgz.t.fragment.PositionFragment;
 import test.leco.com.zgz.zxy.Utils.HeadImage;
+import test.leco.com.zgz.zxy.Utils.HttpPost;
 import test.leco.com.zgz.zxy.Utils.ImageCat;
 
 
@@ -188,8 +205,7 @@ public class HomePageActivity extends FragmentActivity {
         
     }
     HeadImage head_img;
-    private final static int REQUEST=100;
-    private final static int REQUEST_IMAGE_CAT=100;
+
 //    @Override
 //    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
@@ -216,4 +232,94 @@ public class HomePageActivity extends FragmentActivity {
 //                break;
 //        }
 //    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case MeFragment.REQUEST:
+                if(data==null){
+                    return;
+                }
+
+                ImageCat.cat(data.getData(),160,160,this,MeFragment.REQUEST_IMAGE_CAT);//取得图像后，进行剪切
+                break;
+            case  MeFragment.REQUEST_IMAGE_CAT:
+                if(data==null){
+
+                    return;
+                }
+
+                Bitmap bitmap=ImageCat.getBitmap(data);
+                meFragment.head.setBitmap(bitmap);
+                try {
+                    OutputStream os = openFileOutput("head",MODE_PRIVATE);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                upload();
+                break;
+        }
+    }
+
+
+    public void upload(){
+
+        new Thread(){
+            public void run(){
+                Log.i("hh","sssssssssss2");
+                HashMap<String,InputStream> file=new HashMap<String, InputStream>();
+                try {
+                    file.put("test",openFileInput("head"));
+                    String s=HttpPost.postForIs("http://192.168.7.6/index.php/home/index/upload",new HashMap<String, Object>(),file);
+                    Log.i("hh",s);
+                    JSONObject object=new JSONObject(s);
+                    if(object.getString("status").equals("1")){
+                        JSONArray array=object.getJSONArray("result");
+                        change(array.getString(0));
+                    }
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }.start();
+
+    }
+
+    int user_id;
+    public void getsharePreferences(){
+        SharedPreferences sharedPreferences=getSharedPreferences("ZGZ", Context.MODE_PRIVATE);
+        int id = sharedPreferences.getInt("user_id",1);
+        user_id = id;
+    }
+
+    public void change(String s){
+        HttpURLConnection connection=null;
+        BufferedReader read=null;
+        //Log.i("hh","http://192.168.7.6/index.php/home/index/asd?user_id="+2+"&user_image="+s);
+        try {
+            connection= (HttpURLConnection) new URL("http://192.168.7.6/index.php/home/index/asd?user_id="+user_id+"&user_image="+"http://127.0.0.1"+s).openConnection();
+            connection.setRequestMethod("GET");
+            connection.setConnectTimeout(3000);
+            connection.connect();
+            if(connection.getResponseCode()==200)
+            {
+
+                read=new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String lien=read.readLine();
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -1,10 +1,12 @@
 package test.leco.com.zgz.t.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,12 +40,13 @@ import test.leco.com.zgz.zxy.Utils.ImageCat;
 
 public class MeFragment extends Fragment {
     HeadImage head_img;
-    private final static int REQUEST=100;
-    private final static int REQUEST_IMAGE_CAT=101;
-    HeadImage head;
+    public final static int REQUEST=100;
+    public final static int REQUEST_IMAGE_CAT=101;
+    public HeadImage head;
 
     RelativeLayout resume,deliver,download,message,collect,attention,setting,advice;
     TextView login,register;//登录，注册
+    Activity activity;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_my_setting_layout, null);
@@ -73,6 +76,7 @@ public class MeFragment extends Fragment {
         register.setOnClickListener(listener);
         head_img.setOnClickListener(listener);
         head.setOnClickListener(listener);
+        activity=getActivity();
 
         return view;
 
@@ -177,21 +181,25 @@ public class MeFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.i("hhhh","bbbbbbbbbbbbbbb");
         switch (requestCode){
             case REQUEST:
                 if(data==null){
                     return;
                 }
-                ImageCat.cat(data.getData(),120,120,getActivity(),REQUEST_IMAGE_CAT);//取得图像后，进行剪切
+
+                ImageCat.cat(data.getData(),60,60,activity,REQUEST_IMAGE_CAT);//取得图像后，进行剪切
                 break;
             case REQUEST_IMAGE_CAT:
                 if(data==null){
+                    Log.i("hhhh","ssssssssssssss");
                     return;
                 }
+                Log.i("hhhh","aaaaaaaaaaa");
                 Bitmap bitmap=ImageCat.getBitmap(data);
                 head.setBitmap(bitmap);
                 try {
-                    OutputStream os = getActivity().openFileOutput("head",getActivity().MODE_PRIVATE);
+                    OutputStream os = activity.openFileOutput("head",activity.MODE_PRIVATE);
                     bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();

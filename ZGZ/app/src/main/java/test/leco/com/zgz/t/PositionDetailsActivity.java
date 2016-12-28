@@ -53,7 +53,7 @@ public class PositionDetailsActivity extends Activity{
         tel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:15823903420"));
+                intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+phone));
                 startActivity(intent);
             }
         });
