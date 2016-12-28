@@ -23,6 +23,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import test.leco.com.zgz.R;
+import test.leco.com.zgz.zxy.Utils.ShareWeiXin;
 
 /**
  * Created by Administrator on 2016/12/0014.
@@ -30,6 +31,7 @@ import test.leco.com.zgz.R;
 
 public class CompanyDetailsActivity extends Activity {
     ImageView back;
+    TextView share;
     TextView part_nam;//职位名称
     TextView time;//工作时间
     TextView name;//公司名称
@@ -42,6 +44,7 @@ public class CompanyDetailsActivity extends Activity {
     TextView xinbie;//性别
     TextView context;//公司简介
     TextView jeisutime;//结束时间
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +65,9 @@ public class CompanyDetailsActivity extends Activity {
     
     public void findView(){
         back = (ImageView) findViewById(R.id.back_icon);
+        share = (TextView) findViewById(R.id.share);
         back.setOnClickListener(onClickListener);
+        share.setOnClickListener(onClickListener);
         part_nam = (TextView) findViewById(R.id.part_name);
         time = (TextView) findViewById(R.id.time);
         name = (TextView) findViewById(R.id.name);
@@ -83,6 +88,9 @@ public class CompanyDetailsActivity extends Activity {
             switch (v.getId()){
                 case R.id.back_icon:
                     finish();
+                    break;
+                case R.id.share:
+                    ShareWeiXin weiXin = new ShareWeiXin(CompanyDetailsActivity.this,"hello");
                     break;
             }
         }

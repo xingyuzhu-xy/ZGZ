@@ -491,13 +491,14 @@
                     android:drawablePadding="7dp"/>
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/tel"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="9dp"
                 android:background="@drawable/t_enterprise_consultation_phone">
                 <TextView
-                    android:id="@+id/phone"
+                    android:id="@+id/phone_call"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/phone"

@@ -46,16 +46,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="135dp"
                 android:orientation="vertical"
                 android:background="@color/my_setting_blue2">
-                <ImageView
-                    android:id="@+id/headimg"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:layout_marginTop="12dp"
+
+                <test.leco.com.zgz.zxy.Utils.HeadImage
+                    android:id="@+id/head_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
                     android:layout_gravity="center"
-                    android:background="@mipmap/myheadimg"/>
+                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

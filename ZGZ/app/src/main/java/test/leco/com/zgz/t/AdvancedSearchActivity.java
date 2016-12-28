@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -75,8 +76,8 @@ public class AdvancedSearchActivity extends Activity {
     String positionName;//行业名称
     String postName;//职位名称
     String site;//地区
-    String minPay;//最低薪资
-    String maxPay;//最高薪资
+    int minPay;//最低薪资
+    int maxPay;//最高薪资
     String inssueTime;//发布时间
 
     @Override
@@ -106,8 +107,6 @@ public class AdvancedSearchActivity extends Activity {
         postText.addTextChangedListener(postNameText);
         minMoneyEditText.addTextChangedListener(minMoneyTextWatcher);
         maxMoneyEditText.addTextChangedListener(manMoneyTextWatcher);
-
-        site = area_text.getText().toString();
 
         positionData();
     }
@@ -144,21 +143,35 @@ public class AdvancedSearchActivity extends Activity {
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Bundle bundle;
             switch (v.getId()) {
                 case R.id.search_btn:
+                    if (positionName != null){
                     istime();
+                    site = area_text.getText().toString();
                     Log.i("datakjk", "" + positionName + postName + site + minPay + maxPay + inssueTime);
                     intent = new Intent(AdvancedSearchActivity.this, SearchListActivity.class);
-                    startActivity(intent);
+                    bundle = new Bundle();
+                    bundle.putString("positionName", positionName);
+                    bundle.putString("postName", postName);
+                    bundle.putString("site", site);
+                    bundle.putInt("minPay", minPay);
+                    bundle.putInt("maxPay", maxPay);
+                    bundle.putInt("inssueTime", Integer.parseInt(inssueTime));
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent, SIGNATURE_ZHIYECODE);
+                    }else {
+                        Toast.makeText(AdvancedSearchActivity.this, "行业不能为空", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case R.id.back_icon:
                     finish();
                     break;
                 case R.id.search_area:
                     intent = new Intent(AdvancedSearchActivity.this, AlterPlaceActivity.class);
-                    Bundle bundle1 = new Bundle();
-                    bundle1.putString("ischeck", "fause");
-                    intent.putExtras(bundle1);//在用bundle 来Put数据后必需再Put到intent里面，否则没有传递
+                    bundle = new Bundle();
+                    bundle.putString("ischeck", "fause");
+                    intent.putExtras(bundle);//在用bundle 来Put数据后必需再Put到intent里面，否则没有传递
                     startActivityForResult(intent, SIGNATURE_REQUESTCODE);//第二个参数为请求码
                     break;
                 case R.id.time_search:
@@ -292,7 +305,7 @@ public class AdvancedSearchActivity extends Activity {
 
         @Override
         public void afterTextChanged(Editable editable) {
-            minPay = editable.toString();
+            minPay = Integer.parseInt(editable.toString());
             Log.i("minPay=======>", "" + minPay);
         }
     };
@@ -310,7 +323,7 @@ public class AdvancedSearchActivity extends Activity {
 
         @Override
         public void afterTextChanged(Editable editable) {
-            maxPay = editable.toString();
+            maxPay = Integer.parseInt(editable.toString());
             Log.i("maxPay=======>", "" + maxPay);
         }
     };
@@ -319,26 +332,29 @@ public class AdvancedSearchActivity extends Activity {
     public void istime() {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat
-                ("yyyy-MM-dd");//可以方便地修改日期格式
+                ("yyyyMMdd");//可以方便地修改日期格式
         String today = dateFormat.format(now);
         Log.i("dateFormat====>", today);
         Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH) + 1;
-        Log.i("month====>", "" + month);
+        Log.i("WEEK_OF_MONTH====>", "" + c.get(Calendar.DAY_OF_WEEK));
         int date = c.get(Calendar.DATE);
         Log.i("month====>", "" + date);
         tingtime = shijian.getText().toString();
         if (tingtime.equals(null)) {
             inssueTime = 19700101 + "";
         } else if (tingtime.equals("一个月前")) {
-            inssueTime = "" + year + (month - 1) + date;
+            inssueTime =  "" + year + (month - 1) + date;
             Log.i("inssueTime++++++>", "" + inssueTime);
         } else if (tingtime.equals("一周前")) {
-            inssueTime = "" + year + (month - 1) + date;
-            Log.i("inssueTime====>", "" + inssueTime);
+            c.set(Calendar.DAY_OF_MONTH, c.get(Calendar.DAY_OF_MONTH) - 7);
+            Date lastWeek1 = c.getTime();
+            String lastWeek = dateFormat.format(lastWeek1);
+            inssueTime = lastWeek;
+            Log.i("lastWeek====>", "" + lastWeek);
         } else if (tingtime.equals("今天")) {
-            inssueTime = "" + year + month + date;
+            inssueTime = "" +  year + month + date;
             Log.i("inssueTime********>", "" + inssueTime);
         } else if (tingtime.equals("不限")) {
             inssueTime = 19700101 + "";
@@ -350,7 +366,7 @@ public class AdvancedSearchActivity extends Activity {
 
     //总行业选择接口
     public void positionData() {
-        String posittionURL = "http://10.0.2.2/index.php/home/index/theirindustry";
+        String posittionURL = "http://192.168.7.6/index.php/home/index/theirindustry";
         HttpURL.sendRequest(posittionURL, new HttpCallbackListener() {
             @Override
             public void onFinish(String response) {
@@ -381,7 +397,7 @@ public class AdvancedSearchActivity extends Activity {
     //行业分类接口获取
     public void postData() {
         postItemList.clear();
-        String httpURL = "http://10.0.2.2/index.php/home/index/dustry?positionid=" + positionid;
+        String httpURL = "http://192.168.7.6/index.php/home/index/dustry?positionid=" + positionid;
         Log.i("postData =======", "" + positionid);
         HttpURLConnection httpURLConnection = null;
         try {
