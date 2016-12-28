@@ -32,6 +32,7 @@ import java.net.URL;
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.HomePageActivity;
 import test.leco.com.zgz.t.data.MyAppLication;
+import test.leco.com.zgz.zxy.vb.VBRegister;
 
 /**
  * Created by Administrator on 2016/12/20.
@@ -57,6 +58,7 @@ public class LoginActivity extends Activity {
     private static Tencent tencent;
     boolean isServerSideLogin;
 
+    ImageView weiboLogin;
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_login_layout);
         findViewById();
@@ -69,7 +71,9 @@ public class LoginActivity extends Activity {
         regist.setOnClickListener(listener);
         login_qq.setOnClickListener(listener);
         login_weibo.setOnClickListener(listener);
+        weiboLogin.setOnClickListener(listener);
     }
+    VBRegister vbRegister;
     View.OnClickListener listener=new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -112,7 +116,7 @@ public class LoginActivity extends Activity {
                     }
                     break;
                 case R.id.login_weibo:
-
+                   vbRegister= new VBRegister(LoginActivity.this);
                     break;
             }
         }
@@ -127,7 +131,6 @@ public class LoginActivity extends Activity {
     };
 
     private class BaseUiListener implements IUiListener {
-        @Override
         public void onComplete(Object response) {
             if (null == response) {
 //                Util.showResultDialog(ShunbeiLogin.this, "返回为空", "登录失败");
@@ -143,13 +146,11 @@ public class LoginActivity extends Activity {
 
         protected void doComplete(JSONObject values) {}
 
-        @Override
         public void onError(UiError e) {
 //            Util.toastMessage(ShunbeiLogin.this, "onError: " + e.errorDetail);
 //            Util.dismissDialog();
         }
 
-        @Override
         public void onCancel() {
 //            Util.toastMessage(ShunbeiLogin.this, "onCancel: ");
 //            Util.dismissDialog();
@@ -241,5 +242,12 @@ public class LoginActivity extends Activity {
         clearAccount= (ImageView) findViewById(R.id.clear_account);
         login_qq = (ImageView) findViewById(R.id.login_qq);
         login_weibo = (ImageView) findViewById(R.id.login_weibo);
+        weiboLogin= (ImageView) findViewById(R.id.login_weibo);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        vbRegister.callBack(requestCode,resultCode,data);
     }
 }
