@@ -438,4 +438,5 @@ public class AdvancedSearchActivity extends Activity {
             }
         }
     };
+
 }

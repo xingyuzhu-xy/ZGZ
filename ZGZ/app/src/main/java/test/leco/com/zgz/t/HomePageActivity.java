@@ -4,12 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.telecom.Connection;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -28,13 +29,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import test.leco.com.zgz.R;
-import test.leco.com.zgz.t.data.MyAppLication;
 import test.leco.com.zgz.t.fragment.HomePageFragment;
 import test.leco.com.zgz.t.fragment.InterviewFragment;
 import test.leco.com.zgz.t.fragment.MeFragment;
@@ -42,6 +44,7 @@ import test.leco.com.zgz.t.fragment.PositionFragment;
 import test.leco.com.zgz.zxy.Utils.HeadImage;
 import test.leco.com.zgz.zxy.Utils.HttpPost;
 import test.leco.com.zgz.zxy.Utils.ImageCat;
+import test.leco.com.zgz.zxy.Utils.LoadImage;
 
 
 /**
@@ -84,6 +87,8 @@ public class HomePageActivity extends FragmentActivity {
         interviewImageview = (ImageView) findViewById(R.id.interview_imageview);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         radioGroup = (RadioGroup) findViewById(R.id.radiogroup);
+
+        getsharePreferences();
 
 
         homePageFragment = new HomePageFragment();
@@ -132,6 +137,10 @@ public class HomePageActivity extends FragmentActivity {
 
             }
         });
+
+
+
+
    /*     viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -193,11 +202,20 @@ public class HomePageActivity extends FragmentActivity {
                         break;
                     //我的
                     case R.id.me_radiobutton:
+                        Log.i("11111","111111");
                         homeRadio.setTextColor(getResources().getColor(R.color.light_black));
                         positionRadio.setTextColor(getResources().getColor(R.color.light_black));
                         interviewRadio.setTextColor(getResources().getColor(R.color.light_black));
                         meRadio.setTextColor(getResources().getColor(R.color.my_setting_blue1));
                         viewPager.setCurrentItem(3);
+
+                        new Thread(){
+                            @Override
+                            public void run() {
+                                getData();
+                            }
+                        }.start();
+
                         break;
                 }
             }
@@ -297,26 +315,69 @@ public class HomePageActivity extends FragmentActivity {
     int user_id;
     public void getsharePreferences(){
         SharedPreferences sharedPreferences=getSharedPreferences("ZGZ", Context.MODE_PRIVATE);
-        int id = sharedPreferences.getInt("user_id",1);
-        user_id = id;
+        user_id = sharedPreferences.getInt("user_id",1);
     }
 
+    /**
+     * ip地址记得更改
+     * @param s
+     */
     public void change(String s){
         HttpURLConnection connection=null;
         BufferedReader read=null;
-        //Log.i("hh","http://192.168.7.6/index.php/home/index/asd?user_id="+2+"&user_image="+s);
+        //Log.i("hh","http://192.168.7.6/index.php/home/index/asd?user_id="+user_id+"&user_image="+s);
         try {
-            connection= (HttpURLConnection) new URL("http://192.168.7.6/index.php/home/index/asd?user_id="+user_id+"&user_image="+"http://127.0.0.1"+s).openConnection();
+            connection= (HttpURLConnection) new URL("http://192.168.7.6/index.php/home/index/asd?user_id="+user_id+"&user_image="+"http://192.168.7.6"+s).openConnection();
             connection.setRequestMethod("GET");
             connection.setConnectTimeout(3000);
             connection.connect();
             if(connection.getResponseCode()==200)
             {
-
                 read=new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String lien=read.readLine();
 
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    String imageurl;
+    //获取数据
+    public void getData(){
+        Log.i("str=========>","+===str");
+        HttpURLConnection connection=null;
+        try {
+            connection= (HttpURLConnection) new URL("http://192.168.7.6/index.php/home/index/getusermessage?user_id="+user_id).openConnection();
+
+            connection.setRequestMethod("GET");
+            connection.setConnectTimeout(3000);
+            connection.connect();
+
+            StringBuilder stringBuilder = new StringBuilder();
+            InputStream inputStream = connection.getInputStream();//获得返回的数据流对象
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"UTF-8");
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String s;
+            while ((s=bufferedReader.readLine()) != null) {
+                stringBuilder.append(s);
+            }
+            String data = stringBuilder.toString();
+            Log.i("data====>",""+data);
+
+            JSONObject jsonObject = new JSONObject(data);
+            JSONArray userMessage = jsonObject.getJSONArray("user_message ");
+            JSONObject message = userMessage.getJSONObject(0);
+            imageurl = message.getString("user_image");
+            Log.i("imageurl===>",""+imageurl);
+            LoadImage.load(meFragment.head,imageurl);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ProtocolException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -177,7 +177,7 @@ public class LoginActivity extends Activity {
     public void login(){
         telephone=accountEdit.getText().toString().trim();
         password=passwordEdit.getText().toString().trim();
-        String httpUrl="http://10.0.2.2/index.php/home/index/login?"+"telephone="+telephone+"&password="+password;
+        String httpUrl="http://192.168.7.6/index.php/home/index/login?"+"telephone="+telephone+"&password="+password;
         try {
             URL url=new URL(httpUrl);
             HttpURLConnection httpURLConnection= (HttpURLConnection) url.openConnection();
