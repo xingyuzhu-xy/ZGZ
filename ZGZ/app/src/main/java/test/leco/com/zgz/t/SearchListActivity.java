@@ -6,11 +6,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -48,7 +52,7 @@ public class SearchListActivity extends Activity {
     ImageView back; //返回上级页面
     ListView listView;
     List<SearchListItem> list = new ArrayList<SearchListItem>();
-    ;
+
     Spinner position_type;
     Spinner regio;
     Spinner salary;
@@ -85,13 +89,8 @@ public class SearchListActivity extends Activity {
             Log.i("data*-*-*-*-*-*", "" + positionName + "****" + postName + "****" + site + "****"
                     + minPay + "****" + maxPay + "****" + inssueTime);
         }
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                experTseekData();
-            }
-        }.start();
+        urlHttp();
+
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -111,10 +110,10 @@ public class SearchListActivity extends Activity {
         position_type.setOnItemSelectedListener(onItemSelectedListener);
         ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(SearchListActivity.this, android.R.layout.simple_spinner_dropdown_item, regio_sp);
         regio.setAdapter(arrayAdapter1);
-        regio.setOnItemSelectedListener(onItemSelectedListener);
+        regio.setOnItemSelectedListener(onItemSelectedListener1);
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(SearchListActivity.this, android.R.layout.simple_spinner_dropdown_item, salary_sp);
         salary.setAdapter(arrayAdapter2);
-        salary.setOnItemSelectedListener(onItemSelectedListener);
+        salary.setOnItemSelectedListener(onItemSelectedListener2);
         //点击结束当前页面，返回上级页面
         back.setOnClickListener(onClickListener);
 //        position_type.setOnClickListener(onClickListener);
@@ -159,7 +158,62 @@ public class SearchListActivity extends Activity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             //parent.getItemAtPosition(position)
-            Log.i("======",""+parent.getItemAtPosition(position));
+            Log.i("======", "" + parent.getItemAtPosition(position));
+            Log.i("parent======", "" + parent);
+            postName = parent.getItemAtPosition(position).toString();
+            if (postName.equals("职位类别")) {
+                postName = null;
+                Log.i("postName======", "" + postName);
+            }
+//            urlHttp();
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    };
+    AdapterView.OnItemSelectedListener onItemSelectedListener1 = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            //parent.getItemAtPosition(position)
+            Log.i("======", "" + parent.getItemAtPosition(position));
+            Log.i("parent======", "" + parent);
+            site = parent.getItemAtPosition(position).toString();
+            if (site.equals("地区")) {
+                site = null;
+            }
+            urlHttp();
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+
+        }
+    };
+    AdapterView.OnItemSelectedListener onItemSelectedListener2 = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            //parent.getItemAtPosition(position)
+            Log.i("======", "" + parent.getItemAtPosition(position));
+            Log.i("parent======", "" + parent);
+            String pay = parent.getItemAtPosition(position).toString();
+
+            if (pay.equals("薪资")) {
+                pay = "0-999999999";
+            } else if (pay.equals("15000以上")) {
+                pay = "15000-999999999";
+            }
+            String payArray[] = pay.split("-", 2);
+            Log.i("payArray======", "" + payArray);
+            String minPayStr = payArray[0];
+            String maxPayStr = payArray[1];
+            Log.i("minPayStr======", "" + minPayStr);
+            Log.i("maxPayStr======", "" + maxPayStr);
+            minPay = Integer.parseInt(minPayStr);
+            maxPay = Integer.parseInt(maxPayStr);
+            urlHttp();
+
 
         }
 
@@ -169,11 +223,12 @@ public class SearchListActivity extends Activity {
         }
     };
 
-    SearchListItem searchListItem = new SearchListItem();
+
+
 
     //高级搜索页面接口
     public void experTseekData() {
-
+        list.clear();
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat
                 ("yyyy-MM-dd");//可以方便地修改日期格式
@@ -201,6 +256,7 @@ public class SearchListActivity extends Activity {
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.connect();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
             StringBuilder stringBuilder = new StringBuilder();
@@ -211,29 +267,33 @@ public class SearchListActivity extends Activity {
             JSONObject jsonObject = new JSONObject(stringBuilder.toString());
             int status = jsonObject.getInt("status");
             String message = jsonObject.getString("message");
-            Log.i("message======", "" + message + status);
-            JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
-            for (int i = 0; i < postdetailsdata.length(); i++) {
-
-                JSONObject object = postdetailsdata.getJSONObject(i);
-                int postDetailsID = object.getInt("post_details_id");
-                searchListItem.setPostid(postDetailsID + "");
-                String enterpriseName = object.getString("enterprise_name");
-                searchListItem.setCompanyName(enterpriseName);
-                String postType = object.getString("post_type");
-                searchListItem.setPositionName(postType);
-                String startTime = object.getString("start_time");
-                currerttime(startTime);
-              //  searchListItem.setTiem(startTime);
-                String district = object.getString("district");
-                searchListItem.setAddress(district);
-                String enducationType = object.getString("enducation_type");
-                String experience = object.getString("experience");
-                String expEnduca = experience + "/" + enducationType;
-                searchListItem.setEducation(expEnduca);
-                String pay = object.getString("pay");
-                searchListItem.setSalary(pay);
-                list.add(searchListItem);
+            if (status == 200) {
+                JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
+                for (int i = 0; i < postdetailsdata.length(); i++) {
+                    SearchListItem searchListItem = new SearchListItem();
+                    JSONObject object = postdetailsdata.getJSONObject(i);
+                    int postDetailsID = object.getInt("post_details_id");
+                    searchListItem.setPostid(postDetailsID + "");
+                    String enterpriseName = object.getString("enterprise_name");
+                    searchListItem.setCompanyName(enterpriseName);
+                    String postType = object.getString("post_type");
+                    searchListItem.setPositionName(postType);
+                    String startTime = object.getString("start_time");
+                    String  startTimeStr = currerttime(startTime);
+                    searchListItem.setTiem(startTimeStr);
+                    String district = object.getString("district");
+                    searchListItem.setAddress(district);
+                    String enducationType = object.getString("enducation_type");
+                    String experience = object.getString("experience");
+                    String expEnduca = experience + "/" + enducationType;
+                    searchListItem.setEducation(expEnduca);
+                    String pay = object.getString("pay");
+                    searchListItem.setSalary(pay);
+                    list.add(searchListItem);
+                    listView.setAdapter(new SearchListAdapter(SearchListActivity.this, list));
+                }
+            } else {
+                Toast.makeText(SearchListActivity.this, message, Toast.LENGTH_SHORT).show();
             }
             handler.sendEmptyMessage(0);
         } catch (UnsupportedEncodingException e) {
@@ -250,7 +310,7 @@ public class SearchListActivity extends Activity {
     }
 
     //对发布时间进行判断
-    public void currerttime(String time) {
+    public String currerttime(String time) {
         String newTime = time.replace("-", "");
         int positionTime = Integer.parseInt(newTime);
         Log.i("newTime++++++", "" + newTime);
@@ -283,28 +343,40 @@ public class SearchListActivity extends Activity {
         int qiantian = Integer.parseInt(qiantianStr);
         Log.i("qiantian++++++", "" + qiantian);
 
-
+        String timeStr;
         if (lastWeek <= positionTime && positionTime < qiantian) {
-            searchListItem.setTiem("一周以内");
+            timeStr = "一周以内";
         } else if (today == positionTime) {
-            searchListItem.setTiem("今天");
+            timeStr = "今天";
         } else if (lastmonth <= positionTime && positionTime < lastWeek) {
-            searchListItem.setTiem("一个月以内");
+            timeStr = "一个月以内";
         } else if (lastdate == positionTime) {
-            searchListItem.setTiem("昨天");
+            timeStr = "昨天";
         } else if (qiantian == positionTime) {
-            searchListItem.setTiem("前天");
+            timeStr = "前天";
         } else {
-            searchListItem.setTiem(time);
+            timeStr = time;
         }
-
+        return timeStr;
     }
 
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            listView.setAdapter(new SearchListAdapter(SearchListActivity.this, list));
+//            listView.setAdapter(new SearchListAdapter(SearchListActivity.this, list));
         }
     };
+
+    public void urlHttp(){
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                Looper.prepare();
+                experTseekData();
+                Looper.loop();
+            }
+        }.start();
+    }
 }
