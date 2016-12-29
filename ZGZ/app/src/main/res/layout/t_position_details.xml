@@ -92,7 +92,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/people_numb"
+                    android:id="@+id/people_numbs"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
@@ -407,6 +407,7 @@
                 android:textSize="10dp"
                 android:textColor="@color/light_black"/>
             <TextView
+                android:id="@+id/zhize"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
@@ -414,22 +415,22 @@
                 android:layout_marginTop="8dp"
                 android:textSize="10dp"
                 android:textColor="@color/light_black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:text="2.严格按(注塑机安卓操作规程)操作机器，不得随意更改设定参数"
-                android:layout_marginTop="6dp"
-                android:textSize="10dp"
-                android:textColor="@color/light_black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:text="3.严格按(注塑机安卓操作规程)操作机器，不得随意更改设定参数"
-                android:layout_marginTop="6dp"
-                android:textSize="10dp"
-                android:textColor="@color/light_black"/>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="14dp"-->
+                <!--android:text="2.严格按(注塑机安卓操作规程)操作机器，不得随意更改设定参数"-->
+                <!--android:layout_marginTop="6dp"-->
+                <!--android:textSize="10dp"-->
+                <!--android:textColor="@color/light_black"/>-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="14dp"-->
+                <!--android:text="3.严格按(注塑机安卓操作规程)操作机器，不得随意更改设定参数"-->
+                <!--android:layout_marginTop="6dp"-->
+                <!--android:textSize="10dp"-->
+                <!--android:textColor="@color/light_black"/>-->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -440,6 +441,7 @@
                 android:textSize="10dp"
                 android:textColor="@color/light_black"/>
             <TextView
+                android:id="@+id/yaoqui"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="14dp"
@@ -447,23 +449,23 @@
                 android:layout_marginTop="7dp"
                 android:textSize="10dp"
                 android:textColor="@color/light_black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:text="2.积极肯干，吃苦耐劳；具有创新精神及团队协作精神"
-                android:layout_marginTop="6dp"
-                android:textSize="10dp"
-                android:textColor="@color/light_black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:text="3.责任心强，有团队合作精神，有良好的沟通能力"
-                android:layout_marginTop="6dp"
-                android:textSize="10sp"
-                android:textColor="@color/light_black"
-                android:layout_marginBottom="16dp"/>
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="14dp"-->
+                <!--android:text="2.积极肯干，吃苦耐劳；具有创新精神及团队协作精神"-->
+                <!--android:layout_marginTop="6dp"-->
+                <!--android:textSize="10dp"-->
+                <!--android:textColor="@color/light_black"/>-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="14dp"-->
+                <!--android:text="3.责任心强，有团队合作精神，有良好的沟通能力"-->
+                <!--android:layout_marginTop="6dp"-->
+                <!--android:textSize="10sp"-->
+                <!--android:textColor="@color/light_black"-->
+                <!--android:layout_marginBottom="16dp"/>-->
         </LinearLayout>
     </ScrollView>
     <LinearLayout
@@ -511,7 +513,6 @@
                 android:layout_marginLeft="9dp"
                 android:background="@drawable/t_enterprise_consultation_phone">
                 <TextView
-                    android:id="@+id/phone_call"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/phone"

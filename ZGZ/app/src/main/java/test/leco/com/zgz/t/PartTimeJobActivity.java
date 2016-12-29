@@ -124,7 +124,7 @@ public class PartTimeJobActivity extends Activity {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         Date date = new Date(System.currentTimeMillis());
         string= simpleDateFormat.format(date);
-        Log.i("currenttime","===="+string);
+//        Log.i("currenttime","===="+string);
     }
 
 
@@ -175,7 +175,7 @@ public class PartTimeJobActivity extends Activity {
                     part_time = object.getString("part_time");
                     part_money = object.getString("part_money");
                     isstick = object.getInt("isstick");
-                    Log.i("object","object==="+object);
+//                    Log.i("object","object==="+object);
                     PartTimeJobItem partTimeJobItem = new PartTimeJobItem();
                     partTimeJobItem.setPositionName(part_name);
                     partTimeJobItem.setAddress(part_site);

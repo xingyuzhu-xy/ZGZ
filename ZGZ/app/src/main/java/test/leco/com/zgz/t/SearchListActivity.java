@@ -88,7 +88,6 @@ public class SearchListActivity extends Activity {
         new Thread() {
             @Override
             public void run() {
-                super.run();
                 experTseekData();
             }
         }.start();
@@ -98,6 +97,10 @@ public class SearchListActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(SearchListActivity.this, PositionDetailsActivity.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putInt("ischecked",arrayList.get(position));
+                intent.putExtras(bundle1);
+                Log.i("ischecked","-------------"+arrayList.get(position));
                 startActivity(intent);
             }
         });
@@ -170,13 +173,13 @@ public class SearchListActivity extends Activity {
     };
 
     SearchListItem searchListItem = new SearchListItem();
-
+    ArrayList<Integer> arrayList = new ArrayList<Integer>();
     //高级搜索页面接口
     public void experTseekData() {
 
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat
-                ("yyyy-MM-dd");//可以方便地修改日期格式
+                ("yyyyMMdd");//可以方便地修改日期格式
         String today = dateFormat.format(now);
 
         if (positionName == null) {
@@ -187,20 +190,28 @@ public class SearchListActivity extends Activity {
             site = "";
         } else if (minPay == 0) {
             minPay = 0;
-        } else if (maxPay == 0) {
+        }
+        if (maxPay == 0) {
             maxPay = 999999999;
         } else if (inssueTime < 19700101) {
             maxPay = 19700101;
         }
-        String httpURL = "http://10.0.2.2/index.php/home/index/expertseek?positionname="
+        try {
+            positionName = java.net.URLEncoder.encode(positionName,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String httpURL = "http://192.168.7.6/index.php/home/index/expertseek?positionname="
                 + positionName + "&currenttime=" + today + "&postname=" + postName + "&site=" + site
                 + "&minpay=" + minPay + "&maxpay=" + maxPay + "&time=" + inssueTime;
-        HttpURLConnection httpURLConnection = null;
+        HttpURLConnection httpURLConnection;
+        Log.i("++++++++", "" + httpURL);
         try {
             URL url = new URL(httpURL);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.connect();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
             StringBuilder stringBuilder = new StringBuilder();
@@ -208,6 +219,7 @@ public class SearchListActivity extends Activity {
             while ((data = bufferedReader.readLine()) != null) {
                 stringBuilder.append(data);
             }
+            Log.i("*-*-*-*-*-*", "" + stringBuilder.toString());
             JSONObject jsonObject = new JSONObject(stringBuilder.toString());
             int status = jsonObject.getInt("status");
             String message = jsonObject.getString("message");
@@ -233,6 +245,7 @@ public class SearchListActivity extends Activity {
                 searchListItem.setEducation(expEnduca);
                 String pay = object.getString("pay");
                 searchListItem.setSalary(pay);
+                arrayList.add(postDetailsID);
                 list.add(searchListItem);
             }
             handler.sendEmptyMessage(0);
