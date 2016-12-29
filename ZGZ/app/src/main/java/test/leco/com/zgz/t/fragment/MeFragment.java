@@ -18,6 +18,7 @@ import android.widget.Toast;
 import java.io.FileNotFoundException;
 import java.io.OutputStream;
 
+import agora.openvcall.AGApplication;
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.data.MyAppLication;
 import test.leco.com.zgz.zxy.LoginActivity;
@@ -62,7 +63,7 @@ public class MeFragment extends Fragment {
         login= (TextView) view.findViewById(R.id.login_textview);
         register= (TextView) view.findViewById(R.id.regist_textview);
         head = (HeadImage) view.findViewById(R.id.head_img);
-        MyAppLication myAppLication=(MyAppLication)getActivity().getApplication();
+        AGApplication myAppLication= (AGApplication) getActivity().getApplication();
         isLogin = myAppLication.isLogin();
         resume.setOnClickListener(listener);
         deliver.setOnClickListener(listener);

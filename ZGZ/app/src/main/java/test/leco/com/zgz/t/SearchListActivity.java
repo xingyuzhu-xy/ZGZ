@@ -98,6 +98,15 @@ public class SearchListActivity extends Activity {
             titleText.setText(R.string.nearseek);
         }
 
+        experTseekData();
+        new Thread() {
+            @Override
+            public void run() {
+                experTseekData();
+            }
+        }.start();
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -110,6 +119,13 @@ public class SearchListActivity extends Activity {
                 bundle.putInt("positionid", positionid);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, SEARCHLIST_POSITIONID_SATE);
+
+                Bundle bundle1 = new Bundle();
+                bundle1.putInt("ischecked",arrayList.get(position));
+                intent.putExtras(bundle1);
+                Log.i("ischecked","-------------"+arrayList.get(position));
+                startActivity(intent);
+
             }
         });
 
@@ -245,6 +261,7 @@ public class SearchListActivity extends Activity {
         }
     };
 
+
     public static String matchResult(Pattern p, String str) {
         StringBuilder sb = new StringBuilder();
         Matcher m = p.matcher(str);
@@ -256,12 +273,16 @@ public class SearchListActivity extends Activity {
     }
 
 
+
+    SearchListItem searchListItem = new SearchListItem();
+    ArrayList<Integer> arrayList = new ArrayList<Integer>();
+
     //高级搜索页面接口
     public void experTseekData() {
         list.clear();
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat
-                ("yyyy-MM-dd");//可以方便地修改日期格式
+                ("yyyyMMdd");//可以方便地修改日期格式
         String today = dateFormat.format(now);
 
         if (positionName == null) {
@@ -272,19 +293,26 @@ public class SearchListActivity extends Activity {
             site = "";
         } else if (minPay == 0) {
             minPay = 0;
-        } else if (maxPay == 0) {
+        }
+        if (maxPay == 0) {
             maxPay = 999999999;
         } else if (inssueTime < 19700101) {
             inssueTime  = 19700101;
         }
-        String httpURL = "http://10.0.2.2/index.php/home/index/expertseek?positionname="
+        try {
+            positionName = java.net.URLEncoder.encode(positionName, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String httpURL = "http://192.168.7.6/index.php/home/index/expertseek?positionname="
                 + positionName + "&currenttime=" + today + "&postname=" + postName + "&site=" + site
                 + "&minpay=" + minPay + "&maxpay=" + maxPay + "&time=" + inssueTime;
+
         SearchSeekLoad sear = new SearchSeekLoad();
         sear.execute(httpURL);
 
-
     }
+
 
     //高级异步任务的使用方法
     public class SearchSeekLoad extends AsyncTask<String, Void, String> {

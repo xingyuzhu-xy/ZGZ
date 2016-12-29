@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
@@ -38,7 +40,6 @@ public class PositionDetailsActivity extends Activity{
     Intent intent;
     RelativeLayout tel; //打电话
     int en_id; //企业的id
-    TextView phone1; //电话
     TextView position;//职位名称
     TextView money;//薪水
     TextView jinyan;//经验
@@ -52,6 +53,8 @@ public class PositionDetailsActivity extends Activity{
     TextView enterprise_name;//公司名字
     ImageView enterprise_image;//公司标志
     TextView industry;//经营范围
+    TextView yaoqui;
+    TextView zhize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +62,12 @@ public class PositionDetailsActivity extends Activity{
         setContentView(R.layout.t_position_details);
         back = (ImageView) findViewById(R.id.back_icon);
         enterprise = (TextView) findViewById(R.id.enterprise_consultation);
-        phone1 = (TextView) findViewById(R.id.phone_call);
         tel = (RelativeLayout) findViewById(R.id.tel);
         position = (TextView) findViewById(R.id.position);
         money = (TextView) findViewById(R.id.money);
         jinyan = (TextView) findViewById(R.id.jinyan);
         education = (TextView) findViewById(R.id.education);
-        people_numb = (TextView) findViewById(R.id.people_numb);
+        people_numb = (TextView) findViewById(R.id.people_numbs);
         age = (TextView) findViewById(R.id.age);
         sex = (TextView) findViewById(R.id.sex);
         graduate = (TextView) findViewById(R.id.graduate);
@@ -74,6 +76,8 @@ public class PositionDetailsActivity extends Activity{
         enterprise_name = (TextView) findViewById(R.id.enterprise_name);
         industry = (TextView) findViewById(R.id.industry);
         enterprise_image = (ImageView) findViewById(R.id.enterprise_image);
+        zhize = (TextView) findViewById(R.id.zhize);
+        yaoqui = (TextView) findViewById(R.id.yaoqui);
         //结束当前页面，返回上级页面
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,21 +102,27 @@ public class PositionDetailsActivity extends Activity{
                 startActivity(intent);
             }
         });
-        Intent inte = getIntent();
-        en_id = inte.getIntExtra("en",-1);
-        Log.i("en_id===>",""+en_id);
-        //打电话
+//        Intent inte = getIntent();
+//        en_id = inte.getIntExtra("en",-1);
+//        Log.i("en_id===>",""+en_id);
+//        //打电话
+//
+//        tel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Intent.ACTION_DIAL);
+//                Uri data = Uri.parse("tel:" + phone);
+//                intent.setData(data);
+//                startActivity(intent);
+//            }
+//        });
 
-        phone1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                Uri data = Uri.parse("tel:" + "");
-                intent.setData(data);
-                startActivity(intent);
-            }
-        });
-
+        //拿到传递过来的ID
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if(bundle != null){
+            postid = bundle.getInt("ischecked");
+        }
         checkPermisson();
         new Thread(new Runnable() {
             @Override
@@ -122,9 +132,27 @@ public class PositionDetailsActivity extends Activity{
         }).start();
     }
 
-    int postid;
+    int postid ;
     int status;
     String message;
+    String pay;
+    String base_pay;
+    String obligation;
+    String take_office_status;
+    String sex_type;
+    String enducation_type;
+    String enterprise_nama;
+    String enterprise_imag;
+    int isapprove;
+    String industr;
+    int enterprise_id;
+    String direct_camp;
+    String district;
+    int recuit_person_id;//招聘人的ID
+    String post_type;
+    String experience;
+    int person_num;
+    String aged;
     public void getseekpostdetails(){
         try {
             URL url = new URL("http://10.0.2.2/index.php/home/index/seekpostdetails?"+"postid"+postid);
@@ -142,30 +170,35 @@ public class PositionDetailsActivity extends Activity{
                     stringBuilder.append(s);
                 }
                 String date = stringBuilder.toString();
+//                Log.i("*-*-*-*-*-*-",""+date);
                 JSONObject jsonObject = new JSONObject(date);
                 status =jsonObject.getInt("status");
                 message = jsonObject.getString("message");
                 JSONArray jsonArray = jsonObject.getJSONArray("postdetailsdata");
                 for(int i=0;i<jsonArray.length();i++){
                     JSONObject object = jsonArray.getJSONObject(i);
-                    String post_type = object.getString("post_type");
-                    String experience = object.getString("experience");
-                    int person_num =object.getInt("person_num");
-                    String pay = object.getString("pay");
-                    String base_pay = object.getString("base_pay");
-                    String obligation = object.getString("obligation");
-                    String take_office_status = object.getString("take_office_status");
-                    String sex_type = object.getString("sex_type");
-                    String enducation_type = object.getString("enducation_type");
-                    String enterprise_name = object.getString("enterprise_name");
-                    String enterprise_image = object.getString("enterprise_image");
-                    int isapprove = object.getInt("isapprove");
-                    String industry = object.getString("industry");
-                    int enterprise_id = object.getInt("enterprise_id");
-                    String direct_camp = object.getString("direct_camp");
-                    String district = object.getString("district");
-                    int recuit_person_id = object.getInt("recuit_person_id");//招聘人的ID
+                     post_type = object.getString("post_type");
+                     experience = object.getString("experience");
+                     person_num =object.getInt("person_num");
+                     aged = object.getString("age");
+                     pay = object.getString("pay");
+                     base_pay = object.getString("base_pay");
+                     obligation = object.getString("obligation");
+                     take_office_status = object.getString("take_office_status");
+                     sex_type = object.getString("sex_type");
+                     enducation_type = object.getString("enducation_type");
+                     enterprise_nama = object.getString("enterprise_name");
+                     enterprise_imag = object.getString("enterprise_image");
+                     isapprove = object.getInt("isapprove");
+                     industr = object.getString("industry");
+                     enterprise_id = object.getInt("enterprise_id");
+                     direct_camp = object.getString("direct_camp");
+                     district = object.getString("district");
+                     recuit_person_id = object.getInt("recuit_person_id");//招聘人的ID
                 }
+                handler.sendEmptyMessage(0);
+            }else {
+                Log.i("getResponseCode()",""+httpURLConnection.getResponseCode());
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -175,6 +208,27 @@ public class PositionDetailsActivity extends Activity{
             e.printStackTrace();
         }
     }
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            position.setText(post_type);//职位名称
+            money.setText(pay);//薪水
+            jinyan.setText(experience);//经验
+            education.setText(enducation_type);//学历
+            people_numb.setText(""+person_num);//招收人数
+            age.setText(aged);//年龄
+            sex.setText(sex_type);//性别
+//            graduate.setText();//招收标准
+//            site.setText();//地址
+            site_xiang.setText(district);//详细地址
+            enterprise_name.setText(enterprise_nama);//公司名字
+//            enterprise_image.setImageResource();//公司标志
+            industry.setText(industr);//经营范围
+            zhize.setText(obligation);
+            yaoqui.setText(take_office_status);
+        }
+    };
     /**
      * 动态权限的请求
      */

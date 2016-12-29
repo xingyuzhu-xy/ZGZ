@@ -30,4 +30,13 @@
     <color name="blue3">#9BDDFF</color>
     <color name="grey">#A1A1A1</color>
     <color name="black">#000000</color>
+
+    <color name="agora_blue">#FF00A0EB</color>
+
+    <color name="lightColorAccent">#30FF4081</color>
+
+    <color name="dark_black">#CC262626</color>
+
+    <color name="transparent_75_white">#ACFFFFFF</color>
+
 </resources>

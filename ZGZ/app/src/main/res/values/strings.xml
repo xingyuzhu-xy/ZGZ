@@ -159,6 +159,26 @@
     <string name="cp_introduce1">汇策传媒集团是由国内知名媒体传播界人士联合于2007年12月24日组建，是集合媒介计划及购买于一体的专业媒介传播公司，年销售额近亿元。 </string>
     <string name="cp_introduce2">汇策传媒集团在传播领域拥有汇策广告传媒、兆策广告传媒、策云信息科技等多家传播及网络科技公司，构成全方位的传播解决体系。 </string>
     <string name="cp_introduce3">秉承“汇聚同人 共享发展”的企业理念，通过对媒体资源、客户资源、渠道资源、人力资源的高效整合，立足打造专业化的媒体综合平台。 </string>
+
     <string name="advanseek">高级搜索</string>
     <string name="nearseek">附近工作搜索</string>
+
+
+    <string name="label_settings">Settings</string>
+    <string name="msg_welcome_message">Welcome to Open Video Call!</string>
+    <string name="label_channel_name_hint">Channel name</string>
+    <string name="label_encryption_key_hint">Encryption key</string>
+    <string name="label_join">Join</string>
+    <string name="label_confirm">Confirm</string>
+    <string name="label_send">Send</string>
+    <string name="msg_say_something">Say something…</string>
+    <string name="msg_no_network_connection">No network connection, please check the network settings</string>
+    <string name="label_title_resolution">Resolution\n(Width * Height)</string>
+    <string name="label_title_frame_rate">Frame Rate\n(fps)</string>
+    <string name="label_title_bit_rate">Bit Rate\n(kbps)</string>
+
+
+    <string name="bit_rate_value_with_unit">%d kbps</string>
+    <string name="frame_rate_value_with_unit">%d fps</string>
+
 </resources>
