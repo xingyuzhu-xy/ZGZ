@@ -126,7 +126,6 @@ public class InterviewFaceActivity extends Activity {
     String price; //薪水
     public void getinterview(){
         String httpurl = "http://10.0.2.2/index.php/home/index/getinterview?"+"user_id="+1;
-        Log.i("====>",""+httpurl);
         try {
             URL url = new URL(httpurl);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -134,7 +133,6 @@ public class InterviewFaceActivity extends Activity {
             httpURLConnection.setConnectTimeout(5000);
             httpURLConnection.connect();
             if(httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK){
-                Log.i("","00000000");
                 StringBuilder stringBuilder = new StringBuilder();
                 InputStream inputStream = httpURLConnection.getInputStream();
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"UTF-8");

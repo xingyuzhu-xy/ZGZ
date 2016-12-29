@@ -4,21 +4,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,7 +36,6 @@ import java.util.List;
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.adapter.SearchListAdapter;
 import test.leco.com.zgz.t.data.SearchListItem;
-import test.leco.com.zgz.t.http.HttpURL;
 
 /**
  * Created by Administrator on 2016/12/0014.
@@ -50,8 +43,8 @@ import test.leco.com.zgz.t.http.HttpURL;
 
 public class SearchListActivity extends Activity {
     ImageView back; //返回上级页面
-    ListView listView;
-    List<SearchListItem> list = new ArrayList<SearchListItem>();
+    static ListView listView;
+    static List<SearchListItem> list = new ArrayList<SearchListItem>();
 
     Spinner position_type;
     Spinner regio;
@@ -65,6 +58,7 @@ public class SearchListActivity extends Activity {
     int minPay;//最低薪资
     int maxPay;//最高薪资
     int inssueTime;//时间
+    private final int SEARCHLIST_POSITIONID_SATE = 11111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,15 +83,20 @@ public class SearchListActivity extends Activity {
             Log.i("data*-*-*-*-*-*", "" + positionName + "****" + postName + "****" + site + "****"
                     + minPay + "****" + maxPay + "****" + inssueTime);
         }
-        urlHttp();
-
-
+        experTseekData();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                SearchListItem seracItem = list.get(position);
+                String positionstr = seracItem.getPostid();
+                int positionid = Integer.parseInt(positionstr);
+                Log.i("positionid", "" + positionid);
                 Intent intent = new Intent(SearchListActivity.this, PositionDetailsActivity.class);
-                startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putInt("positionid", positionid);
+                intent.putExtras(bundle);
+                startActivityForResult(intent, SEARCHLIST_POSITIONID_SATE);
             }
         });
 
@@ -165,7 +164,7 @@ public class SearchListActivity extends Activity {
                 postName = null;
                 Log.i("postName======", "" + postName);
             }
-//            urlHttp();
+            experTseekData();
         }
 
         @Override
@@ -183,7 +182,7 @@ public class SearchListActivity extends Activity {
             if (site.equals("地区")) {
                 site = null;
             }
-            urlHttp();
+            experTseekData();
         }
 
         @Override
@@ -212,8 +211,8 @@ public class SearchListActivity extends Activity {
             Log.i("maxPayStr======", "" + maxPayStr);
             minPay = Integer.parseInt(minPayStr);
             maxPay = Integer.parseInt(maxPayStr);
-            urlHttp();
 
+            experTseekData();
 
         }
 
@@ -222,8 +221,6 @@ public class SearchListActivity extends Activity {
 
         }
     };
-
-
 
 
     //高级搜索页面接口
@@ -250,133 +247,277 @@ public class SearchListActivity extends Activity {
         String httpURL = "http://10.0.2.2/index.php/home/index/expertseek?positionname="
                 + positionName + "&currenttime=" + today + "&postname=" + postName + "&site=" + site
                 + "&minpay=" + minPay + "&maxpay=" + maxPay + "&time=" + inssueTime;
-        HttpURLConnection httpURLConnection = null;
-        try {
-            URL url = new URL(httpURL);
-            httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.setConnectTimeout(5000);
-            httpURLConnection.connect();
-            InputStream inputStream = httpURLConnection.getInputStream();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
-            StringBuilder stringBuilder = new StringBuilder();
-            String data;
-            while ((data = bufferedReader.readLine()) != null) {
-                stringBuilder.append(data);
-            }
-            JSONObject jsonObject = new JSONObject(stringBuilder.toString());
-            int status = jsonObject.getInt("status");
-            String message = jsonObject.getString("message");
-            if (status == 200) {
-                JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
-                for (int i = 0; i < postdetailsdata.length(); i++) {
-                    SearchListItem searchListItem = new SearchListItem();
-                    JSONObject object = postdetailsdata.getJSONObject(i);
-                    int postDetailsID = object.getInt("post_details_id");
-                    searchListItem.setPostid(postDetailsID + "");
-                    String enterpriseName = object.getString("enterprise_name");
-                    searchListItem.setCompanyName(enterpriseName);
-                    String postType = object.getString("post_type");
-                    searchListItem.setPositionName(postType);
-                    String startTime = object.getString("start_time");
-                    String  startTimeStr = currerttime(startTime);
-                    searchListItem.setTiem(startTimeStr);
-                    String district = object.getString("district");
-                    searchListItem.setAddress(district);
-                    String enducationType = object.getString("enducation_type");
-                    String experience = object.getString("experience");
-                    String expEnduca = experience + "/" + enducationType;
-                    searchListItem.setEducation(expEnduca);
-                    String pay = object.getString("pay");
-                    searchListItem.setSalary(pay);
-                    list.add(searchListItem);
-                    listView.setAdapter(new SearchListAdapter(SearchListActivity.this, list));
-                }
-            } else {
-                Toast.makeText(SearchListActivity.this, message, Toast.LENGTH_SHORT).show();
-            }
-            handler.sendEmptyMessage(0);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+//        HttpURLConnection httpURLConnection = null;
+//        try {
+//            URL url = new URL(httpURL);
+//            httpURLConnection = (HttpURLConnection) url.openConnection();
+//            httpURLConnection.setRequestMethod("GET");
+//            httpURLConnection.setConnectTimeout(5000);
+//            httpURLConnection.connect();
+//            InputStream inputStream = httpURLConnection.getInputStream();
+//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
+//            StringBuilder stringBuilder = new StringBuilder();
+//            String data;
+//            while ((data = bufferedReader.readLine()) != null) {
+//                stringBuilder.append(data);
+//            }
+//            JSONObject jsonObject = new JSONObject(stringBuilder.toString());
+//            int status = jsonObject.getInt("status");
+//            String message = jsonObject.getString("message");
+//            if (status == 200) {
+//                JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
+//                for (int i = 0; i < postdetailsdata.length(); i++) {
+//                    SearchListItem searchListItem = new SearchListItem();
+//                    JSONObject object = postdetailsdata.getJSONObject(i);
+//                    int postDetailsID = object.getInt("post_details_id");
+//                    searchListItem.setPostid(postDetailsID + "");
+//                    String enterpriseName = object.getString("enterprise_name");
+//                    searchListItem.setCompanyName(enterpriseName);
+//                    String postType = object.getString("post_type");
+//                    searchListItem.setPositionName(postType);
+//                    String startTime = object.getString("start_time");
+//                    String  startTimeStr = currerttime(startTime);
+//                    searchListItem.setTiem(startTimeStr);
+//                    String district = object.getString("district");
+//                    searchListItem.setAddress(district);
+//                    String enducationType = object.getString("enducation_type");
+//                    String experience = object.getString("experience");
+//                    String expEnduca = experience + "/" + enducationType;
+//                    searchListItem.setEducation(expEnduca);
+//                    String pay = object.getString("pay");
+//                    searchListItem.setSalary(pay);
+        SearchSeekLoad sear = new SearchSeekLoad();
+        sear.execute(httpURL);
+
+
     }
+//            } else {
+//                Toast.makeText(SearchListActivity.this, message, Toast.LENGTH_SHORT).show();
+//            }
+
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        } catch (ProtocolException e) {
+//            e.printStackTrace();
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     //对发布时间进行判断
-    public String currerttime(String time) {
-        String newTime = time.replace("-", "");
-        int positionTime = Integer.parseInt(newTime);
-        Log.i("newTime++++++", "" + newTime);
-        Date now = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat
-                ("yyyyMMdd");//可以方便地修改日期格式
-        String todayStr = dateFormat.format(now);
-        int today = Integer.parseInt(todayStr);
-        Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH) + 1;
-        int date = calendar.get(Calendar.DATE);
-        calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) - 7);//一周前今天的时间
-        Date lastWeek1 = calendar.getTime();
-        int lastWeek = Integer.parseInt(dateFormat.format(lastWeek1));
+//    public String currerttime(String time) {
+//        String newTime = time.replace("-", "");
+//        int positionTime = Integer.parseInt(newTime);
+//        Log.i("newTime++++++", "" + newTime);
+//        Date now = new Date();
+//        SimpleDateFormat dateFormat = new SimpleDateFormat
+//                ("yyyyMMdd");//可以方便地修改日期格式
+//        String todayStr = dateFormat.format(now);
+//        int today = Integer.parseInt(todayStr);
+//        Calendar calendar = Calendar.getInstance();
+//        int year = calendar.get(Calendar.YEAR);
+//        int month = calendar.get(Calendar.MONTH) + 1;
+//        int date = calendar.get(Calendar.DATE);
+//        calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) - 7);//一周前今天的时间
+//        Date lastWeek1 = calendar.getTime();
+//        int lastWeek = Integer.parseInt(dateFormat.format(lastWeek1));
+//
+//        calendar.add(Calendar.DATE, -1 + 7);    //得到前一天
+//        calendar.add(Calendar.MONTH, -1);    //得到前一个月
+//        int lastmonth1 = calendar.get(Calendar.MONTH) + 1;
+//        String lastmonthStr = year + "" + lastmonth1 + "" + date;
+//        int lastmonth = Integer.parseInt(lastmonthStr);
+//        Log.i("lastmonth++++++", "" + lastmonth);
+//        int lastdate1 = calendar.get(Calendar.DATE);
+//        String lastdateStr = year + "" + month + "" + lastdate1;
+//        int lastdate = Integer.parseInt(lastdateStr);
+//        Log.i("date++++++", "" + lastdate);
+//        calendar.add(Calendar.DATE, -1);
+//        int qiantian1 = calendar.get(Calendar.DATE);//得到前天
+//        String qiantianStr = year + "" + month + "" + qiantian1;
+//        int qiantian = Integer.parseInt(qiantianStr);
+//        Log.i("qiantian++++++", "" + qiantian);
+//
+//        String timeStr;
+//        if (lastWeek <= positionTime && positionTime < qiantian) {
+//            timeStr = "一周以内";
+//        } else if (today == positionTime) {
+//            timeStr = "今天";
+//        } else if (lastmonth <= positionTime && positionTime < lastWeek) {
+//            timeStr = "一个月以内";
+//        } else if (lastdate == positionTime) {
+//            timeStr = "昨天";
+//        } else if (qiantian == positionTime) {
+//            timeStr = "前天";
+//        } else {
+//            timeStr = time;
+//        }
+//        return timeStr;
+//    }
 
-        calendar.add(Calendar.DATE, -1 + 7);    //得到前一天
-        calendar.add(Calendar.MONTH, -1);    //得到前一个月
-        int lastmonth1 = calendar.get(Calendar.MONTH) + 1;
-        String lastmonthStr = year + "" + lastmonth1 + "" + date;
-        int lastmonth = Integer.parseInt(lastmonthStr);
-        Log.i("lastmonth++++++", "" + lastmonth);
-        int lastdate1 = calendar.get(Calendar.DATE);
-        String lastdateStr = year + "" + month + "" + lastdate1;
-        int lastdate = Integer.parseInt(lastdateStr);
-        Log.i("date++++++", "" + lastdate);
-        calendar.add(Calendar.DATE, -1);
-        int qiantian1 = calendar.get(Calendar.DATE);//得到前天
-        String qiantianStr = year + "" + month + "" + qiantian1;
-        int qiantian = Integer.parseInt(qiantianStr);
-        Log.i("qiantian++++++", "" + qiantian);
+//    Handler handler = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+//            super.handleMessage(msg);
+////            listView.setAdapter(new SearchListAdapter(SearchListActivity.this, list));
+//        }
+//    };
 
-        String timeStr;
-        if (lastWeek <= positionTime && positionTime < qiantian) {
-            timeStr = "一周以内";
-        } else if (today == positionTime) {
-            timeStr = "今天";
-        } else if (lastmonth <= positionTime && positionTime < lastWeek) {
-            timeStr = "一个月以内";
-        } else if (lastdate == positionTime) {
-            timeStr = "昨天";
-        } else if (qiantian == positionTime) {
-            timeStr = "前天";
-        } else {
-            timeStr = time;
-        }
-        return timeStr;
-    }
+    //    public void urlHttp() {
+//        new Thread() {
+//            @Override
+//            public void run() {
+//                super.run();
+//                Looper.prepare();
+//                experTseekData();
+//                Looper.loop();
+//            }
+//        }.start();
+//    }
 
-    Handler handler = new Handler() {
+    //异步任务的使用方法
+    public class SearchSeekLoad extends AsyncTask<String, Void, String> {
+
         @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-//            listView.setAdapter(new SearchListAdapter(SearchListActivity.this, list));
-        }
-    };
+        protected void onPreExecute() {
+            super.onPreExecute();
 
-    public void urlHttp(){
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                Looper.prepare();
-                experTseekData();
-                Looper.loop();
+        }
+
+
+        @Override
+        protected String doInBackground(String... params) {
+            SearchListItem searchListItem = null;
+            HttpURLConnection httpURLConnection = null;
+            try {
+                httpURLConnection = (HttpURLConnection)
+                        new URL(params[0]).openConnection();
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.connect();
+                if (httpURLConnection.getResponseCode() == 200) {
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
+                    StringBuilder stringBuilder = new StringBuilder();
+                    String data;
+                    while ((data = bufferedReader.readLine()) != null) {
+                        stringBuilder.append(data);
+                    }
+                    String positionData = stringBuilder.toString();
+                    return positionData;
+                } else {
+                    Log.i("haha", "错误信息" + httpURLConnection.getResponseCode());
+                }
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (ProtocolException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        }.start();
+            return null;
+        }
+
+        //对发布时间进行判断
+        public String currerttime(String time) {
+            String newTime = time.replace("-", "");
+            int positionTime = Integer.parseInt(newTime);
+            Log.i("newTime++++++", "" + newTime);
+            Date now = new Date();
+            SimpleDateFormat dateFormat = new SimpleDateFormat
+                    ("yyyyMMdd");//可以方便地修改日期格式
+            String todayStr = dateFormat.format(now);
+            int today = Integer.parseInt(todayStr);
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH) + 1;
+            int date = calendar.get(Calendar.DATE);
+            calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) - 7);//一周前今天的时间
+            Date lastWeek1 = calendar.getTime();
+            int lastWeek = Integer.parseInt(dateFormat.format(lastWeek1));
+
+            calendar.add(Calendar.DATE, -1 + 7);    //得到前一天
+            calendar.add(Calendar.MONTH, -1);    //得到前一个月
+            int lastmonth1 = calendar.get(Calendar.MONTH) + 1;
+            String lastmonthStr = year + "" + lastmonth1 + "" + date;
+            int lastmonth = Integer.parseInt(lastmonthStr);
+            Log.i("lastmonth++++++", "" + lastmonth);
+            int lastdate1 = calendar.get(Calendar.DATE);
+            String lastdateStr = year + "" + month + "" + lastdate1;
+            int lastdate = Integer.parseInt(lastdateStr);
+            Log.i("date++++++", "" + lastdate);
+            calendar.add(Calendar.DATE, -1);
+            int qiantian1 = calendar.get(Calendar.DATE);//得到前天
+            String qiantianStr = year + "" + month + "" + qiantian1;
+            int qiantian = Integer.parseInt(qiantianStr);
+            Log.i("qiantian++++++", "" + qiantian);
+
+            String timeStr;
+            if (lastWeek <= positionTime && positionTime < qiantian) {
+                timeStr = "一周以内";
+            } else if (today == positionTime) {
+                timeStr = "今天";
+            } else if (lastmonth <= positionTime && positionTime < lastWeek) {
+                timeStr = "一个月以内";
+            } else if (lastdate == positionTime) {
+                timeStr = "昨天";
+            } else if (qiantian == positionTime) {
+                timeStr = "前天";
+            } else {
+                timeStr = time;
+            }
+            return timeStr;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                int status = jsonObject.getInt("status");
+                String message = jsonObject.getString("message");
+                if (status == 200) {
+                    JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
+                    for (int i = 0; i < postdetailsdata.length(); i++) {
+                        SearchListItem searchListItem = new SearchListItem();
+                        JSONObject object = postdetailsdata.getJSONObject(i);
+                        int postDetailsID = object.getInt("post_details_id");
+                        searchListItem.setPostid(postDetailsID + "");
+                        String enterpriseName = object.getString("enterprise_name");
+                        searchListItem.setCompanyName(enterpriseName);
+                        String postType = object.getString("post_type");
+                        searchListItem.setPositionName(postType);
+                        String startTime = object.getString("start_time");
+                        String startTimeStr = currerttime(startTime);
+                        searchListItem.setTiem(startTimeStr);
+                        String district = object.getString("district");
+                        searchListItem.setAddress(district);
+                        String enducationType = object.getString("enducation_type");
+                        String experience = object.getString("experience");
+                        String expEnduca = experience + "/" + enducationType;
+                        searchListItem.setEducation(expEnduca);
+                        String pay = object.getString("pay");
+                        searchListItem.setSalary(pay);
+                        list.add(searchListItem);
+                        Log.i("list/*/*/*/*/", "" + list);
+                    }
+                }
+                listView.setAdapter(new SearchListAdapter(SearchListActivity.this, list));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
     }
 }
