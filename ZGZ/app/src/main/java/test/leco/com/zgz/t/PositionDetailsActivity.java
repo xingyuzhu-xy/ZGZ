@@ -127,7 +127,7 @@ public class PositionDetailsActivity extends Activity{
     String message;
     public void getseekpostdetails(){
         try {
-            URL url = new URL("http://localhost/index.php/home/index/seekpostdetails?"+"postid"+postid);
+            URL url = new URL("http://10.0.2.2/index.php/home/index/seekpostdetails?"+"postid"+postid);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setConnectTimeout(5000);

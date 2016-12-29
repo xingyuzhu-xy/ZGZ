@@ -23,6 +23,41 @@
             android:textColor="@color/white" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/vocationType"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/vocation_type"
+            android:layout_gravity="center"
+            android:layout_marginLeft="11dp"
+            android:textSize="14sp"
+            android:textColor="@color/light_black"/>
+        <TextView
+            android:id="@+id/position_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择行业"
+            android:layout_gravity="center"
+            android:textSize="13sp"
+            android:textColor="@color/blue"
+            android:layout_marginRight="12sp"/>
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/advanced_list_main_body_arrows"
+            android:layout_gravity="center"
+            android:layout_marginRight="12dp"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:orientation="horizontal">
@@ -53,40 +88,8 @@
             android:layout_gravity="center"
             android:layout_marginRight="12dp"/>
     </LinearLayout>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/line_color"/>
-    <LinearLayout
-        android:id="@+id/vocationType"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/vocation_type"
-            android:layout_gravity="center"
-            android:layout_marginLeft="11dp"
-            android:textSize="14sp"
-            android:textColor="@color/light_black"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/unlimited"
-            android:layout_gravity="center"
-            android:textSize="13sp"
-            android:textColor="@color/blue"
-            android:layout_marginRight="12sp"/>
-        <ImageView
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/advanced_list_main_body_arrows"
-            android:layout_gravity="center"
-            android:layout_marginRight="12dp"/>
-    </LinearLayout>
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -135,7 +138,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/update_time"
+            android:text="发布时间"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
             android:textSize="14sp"
@@ -144,7 +147,7 @@
             android:id="@+id/push_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/update_time"
+            android:text="不限"
             android:layout_gravity="center"
             android:textSize="13sp"
             android:textColor="@color/gray"
@@ -169,19 +172,20 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/distance_range"
+            android:text="求职地区"
             android:layout_gravity="center"
             android:layout_marginLeft="11dp"
             android:textSize="14sp"
             android:textColor="@color/light_black"/>
-        <TextView
-            android:id="@+id/scope"
+        <EditText
+            android:id="@+id/site"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/distance_numb"
+            android:background="@null"
+            android:hint="输入工作的范围"
             android:layout_gravity="center"
             android:textSize="13sp"
-            android:textColor="@color/gray"
+            android:textColorHint="@color/gray"
             android:layout_marginRight="12sp"/>
         <ImageView
             android:layout_width="wrap_content"

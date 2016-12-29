@@ -141,37 +141,37 @@ public class HomePageActivity extends FragmentActivity {
 
 
 
-   /*     viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-               switch (position){
-                   case 0:
-                       homeRadio.setChecked(true);
-                       break;
-                   case 1:
-                       positionRadio.setChecked(true);
-                       break;
-                   case 2:
-                       interviewRadio.setChecked(true);
-                       break;
-                   case 3:
-                       meRadio.setChecked(true);
-                       break;
-               }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                Animation animation = new TranslateAnimation(0,0,0,0);//平移动画
-                animation.setFillAfter(true);//动画终止时停留在最后一帧，不然会回到没有执行前的状态
-                animation.setDuration(200);
-            }
-        });*/
+//      viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//               switch (position){
+//                   case 0:
+//                       homeRadio.setChecked(true);
+//                       break;
+//                   case 1:
+//                       positionRadio.setChecked(true);
+//                       break;
+//                   case 2:
+//                       interviewRadio.setChecked(true);
+//                       break;
+//                   case 3:
+//                       meRadio.setChecked(true);
+//                       break;
+//               }
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//                Animation animation = new TranslateAnimation(0,0,0,0);//平移动画
+//                animation.setFillAfter(true);//动画终止时停留在最后一帧，不然会回到没有执行前的状态
+//                animation.setDuration(200);
+//            }
+//        });
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override//底部按钮切换视图
             public void onCheckedChanged(RadioGroup group, int checkedId) {
