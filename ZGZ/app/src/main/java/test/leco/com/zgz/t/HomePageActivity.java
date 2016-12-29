@@ -132,6 +132,7 @@ public class HomePageActivity extends FragmentActivity {
 
             }
         });
+        getsharePreferences();
    /*     viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

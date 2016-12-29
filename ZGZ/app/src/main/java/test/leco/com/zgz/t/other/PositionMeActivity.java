@@ -16,6 +16,7 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import agora.openvcall.AGApplication;
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.PositionDetailsActivity;
 import test.leco.com.zgz.t.adapter.MePositionAdapter;
@@ -73,12 +74,12 @@ public class PositionMeActivity extends Activity {
 //        }
 //    }
 
-    MyAppLication myAppLication;
+    AGApplication myAppLication;
     int useId;
 
     public void getData() {
 
-        myAppLication = (MyAppLication) getApplication();
+        myAppLication = (AGApplication) getApplication();
         useId = myAppLication.getId();
         try {
             GetLookHttp getLookHttp = new GetLookHttp(useId);

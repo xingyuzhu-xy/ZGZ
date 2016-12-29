@@ -27,6 +27,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import agora.openvcall.AGApplication;
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.data.MyAppLication;
 import test.leco.com.zgz.zxy.ReferCompanyActivity;
@@ -101,7 +102,7 @@ public class EnterpriseDetailsActivity extends Activity {
         }
     };
 
-    MyAppLication myAppLication;
+    AGApplication myAppLication;
     int user_id;
     int status;
     int id;
@@ -191,7 +192,7 @@ public class EnterpriseDetailsActivity extends Activity {
     };
 
     public void setCare(){
-        myAppLication = (MyAppLication) getApplication();
+        myAppLication = (AGApplication) getApplication();
         user_id = myAppLication.getId();
         String STR_URL = "http://10.0.2.2/index.php/home/index/attentionbtn?";
         try {

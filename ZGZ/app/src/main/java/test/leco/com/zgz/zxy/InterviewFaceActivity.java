@@ -1,8 +1,10 @@
 package test.leco.com.zgz.zxy;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.SurfaceView;
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import agora.openvcall.ui.MainActivity;
 import io.agora.rtc.IRtcEngineEventHandler;
 import io.agora.rtc.RtcEngine;
 import test.leco.com.zgz.R;
@@ -99,12 +102,15 @@ public class InterviewFaceActivity extends Activity {
                     }
                     break;
                 case R.id.RelativeLayout:
-                    new Thread(){
-                        @Override
-                        public void run() {
-                            createRtcEngine();
-                        }
-                    }.start();
+//                    new Thread(){
+//                        @Override
+//                        public void run() {
+//                            createRtcEngine();
+//                        }
+//                    }.start();
+
+                    Intent intent = new Intent(InterviewFaceActivity.this, MainActivity.class);
+                    startActivity(intent);
                     break;
             }
         }
@@ -119,7 +125,8 @@ public class InterviewFaceActivity extends Activity {
     int isonline; //是否在线（1在线）
     String price; //薪水
     public void getinterview(){
-        String httpurl = "http://192.168.7.6/index.php/home/index/getinterview?"+"user_id="+1;
+        String httpurl = "http://10.0.2.2/index.php/home/index/getinterview?"+"user_id="+1;
+        Log.i("====>",""+httpurl);
         try {
             URL url = new URL(httpurl);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -127,6 +134,7 @@ public class InterviewFaceActivity extends Activity {
             httpURLConnection.setConnectTimeout(5000);
             httpURLConnection.connect();
             if(httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK){
+                Log.i("","00000000");
                 StringBuilder stringBuilder = new StringBuilder();
                 InputStream inputStream = httpURLConnection.getInputStream();
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"UTF-8");
@@ -140,6 +148,7 @@ public class InterviewFaceActivity extends Activity {
                 JSONObject jsonObject = new JSONObject(data);
                 status = jsonObject.getInt("status");
                 JSONArray jsonArray = jsonObject.getJSONArray("message");
+                Log.i("===>",""+jsonArray);
                 for(int i=0;i<jsonArray.length();i++){
                     JSONObject object = jsonArray.getJSONObject(i);
                     id = object.getInt("id");
@@ -188,12 +197,13 @@ public class InterviewFaceActivity extends Activity {
     AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+            Intent intent = new Intent(InterviewFaceActivity.this, MainActivity.class);
+            startActivity(intent);
         }
     };
 
     public void createRtcEngine(){
-        RtcEngine rtcEngine=RtcEngine.create(this, "3651f3c251644b019cc71c929f1893d9", new IRtcEngineEventHandler() {
+        RtcEngine rtcEngine=RtcEngine.create(this, "d62d26db2db44e4b83272793e6d2f833", new IRtcEngineEventHandler() {
             @Override
             public void onUserEnableVideo(int uid, boolean enabled) {
                 super.onUserEnableVideo(uid, enabled);
@@ -209,10 +219,22 @@ public class InterviewFaceActivity extends Activity {
                 super.onCameraReady();
             }
         });
+        Looper.prepare();
         rtcEngine.CreateRendererView(this);//显示视频视图必须调用该方法，
 
-        rtcEngine.enableVideo();//该方法用于开启视频模式。
+       int i=rtcEngine.enableVideo();//该方法用于开启视频模式。
+        Log.i("ssssss",i+"");
+        i=rtcEngine.joinChannel(null,"123","",0);
+        Log.i("aaaaaaa",i+"");
         //rtcEngine.leaveChannel();
+
     }
+
+    IRtcEngineEventHandler iRtcEngineEventHandler=new IRtcEngineEventHandler() {
+        @Override
+        public void onJoinChannelSuccess(String channel, int uid, int elapsed) {
+            super.onJoinChannelSuccess(channel, uid, elapsed);
+        }
+    };
 
 }
