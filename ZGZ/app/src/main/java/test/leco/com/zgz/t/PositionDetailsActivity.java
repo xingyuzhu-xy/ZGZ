@@ -37,6 +37,8 @@ public class PositionDetailsActivity extends Activity{
     TextView enterprise; //企业咨询
     Intent intent;
     RelativeLayout tel; //打电话
+    RelativeLayout uplome; //投简历
+    TextView uptext;
     int en_id; //企业的id
     TextView phone1; //电话
     TextView position;//职位名称
@@ -74,6 +76,14 @@ public class PositionDetailsActivity extends Activity{
         enterprise_name = (TextView) findViewById(R.id.enterprise_name);
         industry = (TextView) findViewById(R.id.industry);
         enterprise_image = (ImageView) findViewById(R.id.enterprise_image);
+        uplome = (RelativeLayout) findViewById(R.id.uplome);
+        uptext = (TextView) findViewById(R.id.uptext);
+        uplome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uptext.setText("已投递");
+            }
+        });
         //结束当前页面，返回上级页面
         back.setOnClickListener(new View.OnClickListener() {
             @Override

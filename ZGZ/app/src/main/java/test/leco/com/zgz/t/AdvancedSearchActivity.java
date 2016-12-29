@@ -366,7 +366,7 @@ public class AdvancedSearchActivity extends Activity {
 
     //总行业选择接口
     public void positionData() {
-        String posittionURL = "http://192.168.7.6/index.php/home/index/theirindustry";
+        String posittionURL = "http://10.0.2.2/index.php/home/index/theirindustry";
         HttpURL.sendRequest(posittionURL, new HttpCallbackListener() {
             @Override
             public void onFinish(String response) {
