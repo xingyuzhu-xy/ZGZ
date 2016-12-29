@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -37,8 +38,19 @@ public class MyAttentionActivity extends Activity {
         setContentView(R.layout.activity_my_attention_layout);
         listView= (ListView) findViewById(R.id.attention_listview);
         attentionArrow= (ImageView) findViewById(R.id.attention_arrow);
-        list=new ArrayList<>();
-        listView.setAdapter(new MyAttentionAdapter(list,this));
+        list=new ArrayList<HashMap<String,Object>>();
+        careId = new ArrayList<Integer>();
+
+        MyAttentionAdapter myAttentionAdapter = new MyAttentionAdapter(list,this);
+        myAttentionAdapter.setCare(new MyAttentionAdapter.Care() {
+            @Override
+            public void click(int i, View view) {
+                Button button = (Button) view.findViewById(R.id.cancel_attention);
+                button.setText("+关注");
+                button.setClickable(false);
+            }
+        });
+        listView.setAdapter(myAttentionAdapter);
         super.onCreate(savedInstanceState);
         attentionArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +73,8 @@ public class MyAttentionActivity extends Activity {
             list.add(map);
         }
     }*/
+    int carId;
+    List<Integer> careId;
     public void attention(){
         SharedPreferences sharedPreferences=getSharedPreferences("ZGZ",Activity.MODE_PRIVATE);
         Integer userId=sharedPreferences.getInt("user_id",0);
@@ -88,10 +102,12 @@ public class MyAttentionActivity extends Activity {
                     JSONObject jsonObject1=jsonArray.getJSONObject(i);
                     String cpname=jsonObject1.getString("enterprise_name");
                     String cpindustry=jsonObject1.getString("industry");
+                    carId = jsonObject1.getInt("enterprise_id");
                     map.put("cpname",cpname);
                     map.put("cpimage",R.mipmap.cpimage);
                     map.put("cpIntroduce",cpindustry);
                     list.add(map);
+                    careId.add(carId);
                 }
             }
         } catch (MalformedURLException e) {

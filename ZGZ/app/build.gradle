@@ -27,10 +27,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
 
-    sourceSets{
-        main{
-            jniLibs.srcDirs=['libs']
         }
     }
 }
@@ -54,6 +54,7 @@ dependencies {
     compile files('libs/open_sdk_r5756.jar')
     compile files('libs/agora-rtc-sdk.jar')
     compile files('libs/libammsdk.jar')
+
     compile files('libs/slf4j-api-1.7.21.jar')
 
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
@@ -69,5 +70,4 @@ dependencies {
         // workaround issue #73
         exclude group: 'com.google.android', module: 'android'
     }
-
 }

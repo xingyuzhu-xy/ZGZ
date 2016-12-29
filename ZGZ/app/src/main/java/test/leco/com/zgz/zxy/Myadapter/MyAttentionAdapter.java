@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +22,15 @@ public class MyAttentionAdapter extends BaseAdapter {
     List<HashMap<String,Object>> list;
     Context context;
     LayoutInflater layoutInflater;
+    Care care;
+    public interface Care{
+        void click(int i,View view);
+    }
+    public void setCare(Care care){
+        this.care = care;
+    }
+
+
     public MyAttentionAdapter( List<HashMap<String,Object>> list,Context context){
         this.list=list;
         this.context=context;
@@ -42,7 +52,7 @@ public class MyAttentionAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if(convertView==null){
             viewHolder=new ViewHolder();
@@ -50,6 +60,7 @@ public class MyAttentionAdapter extends BaseAdapter {
             viewHolder.cpimage= (ImageView) convertView.findViewById(R.id.my_attention_cpimage);
             viewHolder.cpname= (TextView) convertView.findViewById(R.id.my_attention_cpname);
             viewHolder.cpIntroduce= (TextView) convertView.findViewById(R.id.cp_introduce);
+            viewHolder.btn = (Button) convertView.findViewById(R.id.cancel_attention);
             convertView.setTag(viewHolder);
         }
         viewHolder= (ViewHolder) convertView.getTag();
@@ -58,12 +69,21 @@ public class MyAttentionAdapter extends BaseAdapter {
         viewHolder.cpname.setText(map.get("cpname").toString());
         viewHolder.cpIntroduce.setText(map.get("cpIntroduce").toString());
 
+        final View finalConvertView = convertView;
+        viewHolder.btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                care.click(position, finalConvertView);
+            }
+        });
+
         return convertView;
     }
     class ViewHolder{
         ImageView cpimage;
         TextView cpname;
         TextView cpIntroduce;
+        Button btn;
     }
 }
 
