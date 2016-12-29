@@ -397,7 +397,7 @@ public class AdvancedSearchActivity extends Activity {
     //行业分类接口获取
     public void postData() {
         postItemList.clear();
-        String httpURL = "http://10.0.2.2/index.php/home/index/dustry?positionid=" + positionid;
+        String httpURL = "http://192.168.7.6/index.php/home/index/dustry?positionid=" + positionid;
         Log.i("postData =======", "" + positionid);
         HttpURLConnection httpURLConnection = null;
         try {
@@ -423,7 +423,6 @@ public class AdvancedSearchActivity extends Activity {
 //                postItem.setPositionID(post_id);
 //                Log.i("post_id++++++", "" + post_id);
                 String post_name = object.getString("post_name");
-                Log.i("post_name+++++++", "" + post_name);
                 postItemList.add(post_name);
                 Log.i("postItemList+++++++", "" + postItemList);
             }
@@ -446,8 +445,6 @@ public class AdvancedSearchActivity extends Activity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
-                    Log.i("++++++++++++", "================");
-
                     listView2.setAdapter(postAdapter);
                     postAdapter.notifyDataSetChanged();
                     break;

@@ -84,6 +84,12 @@ public class SearchListActivity extends Activity {
                     + minPay + "****" + maxPay + "****" + inssueTime);
         }
         experTseekData();
+        new Thread() {
+            @Override
+            public void run() {
+                experTseekData();
+            }
+        }.start();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -97,6 +103,13 @@ public class SearchListActivity extends Activity {
                 bundle.putInt("positionid", positionid);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, SEARCHLIST_POSITIONID_SATE);
+
+                Bundle bundle1 = new Bundle();
+                bundle1.putInt("ischecked",arrayList.get(position));
+                intent.putExtras(bundle1);
+                Log.i("ischecked","-------------"+arrayList.get(position));
+                startActivity(intent);
+
             }
         });
 
@@ -222,13 +235,14 @@ public class SearchListActivity extends Activity {
         }
     };
 
-
+    SearchListItem searchListItem = new SearchListItem();
+    ArrayList<Integer> arrayList = new ArrayList<Integer>();
     //高级搜索页面接口
     public void experTseekData() {
         list.clear();
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat
-                ("yyyy-MM-dd");//可以方便地修改日期格式
+                ("yyyyMMdd");//可以方便地修改日期格式
         String today = dateFormat.format(now);
 
         if (positionName == null) {
@@ -239,145 +253,25 @@ public class SearchListActivity extends Activity {
             site = "";
         } else if (minPay == 0) {
             minPay = 0;
-        } else if (maxPay == 0) {
+        }
+        if (maxPay == 0) {
             maxPay = 999999999;
         } else if (inssueTime < 19700101) {
             maxPay = 19700101;
         }
-        String httpURL = "http://10.0.2.2/index.php/home/index/expertseek?positionname="
+        try {
+            positionName = java.net.URLEncoder.encode(positionName, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String httpURL = "http://192.168.7.6/index.php/home/index/expertseek?positionname="
                 + positionName + "&currenttime=" + today + "&postname=" + postName + "&site=" + site
                 + "&minpay=" + minPay + "&maxpay=" + maxPay + "&time=" + inssueTime;
-//        HttpURLConnection httpURLConnection = null;
-//        try {
-//            URL url = new URL(httpURL);
-//            httpURLConnection = (HttpURLConnection) url.openConnection();
-//            httpURLConnection.setRequestMethod("GET");
-//            httpURLConnection.setConnectTimeout(5000);
-//            httpURLConnection.connect();
-//            InputStream inputStream = httpURLConnection.getInputStream();
-//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
-//            StringBuilder stringBuilder = new StringBuilder();
-//            String data;
-//            while ((data = bufferedReader.readLine()) != null) {
-//                stringBuilder.append(data);
-//            }
-//            JSONObject jsonObject = new JSONObject(stringBuilder.toString());
-//            int status = jsonObject.getInt("status");
-//            String message = jsonObject.getString("message");
-//            if (status == 200) {
-//                JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
-//                for (int i = 0; i < postdetailsdata.length(); i++) {
-//                    SearchListItem searchListItem = new SearchListItem();
-//                    JSONObject object = postdetailsdata.getJSONObject(i);
-//                    int postDetailsID = object.getInt("post_details_id");
-//                    searchListItem.setPostid(postDetailsID + "");
-//                    String enterpriseName = object.getString("enterprise_name");
-//                    searchListItem.setCompanyName(enterpriseName);
-//                    String postType = object.getString("post_type");
-//                    searchListItem.setPositionName(postType);
-//                    String startTime = object.getString("start_time");
-//                    String  startTimeStr = currerttime(startTime);
-//                    searchListItem.setTiem(startTimeStr);
-//                    String district = object.getString("district");
-//                    searchListItem.setAddress(district);
-//                    String enducationType = object.getString("enducation_type");
-//                    String experience = object.getString("experience");
-//                    String expEnduca = experience + "/" + enducationType;
-//                    searchListItem.setEducation(expEnduca);
-//                    String pay = object.getString("pay");
-//                    searchListItem.setSalary(pay);
+
         SearchSeekLoad sear = new SearchSeekLoad();
         sear.execute(httpURL);
 
-
     }
-//            } else {
-//                Toast.makeText(SearchListActivity.this, message, Toast.LENGTH_SHORT).show();
-//            }
-
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        } catch (ProtocolException e) {
-//            e.printStackTrace();
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-    //对发布时间进行判断
-//    public String currerttime(String time) {
-//        String newTime = time.replace("-", "");
-//        int positionTime = Integer.parseInt(newTime);
-//        Log.i("newTime++++++", "" + newTime);
-//        Date now = new Date();
-//        SimpleDateFormat dateFormat = new SimpleDateFormat
-//                ("yyyyMMdd");//可以方便地修改日期格式
-//        String todayStr = dateFormat.format(now);
-//        int today = Integer.parseInt(todayStr);
-//        Calendar calendar = Calendar.getInstance();
-//        int year = calendar.get(Calendar.YEAR);
-//        int month = calendar.get(Calendar.MONTH) + 1;
-//        int date = calendar.get(Calendar.DATE);
-//        calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) - 7);//一周前今天的时间
-//        Date lastWeek1 = calendar.getTime();
-//        int lastWeek = Integer.parseInt(dateFormat.format(lastWeek1));
-//
-//        calendar.add(Calendar.DATE, -1 + 7);    //得到前一天
-//        calendar.add(Calendar.MONTH, -1);    //得到前一个月
-//        int lastmonth1 = calendar.get(Calendar.MONTH) + 1;
-//        String lastmonthStr = year + "" + lastmonth1 + "" + date;
-//        int lastmonth = Integer.parseInt(lastmonthStr);
-//        Log.i("lastmonth++++++", "" + lastmonth);
-//        int lastdate1 = calendar.get(Calendar.DATE);
-//        String lastdateStr = year + "" + month + "" + lastdate1;
-//        int lastdate = Integer.parseInt(lastdateStr);
-//        Log.i("date++++++", "" + lastdate);
-//        calendar.add(Calendar.DATE, -1);
-//        int qiantian1 = calendar.get(Calendar.DATE);//得到前天
-//        String qiantianStr = year + "" + month + "" + qiantian1;
-//        int qiantian = Integer.parseInt(qiantianStr);
-//        Log.i("qiantian++++++", "" + qiantian);
-//
-//        String timeStr;
-//        if (lastWeek <= positionTime && positionTime < qiantian) {
-//            timeStr = "一周以内";
-//        } else if (today == positionTime) {
-//            timeStr = "今天";
-//        } else if (lastmonth <= positionTime && positionTime < lastWeek) {
-//            timeStr = "一个月以内";
-//        } else if (lastdate == positionTime) {
-//            timeStr = "昨天";
-//        } else if (qiantian == positionTime) {
-//            timeStr = "前天";
-//        } else {
-//            timeStr = time;
-//        }
-//        return timeStr;
-//    }
-
-//    Handler handler = new Handler() {
-//        @Override
-//        public void handleMessage(Message msg) {
-//            super.handleMessage(msg);
-////            listView.setAdapter(new SearchListAdapter(SearchListActivity.this, list));
-//        }
-//    };
-
-    //    public void urlHttp() {
-//        new Thread() {
-//            @Override
-//            public void run() {
-//                super.run();
-//                Looper.prepare();
-//                experTseekData();
-//                Looper.loop();
-//            }
-//        }.start();
-//    }
 
     //异步任务的使用方法
     public class SearchSeekLoad extends AsyncTask<String, Void, String> {

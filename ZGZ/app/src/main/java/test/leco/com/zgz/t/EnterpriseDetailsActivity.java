@@ -40,7 +40,7 @@ import test.leco.com.zgz.zxy.ReferCompanyActivity;
 public class EnterpriseDetailsActivity extends Activity {
     ImageView back; //返回上级页面
     RelativeLayout consultation,care; // 咨询企业、关注企业
-    TextView companyName,companyname,pepole_number,jinying,hangye,wuxian,shuangxui,daixin,jieri,area,context;
+    TextView companyName,companyname,pepole_number,jinying,hangye,area,context;
     LinearLayout fuli;
 
     @Override
@@ -65,8 +65,11 @@ public class EnterpriseDetailsActivity extends Activity {
         }).start();
 
         Intent intent = getIntent();
-        String numb = intent.getStringExtra("enter");
-        enterprise_id = numb;
+        Bundle bundle = intent.getExtras();
+        if(bundle != null){
+            String numb = bundle.getString("enter");
+            enterprise_id = numb;
+        }
     }
 
     public void findView(){
@@ -154,8 +157,7 @@ public class EnterpriseDetailsActivity extends Activity {
                 for(int i=0;i<jsonArray1.length();i++){
                     JSONObject jsonObject1 = jsonArray1.getJSONObject(i);
                     pay_treatmenr_name.add(jsonObject1.getString("pay_treatmenr_name"));
-                    Log.i("pay_treatmenr_name","======="+pay_treatmenr_name);
-
+//                    Log.i("pay_treatmenr_name","======="+pay_treatmenr_name);
                 }
                 handler.sendEmptyMessage(0);
             }
@@ -173,7 +175,7 @@ public class EnterpriseDetailsActivity extends Activity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             companyName.setText(enterprise_name);
-            Log.i("companyName","======="+companyName);
+//            Log.i("companyName","======="+companyName);
             pepole_number.setText(scale);
             jinying.setText(nature);
             hangye.setText(industry);
@@ -197,7 +199,7 @@ public class EnterpriseDetailsActivity extends Activity {
         String STR_URL = "http://10.0.2.2/index.php/home/index/attentionbtn?";
         try {
             URL url = new URL(STR_URL+"user_id="+user_id+"&enterprise_id="+enterprise_id);
-            Log.i("======>",""+url);
+//            Log.i("======>",""+url);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setConnectTimeout(2000);

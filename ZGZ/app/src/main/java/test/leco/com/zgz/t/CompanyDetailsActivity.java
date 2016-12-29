@@ -52,9 +52,10 @@ public class CompanyDetailsActivity extends Activity {
         findView();
 
         Intent intent = getIntent();
-        String numb = intent.getStringExtra("gongsiid");
-        partjobdetailsid = numb;
-
+        Bundle bundle = intent.getExtras();
+        if(bundle != null){
+            partjobdetailsid = bundle.getInt("gongsiid");
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -96,7 +97,7 @@ public class CompanyDetailsActivity extends Activity {
         }
     };
 
-    String partjobdetailsid;//兼职职位的id
+    int partjobdetailsid;//兼职职位的id
     int status;
     String message;
     int part_time_job_details_id;//兼职的ID
@@ -116,7 +117,6 @@ public class CompanyDetailsActivity extends Activity {
     public void getpartcompanydetails(){
         try {
             URL url = new URL("http://192.168.7.6/index.php/home/index/partcompanydetails?"+"partjobdetailsid="+partjobdetailsid);
-            Log.i("partjobdetailsid",""+partjobdetailsid);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setConnectTimeout(5000);
