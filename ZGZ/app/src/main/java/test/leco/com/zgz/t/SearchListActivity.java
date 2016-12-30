@@ -48,7 +48,7 @@ public class SearchListActivity extends Activity {
     ImageView back; //返回上级页面
     TextView titleText;
     static ListView listView;
-    static List<SearchListItem> list = new ArrayList<SearchListItem>();
+    static List<SearchListItem> list;
 
     Spinner position_type;
     Spinner regio;
@@ -113,18 +113,15 @@ public class SearchListActivity extends Activity {
                 SearchListItem seracItem = list.get(position);
                 String positionstr = seracItem.getPostid();
                 int positionid = Integer.parseInt(positionstr);
+                String recuitPersonStr = seracItem.getRecuitPersonId();
+                int recuitPersonId = Integer.parseInt(recuitPersonStr);
                 Log.i("positionid", "" + positionid);
                 Intent intent = new Intent(SearchListActivity.this, PositionDetailsActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("positionid", positionid);
+                bundle.putInt("recuitPersonId", recuitPersonId);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, SEARCHLIST_POSITIONID_SATE);
-
-                Bundle bundle1 = new Bundle();
-                bundle1.putInt("ischecked",arrayList.get(position));
-                intent.putExtras(bundle1);
-                Log.i("ischecked","-------------"+arrayList.get(position));
-                startActivity(intent);
 
             }
         });
@@ -236,7 +233,6 @@ public class SearchListActivity extends Activity {
             String pay = parent.getItemAtPosition(position).toString();
 
             if (pay.equals("薪资")) {
-                pay = "0-999999999";
                 minPay = 0;
                 maxPay = 0;
             } else {
@@ -279,7 +275,6 @@ public class SearchListActivity extends Activity {
 
     //高级搜索页面接口
     public void experTseekData() {
-        list.clear();
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat
                 ("yyyyMMdd");//可以方便地修改日期格式
@@ -304,7 +299,7 @@ public class SearchListActivity extends Activity {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        String httpURL = "http://192.168.7.6/index.php/home/index/expertseek?positionname="
+        String httpURL = "http://10.0.2.2/index.php/home/index/expertseek?positionname="
                 + positionName + "&currenttime=" + today + "&postname=" + postName + "&site=" + site
                 + "&minpay=" + minPay + "&maxpay=" + maxPay + "&time=" + inssueTime;
 
@@ -418,6 +413,7 @@ public class SearchListActivity extends Activity {
                 String message = jsonObject.getString("message");
                 if (status == 200) {
                     JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
+                    list = new ArrayList<SearchListItem>();
                     for (int i = 0; i < postdetailsdata.length(); i++) {
                         SearchListItem searchListItem = new SearchListItem();
                         JSONObject object = postdetailsdata.getJSONObject(i);
@@ -438,6 +434,8 @@ public class SearchListActivity extends Activity {
                         searchListItem.setEducation(expEnduca);
                         String pay = object.getString("pay");
                         searchListItem.setSalary(pay);
+                        int recuitPersonID = object.getInt("recuit_person_id");
+                        searchListItem.setRecuitPersonId(recuitPersonID + "");
                         list.add(searchListItem);
                         Log.i("list/*/*/*/*/", "" + list);
                     }
@@ -458,7 +456,6 @@ public class SearchListActivity extends Activity {
 
     //附近搜索页面接口
     public void nearTseekData() {
-        list.clear();
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat
                 ("yyyy-MM-dd");//可以方便地修改日期格式
@@ -589,6 +586,7 @@ public class SearchListActivity extends Activity {
                 String message = jsonObject.getString("message");
                 if (status == 200) {
                     JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
+                    list = new ArrayList<SearchListItem>();
                     for (int i = 0; i < postdetailsdata.length(); i++) {
                         SearchListItem searchListItem = new SearchListItem();
                         JSONObject object = postdetailsdata.getJSONObject(i);
@@ -609,6 +607,8 @@ public class SearchListActivity extends Activity {
                         searchListItem.setEducation(expEnduca);
                         String pay = object.getString("pay");
                         searchListItem.setSalary(pay);
+                        int recuitPersonID = object.getInt("recuit_person_id");
+                        searchListItem.setRecuitPersonId(recuitPersonID + "");
                         list.add(searchListItem);
                         Log.i("list/*/*/*/*/", "" + list);
                     }
