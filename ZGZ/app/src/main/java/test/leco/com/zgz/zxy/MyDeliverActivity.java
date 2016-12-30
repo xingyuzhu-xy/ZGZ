@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import agora.openvcall.AGApplication;
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.data.MyAppLication;
 import test.leco.com.zgz.t.http.GetRecordHttp;
@@ -51,11 +52,11 @@ public class MyDeliverActivity extends Activity {
             }
         });
     }
-    MyAppLication myAppLication;
+    AGApplication myAppLication;
     int useId;
     //网络请求的数据
     public void getHttpData(){
-        myAppLication = (MyAppLication) getApplication();
+        myAppLication = (AGApplication) getApplication();
         useId = myAppLication.getId();
         Log.i("useId====>",""+useId);
         try {

@@ -26,6 +26,7 @@ import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 
+import agora.openvcall.AGApplication;
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.data.MyAppLication;
 import test.leco.com.zgz.t.http.GetUserMessageHttp;
@@ -77,7 +78,7 @@ public class MyResumeActivity extends Activity {
 
         //        sharedPreferences=getSharedPreferences("ZGZ", Context.MODE_PRIVATE);
 //        id= sharedPreferences.getInt("user_id",0);
-        MyAppLication myAppLication = (MyAppLication) getApplication();
+        AGApplication myAppLication = (AGApplication) getApplication();
         id = myAppLication.getId();
         manager = getWindowManager();
         metrics = new DisplayMetrics();

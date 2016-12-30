@@ -45,6 +45,7 @@ public class SearchListActivity extends Activity {
     ImageView back; //返回上级页面
     static ListView listView;
     static List<SearchListItem> list = new ArrayList<SearchListItem>();
+    ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
     Spinner position_type;
     Spinner regio;
@@ -235,8 +236,7 @@ public class SearchListActivity extends Activity {
         }
     };
 
-    SearchListItem searchListItem = new SearchListItem();
-    ArrayList<Integer> arrayList = new ArrayList<Integer>();
+
     //高级搜索页面接口
     public void experTseekData() {
         list.clear();
@@ -259,8 +259,10 @@ public class SearchListActivity extends Activity {
         } else if (inssueTime < 19700101) {
             maxPay = 19700101;
         }
+
+
         try {
-            positionName = java.net.URLEncoder.encode(positionName, "UTF-8");
+            positionName = java.net.URLEncoder.encode(positionName,"UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -398,6 +400,8 @@ public class SearchListActivity extends Activity {
                         String pay = object.getString("pay");
                         searchListItem.setSalary(pay);
                         list.add(searchListItem);
+                        arrayList.add(postDetailsID);
+
                         Log.i("list/*/*/*/*/", "" + list);
                     }
                 }
