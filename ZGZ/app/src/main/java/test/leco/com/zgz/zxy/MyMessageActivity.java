@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import agora.openvcall.AGApplication;
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.data.MyAppLication;
 import test.leco.com.zgz.t.http.GetInformHttp;
@@ -62,11 +63,11 @@ public class MyMessageActivity extends Activity {
             }
         });
     }
-    MyAppLication myAppLication;
+    AGApplication myAppLication;
     int useId;
 
     public void getData(){
-        myAppLication = (MyAppLication) getApplication();
+        myAppLication = (AGApplication) getApplication();
         useId = myAppLication.getId();
 
         try {

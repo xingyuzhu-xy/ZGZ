@@ -299,8 +299,10 @@ public class SearchListActivity extends Activity {
         } else if (inssueTime < 19700101) {
             inssueTime  = 19700101;
         }
+
+
         try {
-            positionName = java.net.URLEncoder.encode(positionName, "UTF-8");
+            positionName = java.net.URLEncoder.encode(positionName,"UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -439,6 +441,8 @@ public class SearchListActivity extends Activity {
                         String pay = object.getString("pay");
                         searchListItem.setSalary(pay);
                         list.add(searchListItem);
+                        arrayList.add(postDetailsID);
+
                         Log.i("list/*/*/*/*/", "" + list);
                     }
                 }
