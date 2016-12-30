@@ -53,8 +53,8 @@ public class SearchListActivity extends Activity {
     Spinner position_type;
     Spinner regio;
     Spinner salary;
-    String[] zhiye_sp = {"职位类别", "经理0", "经理1", "经理2"};
-    String[] regio_sp = {"地区", "经理0", "经理1", "经理2"};
+    String[] zhiye_sp = {"职位类别", "会计", "服务员", "店员","编辑","经理","金融"};
+    String[] regio_sp = {"地区","重庆","上海","北京"};
     String[] salary_sp = {"薪资", "1000以上", "3000以上", "5000以上", "8000以上", "10000以上", "15000以上"};
     String positionName;//行业
     String postName;//职位
@@ -294,8 +294,10 @@ public class SearchListActivity extends Activity {
         } else if (inssueTime < 19700101) {
             inssueTime  = 19700101;
         }
+
+
         try {
-            positionName = java.net.URLEncoder.encode(positionName, "UTF-8");
+            positionName = java.net.URLEncoder.encode(positionName,"UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -437,6 +439,8 @@ public class SearchListActivity extends Activity {
                         int recuitPersonID = object.getInt("recuit_person_id");
                         searchListItem.setRecuitPersonId(recuitPersonID + "");
                         list.add(searchListItem);
+                        arrayList.add(postDetailsID);
+
                         Log.i("list/*/*/*/*/", "" + list);
                     }
                 }

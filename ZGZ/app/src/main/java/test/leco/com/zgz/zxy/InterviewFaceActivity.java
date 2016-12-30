@@ -1,7 +1,9 @@
 package test.leco.com.zgz.zxy;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -74,6 +76,8 @@ public class InterviewFaceActivity extends Activity {
         relativeLayout.setOnClickListener(clickListener);
         unLineListView.setOnItemClickListener(onItemClickListener);
         onLineListView.setOnItemClickListener(onItemClickListener);
+
+        getsharePreferences();
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {
@@ -102,13 +106,6 @@ public class InterviewFaceActivity extends Activity {
                     }
                     break;
                 case R.id.RelativeLayout:
-//                    new Thread(){
-//                        @Override
-//                        public void run() {
-//                            createRtcEngine();
-//                        }
-//                    }.start();
-
                     Intent intent = new Intent(InterviewFaceActivity.this, MainActivity.class);
                     startActivity(intent);
                     break;
@@ -117,6 +114,10 @@ public class InterviewFaceActivity extends Activity {
     };
 
     int user_id;
+    public void getsharePreferences(){
+        SharedPreferences sharedPreferences=getSharedPreferences("ZGZ", Context.MODE_PRIVATE);
+        user_id = sharedPreferences.getInt("user_id",1);
+    }
     int status;
     int id;
     int enterprise_id; //企业id
@@ -125,7 +126,7 @@ public class InterviewFaceActivity extends Activity {
     int isonline; //是否在线（1在线）
     String price; //薪水
     public void getinterview(){
-        String httpurl = "http://10.0.2.2/index.php/home/index/getinterview?"+"user_id="+1;
+        String httpurl = "http://192.168.7.6/index.php/home/index/getinterview?"+"user_id="+1;
         try {
             URL url = new URL(httpurl);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();

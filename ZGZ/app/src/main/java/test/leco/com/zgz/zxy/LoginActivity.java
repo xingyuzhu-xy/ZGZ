@@ -29,6 +29,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import agora.openvcall.AGApplication;
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.HomePageActivity;
 import test.leco.com.zgz.t.data.MyAppLication;
@@ -227,7 +228,7 @@ public class LoginActivity extends Activity {
         editor.putBoolean("isLogin",isLogin);
         editor.commit();
 
-        MyAppLication myAppLication = (MyAppLication) getApplication();
+        AGApplication myAppLication = (AGApplication) getApplication();
         myAppLication.setLogin(isLogin);
         myAppLication.setId(id);
     }

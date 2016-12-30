@@ -43,6 +43,8 @@ public class PositionDetailsActivity extends Activity {
     TextView enterprise; //企业咨询
     Intent intent;
     RelativeLayout tel; //打电话
+    RelativeLayout uplome; //投简历
+    TextView uptext;
     int en_id; //企业的id
     TextView position;//职位名称
     TextView money;//薪水
@@ -85,6 +87,15 @@ public class PositionDetailsActivity extends Activity {
         enterprise_name = (TextView) findViewById(R.id.enterprise_name);
         industry = (TextView) findViewById(R.id.industry);
         enterprise_image = (ImageView) findViewById(R.id.enterprise_image);
+
+        uplome = (RelativeLayout) findViewById(R.id.resume);
+        uptext = (TextView) findViewById(R.id.resume_text);
+        uplome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uptext.setText("已投递");
+            }
+        });
         zhize = (TextView) findViewById(R.id.zhize);
         yaoqui = (TextView) findViewById(R.id.yaoqui);
         persomImage = (ImageView) findViewById(R.id.person_image);
