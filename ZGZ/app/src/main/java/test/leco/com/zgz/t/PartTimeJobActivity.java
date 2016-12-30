@@ -120,7 +120,7 @@ public class PartTimeJobActivity extends Activity {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         Date date = new Date(System.currentTimeMillis());
         string= simpleDateFormat.format(date);
-        Log.i("currenttime","===="+string);
+//        Log.i("currenttime","===="+string);
     }
 
 
@@ -135,6 +135,7 @@ public class PartTimeJobActivity extends Activity {
     String part_money;//多少钱
     int isstick;//是否已经置顶 1、置顶 0、不置顶
     List<Integer> integerList = new ArrayList<>();
+
     String positionData;
 //    public void part(){
 //        gettime();
@@ -196,6 +197,7 @@ public class PartTimeJobActivity extends Activity {
 //            e.printStackTrace();
 //        }
 //    }
+
     Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -204,7 +206,7 @@ public class PartTimeJobActivity extends Activity {
             listView.setAdapter(partTimeJobAdapter);
         }
     };
-
+    public int startNumb=0;
 
     //异步任务的使用方法
     public class SearchSeekLoad extends AsyncTask<String, Void, String> {
@@ -307,35 +309,44 @@ public class PartTimeJobActivity extends Activity {
             if (positionData != null){
                 JSONObject jsonObject = null;
                 try {
+                    Log.i("positionData",""+positionData);
                     jsonObject = new JSONObject(positionData);
                     status = jsonObject.getInt("status");
                     message = jsonObject.getString("message");
-                    JSONArray jsonArray = jsonObject.getJSONArray("partjobdetailsdata");
-                    for(int i =0;i<jsonArray.length();i++){
-                        JSONObject object = jsonArray.getJSONObject(i);
-                        part_time_job_details_id = object.getInt("part_time_job_details_id");
-                        part_name = object.getString("part_name");
-                        part_site = object.getString("part_site");
-                        part_time = object.getString("part_time");
-                        part_money = object.getString("part_money");
-                        isstick = object.getInt("isstick");
-                        Log.i("object","object==="+object);
-                        PartTimeJobItem partTimeJobItem = new PartTimeJobItem();
-                        partTimeJobItem.setPositionName(part_name);
-                        partTimeJobItem.setAddress(part_site);
-                        partTimeJobItem.setSalary(part_money);
-                        partTimeJobItem.setWorkTime(part_time);
-                        if(isstick == 0){
-                            partTimeJobItem.setTop("不置顶");
-                        }else {
-                            partTimeJobItem.setTop("置顶");
+                    list=new ArrayList<PartTimeJobItem>();
+                    if(status == 200){
+                        JSONArray jsonArray = jsonObject.getJSONArray("partjobdetailsdata");
+                        Log.i("onPostExecute","onPostExecute"+(startNumb++));
+                        for(int i =0;i<jsonArray.length();i++){
+                            JSONObject object = jsonArray.getJSONObject(i);
+                            part_time_job_details_id = object.getInt("part_time_job_details_id");
+                            part_name = object.getString("part_name");
+                            part_site = object.getString("part_site");
+                            part_time = object.getString("part_time");
+                            part_money = object.getString("part_money");
+                            isstick = object.getInt("isstick");
+                            Log.i("object","object==="+object);
+                            PartTimeJobItem partTimeJobItem = new PartTimeJobItem();
+                            partTimeJobItem.setPositionName(part_name);
+                            partTimeJobItem.setAddress(part_site);
+                            partTimeJobItem.setSalary(part_money);
+                            partTimeJobItem.setWorkTime(part_time);
+                            if(isstick == 0){
+                                partTimeJobItem.setTop("不置顶");
+                            }else {
+                                partTimeJobItem.setTop("置顶");
+                            }
+                            list.add(partTimeJobItem);
+                            Log.i("======>",""+list);
+                            integerList.add(part_time_job_details_id);
                         }
-                        list.add(partTimeJobItem);
-                        Log.i("======>",""+list);
-                        integerList.add(part_time_job_details_id);
+                        PartTimeJobAdapter partTimeJobAdapter = new PartTimeJobAdapter(PartTimeJobActivity.this,list);
+                        listView.setAdapter(partTimeJobAdapter);
+                    }else {
+                        Log.i("message====>",""+message);
+                        PartTimeJobAdapter partTimeJobAdapter = new PartTimeJobAdapter(PartTimeJobActivity.this,list);
+                        listView.setAdapter(partTimeJobAdapter);
                     }
-                    PartTimeJobAdapter partTimeJobAdapter = new PartTimeJobAdapter(PartTimeJobActivity.this,list);
-                    listView.setAdapter(partTimeJobAdapter);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -350,7 +361,6 @@ public class PartTimeJobActivity extends Activity {
 
     public void startAsyncTask(){
         gettime();
-        list.clear();
         String httpurl = "http://10.0.2.2/index.php/home/index/part?"+"currenttime="+string+"&partsite="+partsite+"&parttime=";
         Log.i("====>",httpurl);
         SearchSeekLoad searchSeekLoad = new SearchSeekLoad();

@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +33,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.adapter.SearchListAdapter;
@@ -43,6 +46,7 @@ import test.leco.com.zgz.t.data.SearchListItem;
 
 public class SearchListActivity extends Activity {
     ImageView back; //返回上级页面
+    TextView titleText;
     static ListView listView;
     static List<SearchListItem> list = new ArrayList<SearchListItem>();
 
@@ -51,13 +55,14 @@ public class SearchListActivity extends Activity {
     Spinner salary;
     String[] zhiye_sp = {"职位类别", "会计", "服务员", "店员","编辑","经理","金融"};
     String[] regio_sp = {"地区","重庆","上海","北京"};
-    String[] salary_sp = {"薪资", "1000-3000", "3000-5000", "5000-8000", "8000-10000", "10000-15000", "15000以上"};
+    String[] salary_sp = {"薪资", "1000以上", "3000以上", "5000以上", "8000以上", "10000以上", "15000以上"};
     String positionName;//行业
     String postName;//职位
     String site;//地区
     int minPay;//最低薪资
     int maxPay;//最高薪资
     int inssueTime;//时间
+    int dic;
     private final int SEARCHLIST_POSITIONID_SATE = 11111;
 
     @Override
@@ -69,6 +74,7 @@ public class SearchListActivity extends Activity {
         position_type = (Spinner) findViewById(R.id.position_type1);
         regio = (Spinner) findViewById(R.id.regio1);
         salary = (Spinner) findViewById(R.id.salary1);
+        titleText = (TextView) findViewById(R.id.title_text);
         listView = (ListView) findViewById(R.id.listView);
 
         Intent intent = getIntent();
@@ -79,11 +85,27 @@ public class SearchListActivity extends Activity {
             site = bundle.getString("site");
             minPay = bundle.getInt("minPay");
             maxPay = bundle.getInt("maxPay");
+            dic = bundle.getInt("dic");
             inssueTime = bundle.getInt("inssueTime");
             Log.i("data*-*-*-*-*-*", "" + positionName + "****" + postName + "****" + site + "****"
                     + minPay + "****" + maxPay + "****" + inssueTime);
         }
+        if (dic == 0) {
+            experTseekData();
+            titleText.setText(R.string.advanseek);
+        } else if (dic == 1) {
+            nearTseekData();
+            titleText.setText(R.string.nearseek);
+        }
+
         experTseekData();
+        new Thread() {
+            @Override
+            public void run() {
+                experTseekData();
+            }
+        }.start();
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -97,6 +119,13 @@ public class SearchListActivity extends Activity {
                 bundle.putInt("positionid", positionid);
                 intent.putExtras(bundle);
                 startActivityForResult(intent, SEARCHLIST_POSITIONID_SATE);
+
+                Bundle bundle1 = new Bundle();
+                bundle1.putInt("ischecked",arrayList.get(position));
+                intent.putExtras(bundle1);
+                Log.i("ischecked","-------------"+arrayList.get(position));
+                startActivity(intent);
+
             }
         });
 
@@ -164,10 +193,16 @@ public class SearchListActivity extends Activity {
                 postName = null;
                 Log.i("postName======", "" + postName);
             }
-            experTseekData();
+            if (dic == 0) {
+                experTseekData();
+            } else if (dic == 1) {
+                nearTseekData();
+            }
         }
+
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
+
         }
     };
     AdapterView.OnItemSelectedListener onItemSelectedListener1 = new AdapterView.OnItemSelectedListener() {
@@ -180,10 +215,16 @@ public class SearchListActivity extends Activity {
             if (site.equals("地区")) {
                 site = null;
             }
-            experTseekData();
+            if (dic == 0) {
+                experTseekData();
+            } else if (dic == 1) {
+                nearTseekData();
+            }
         }
+
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
+
         }
     };
     AdapterView.OnItemSelectedListener onItemSelectedListener2 = new AdapterView.OnItemSelectedListener() {
@@ -196,28 +237,227 @@ public class SearchListActivity extends Activity {
 
             if (pay.equals("薪资")) {
                 pay = "0-999999999";
-            } else if (pay.equals("15000以上")) {
-                pay = "15000-999999999";
+                minPay = 0;
+                maxPay = 0;
+            } else {
+                String regEx3 = "[0-9]";
+                String s3 = matchResult(Pattern.compile(regEx3), pay);
+                minPay = Integer.parseInt(s3);
+                Log.i("minpay", "" + minPay);
+                // minPay = Integer.parseInt(minPayStr);
+                maxPay = 0;
             }
-            String payArray[] = pay.split("-", 2);
-            Log.i("payArray======", "" + payArray);
-            String minPayStr = payArray[0];
-            String maxPayStr = payArray[1];
-            Log.i("minPayStr======", "" + minPayStr);
-            Log.i("maxPayStr======", "" + maxPayStr);
-            minPay = Integer.parseInt(minPayStr);
-            maxPay = Integer.parseInt(maxPayStr);
+            if (dic == 0) {
+                experTseekData();
+            } else if (dic == 1) {
+                nearTseekData();
+            }
 
-            experTseekData();
         }
+
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
 
         }
     };
 
+
+    public static String matchResult(Pattern p, String str) {
+        StringBuilder sb = new StringBuilder();
+        Matcher m = p.matcher(str);
+        while (m.find())
+            for (int i = 0; i <= m.groupCount(); i++) {
+                sb.append(m.group());
+            }
+        return sb.toString();
+    }
+
+
+
+    SearchListItem searchListItem = new SearchListItem();
+    ArrayList<Integer> arrayList = new ArrayList<Integer>();
+
     //高级搜索页面接口
     public void experTseekData() {
+        list.clear();
+        Date now = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat
+                ("yyyyMMdd");//可以方便地修改日期格式
+        String today = dateFormat.format(now);
+
+        if (positionName == null) {
+            positionName = "";
+        } else if (postName == null) {
+            postName = "";
+        } else if (site == null) {
+            site = "";
+        } else if (minPay == 0) {
+            minPay = 0;
+        }
+        if (maxPay == 0) {
+            maxPay = 999999999;
+        } else if (inssueTime < 19700101) {
+            inssueTime  = 19700101;
+        }
+        try {
+            positionName = java.net.URLEncoder.encode(positionName, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String httpURL = "http://192.168.7.6/index.php/home/index/expertseek?positionname="
+                + positionName + "&currenttime=" + today + "&postname=" + postName + "&site=" + site
+                + "&minpay=" + minPay + "&maxpay=" + maxPay + "&time=" + inssueTime;
+
+        SearchSeekLoad sear = new SearchSeekLoad();
+        sear.execute(httpURL);
+
+    }
+
+
+    //高级异步任务的使用方法
+    public class SearchSeekLoad extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+
+        @Override
+        protected String doInBackground(String... params) {
+            SearchListItem searchListItem = null;
+            HttpURLConnection httpURLConnection = null;
+            try {
+                httpURLConnection = (HttpURLConnection)
+                        new URL(params[0]).openConnection();
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.connect();
+                if (httpURLConnection.getResponseCode() == 200) {
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
+                    StringBuilder stringBuilder = new StringBuilder();
+                    String data;
+                    while ((data = bufferedReader.readLine()) != null) {
+                        stringBuilder.append(data);
+                    }
+                    String positionData = stringBuilder.toString();
+                    return positionData;
+                } else {
+                    Log.i("haha", "错误信息" + httpURLConnection.getResponseCode());
+                }
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            } catch (ProtocolException e) {
+                e.printStackTrace();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        //对发布时间进行判断
+        public String currerttime(String time) {
+            String newTime = time.replace("-", "");
+            int positionTime = Integer.parseInt(newTime);
+            Log.i("newTime++++++", "" + newTime);
+            Date now = new Date();
+            SimpleDateFormat dateFormat = new SimpleDateFormat
+                    ("yyyyMMdd");//可以方便地修改日期格式
+            String todayStr = dateFormat.format(now);
+            int today = Integer.parseInt(todayStr);
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH) + 1;
+            int date = calendar.get(Calendar.DATE);
+            calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH) - 7);//一周前今天的时间
+            Date lastWeek1 = calendar.getTime();
+            int lastWeek = Integer.parseInt(dateFormat.format(lastWeek1));
+
+            calendar.add(Calendar.DATE, -1 + 7);    //得到前一天
+            calendar.add(Calendar.MONTH, -1);    //得到前一个月
+            int lastmonth1 = calendar.get(Calendar.MONTH) + 1;
+            String lastmonthStr = year + "" + lastmonth1 + "" + date;
+            int lastmonth = Integer.parseInt(lastmonthStr);
+            Log.i("lastmonth++++++", "" + lastmonth);
+            int lastdate1 = calendar.get(Calendar.DATE);
+            String lastdateStr = year + "" + month + "" + lastdate1;
+            int lastdate = Integer.parseInt(lastdateStr);
+            Log.i("date++++++", "" + lastdate);
+            calendar.add(Calendar.DATE, -1);
+            int qiantian1 = calendar.get(Calendar.DATE);//得到前天
+            String qiantianStr = year + "" + month + "" + qiantian1;
+            int qiantian = Integer.parseInt(qiantianStr);
+            Log.i("qiantian++++++", "" + qiantian);
+
+            String timeStr;
+            if (lastWeek <= positionTime && positionTime < qiantian) {
+                timeStr = "一周以内";
+            } else if (today == positionTime) {
+                timeStr = "今天";
+            } else if (lastmonth <= positionTime && positionTime < lastWeek) {
+                timeStr = "一个月以内";
+            } else if (lastdate == positionTime) {
+                timeStr = "昨天";
+            } else if (qiantian == positionTime) {
+                timeStr = "前天";
+            } else {
+                timeStr = time;
+            }
+            return timeStr;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                int status = jsonObject.getInt("status");
+                String message = jsonObject.getString("message");
+                if (status == 200) {
+                    JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
+                    for (int i = 0; i < postdetailsdata.length(); i++) {
+                        SearchListItem searchListItem = new SearchListItem();
+                        JSONObject object = postdetailsdata.getJSONObject(i);
+                        int postDetailsID = object.getInt("post_details_id");
+                        searchListItem.setPostid(postDetailsID + "");
+                        String enterpriseName = object.getString("enterprise_name");
+                        searchListItem.setCompanyName(enterpriseName);
+                        String postType = object.getString("post_type");
+                        searchListItem.setPositionName(postType);
+                        String startTime = object.getString("start_time");
+                        String startTimeStr = currerttime(startTime);
+                        searchListItem.setTiem(startTimeStr);
+                        String district = object.getString("district");
+                        searchListItem.setAddress(district);
+                        String enducationType = object.getString("enducation_type");
+                        String experience = object.getString("experience");
+                        String expEnduca = experience + "/" + enducationType;
+                        searchListItem.setEducation(expEnduca);
+                        String pay = object.getString("pay");
+                        searchListItem.setSalary(pay);
+                        list.add(searchListItem);
+                        Log.i("list/*/*/*/*/", "" + list);
+                    }
+                }
+                listView.setAdapter(new SearchListAdapter(SearchListActivity.this, list));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+    }
+
+    //附近搜索页面接口
+    public void nearTseekData() {
         list.clear();
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat
@@ -232,21 +472,21 @@ public class SearchListActivity extends Activity {
             site = "";
         } else if (minPay == 0) {
             minPay = 0;
-        } else if (maxPay == 0) {
-            maxPay = 999999999;
         } else if (inssueTime < 19700101) {
-            maxPay = 19700101;
+            inssueTime = 19700101;
         }
-        String httpURL = "http://10.0.2.2/index.php/home/index/expertseek?positionname="
+        String httpURL = "http://10.0.2.2/index.php/home/index/nearbyweek?positionname="
                 + positionName + "&currenttime=" + today + "&postname=" + postName + "&site=" + site
-                + "&minpay=" + minPay + "&maxpay=" + maxPay + "&time=" + inssueTime;
-        SearchSeekLoad sear = new SearchSeekLoad();
-        sear.execute(httpURL);
+                + "&minpay=" + minPay + "&time=" + inssueTime;
+        Log.i("httpURL+-++--+-+-----", "" + httpURL);
+        NearSeekLoad nearSeekLoad = new NearSeekLoad();
+        nearSeekLoad.execute(httpURL);
+
+
     }
 
-
-    //异步任务的使用方法
-    public class SearchSeekLoad extends AsyncTask<String, Void, String> {
+    //附近异步任务的使用方法
+    public class NearSeekLoad extends AsyncTask<String, Void, String> {
 
         @Override
         protected void onPreExecute() {
@@ -257,7 +497,7 @@ public class SearchListActivity extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
-
+            SearchListItem searchListItem = null;
             HttpURLConnection httpURLConnection = null;
             try {
                 httpURLConnection = (HttpURLConnection)

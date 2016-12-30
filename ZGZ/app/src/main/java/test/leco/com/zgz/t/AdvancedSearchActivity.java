@@ -146,21 +146,24 @@ public class AdvancedSearchActivity extends Activity {
             Bundle bundle;
             switch (v.getId()) {
                 case R.id.search_btn:
-                    if (positionName != null){
-                    istime();
-                    site = area_text.getText().toString();
-                    Log.i("datakjk", "" + positionName + postName + site + minPay + maxPay + inssueTime);
-                    intent = new Intent(AdvancedSearchActivity.this, SearchListActivity.class);
-                    bundle = new Bundle();
-                    bundle.putString("positionName", positionName);
-                    bundle.putString("postName", postName);
-                    bundle.putString("site", site);
-                    bundle.putInt("minPay", minPay);
-                    bundle.putInt("maxPay", maxPay);
-                    bundle.putInt("inssueTime", Integer.parseInt(inssueTime));
-                    intent.putExtras(bundle);
-                    startActivityForResult(intent, SIGNATURE_ZHIYECODE);
-                    }else {
+
+                    if (positionName != null) {
+                        istime();
+                        int dic = 0;
+                        site = area_text.getText().toString();
+                        Log.i("datakjk", "" + positionName + postName + site + minPay + maxPay + inssueTime);
+                        intent = new Intent(AdvancedSearchActivity.this, SearchListActivity.class);
+                        bundle = new Bundle();
+                        bundle.putString("positionName", positionName);
+                        bundle.putString("postName", postName);
+                        bundle.putString("site", site);
+                        bundle.putInt("minPay", minPay);
+                        bundle.putInt("maxPay", maxPay);
+                        bundle.putInt("dic", dic);
+                        bundle.putInt("inssueTime", Integer.parseInt(inssueTime));
+                        intent.putExtras(bundle);
+                        startActivityForResult(intent, SIGNATURE_ZHIYECODE);
+                    } else {
                         Toast.makeText(AdvancedSearchActivity.this, "行业不能为空", Toast.LENGTH_SHORT).show();
                     }
                     break;
@@ -180,7 +183,7 @@ public class AdvancedSearchActivity extends Activity {
                 case R.id.position_linear:
                     if (pos == false) {
                         pupouwindposition();
-                    }else {
+                    } else {
                         popupWindow.dismiss();
                         pos = false;
                     }
@@ -218,6 +221,7 @@ public class AdvancedSearchActivity extends Activity {
     boolean pos;
     int positionid;
     ArrayAdapter postAdapter;
+
     //行业选择框
     public void pupouwindposition() {
         LayoutInflater layoutInflater = LayoutInflater.from(AdvancedSearchActivity.this);
@@ -258,20 +262,18 @@ public class AdvancedSearchActivity extends Activity {
         //listView1.setOnItemClickListener(onItemClickListener);
 
         postAdapter = new ArrayAdapter(this,
-                R.layout.post_item,postItemList);
+                R.layout.post_item, postItemList);
         listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.i("====", "" + adapterView.getItemAtPosition(i));
-                positionName =  adapterView.getItemAtPosition(i).toString();
+                positionName = adapterView.getItemAtPosition(i).toString();
                 Log.i("positionName====", "" + positionName);
                 input_position_search.setText(positionName);
                 popupWindow.dismiss();
             }
         });
     }
-
-
 
     //职位名称监听
     TextWatcher postNameText = new TextWatcher() {
@@ -345,7 +347,7 @@ public class AdvancedSearchActivity extends Activity {
         if (tingtime.equals(null)) {
             inssueTime = 19700101 + "";
         } else if (tingtime.equals("一个月前")) {
-            inssueTime =  "" + year + (month - 1) + date;
+            inssueTime = "" + year + (month - 1) + date;
             Log.i("inssueTime++++++>", "" + inssueTime);
         } else if (tingtime.equals("一周前")) {
             c.set(Calendar.DAY_OF_MONTH, c.get(Calendar.DAY_OF_MONTH) - 7);
@@ -354,7 +356,7 @@ public class AdvancedSearchActivity extends Activity {
             inssueTime = lastWeek;
             Log.i("lastWeek====>", "" + lastWeek);
         } else if (tingtime.equals("今天")) {
-            inssueTime = "" +  year + month + date;
+            inssueTime = "" + year + month + date;
             Log.i("inssueTime********>", "" + inssueTime);
         } else if (tingtime.equals("不限")) {
             inssueTime = 19700101 + "";
@@ -397,7 +399,7 @@ public class AdvancedSearchActivity extends Activity {
     //行业分类接口获取
     public void postData() {
         postItemList.clear();
-        String httpURL = "http://10.0.2.2/index.php/home/index/dustry?positionid=" + positionid;
+        String httpURL = "http://192.168.7.6/index.php/home/index/dustry?positionid=" + positionid;
         Log.i("postData =======", "" + positionid);
         HttpURLConnection httpURLConnection = null;
         try {
@@ -423,7 +425,6 @@ public class AdvancedSearchActivity extends Activity {
 //                postItem.setPositionID(post_id);
 //                Log.i("post_id++++++", "" + post_id);
                 String post_name = object.getString("post_name");
-                Log.i("post_name+++++++", "" + post_name);
                 postItemList.add(post_name);
                 Log.i("postItemList+++++++", "" + postItemList);
             }
@@ -446,8 +447,6 @@ public class AdvancedSearchActivity extends Activity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
-                    Log.i("++++++++++++", "================");
-
                     listView2.setAdapter(postAdapter);
                     postAdapter.notifyDataSetChanged();
                     break;
