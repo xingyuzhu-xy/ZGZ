@@ -55,6 +55,7 @@ public class SearchListAdapter extends BaseAdapter {
             holder.education = (TextView) convertView.findViewById(R.id.education);
             holder.salary = (TextView) convertView.findViewById(R.id.salary);
             holder.positonid = (TextView) convertView.findViewById(R.id.position_id);
+            holder.recuitPersonId = (TextView) convertView.findViewById(R.id.recuit_person_id);
             convertView.setTag(holder);
         }else {
             holder = (Holder) convertView.getTag();
@@ -67,7 +68,7 @@ public class SearchListAdapter extends BaseAdapter {
         holder.education.setText(searchListItem.getEducation());
         holder.salary.setText(searchListItem.getSalary());
         holder.positonid.setText(searchListItem.getPostid());
-
+        holder.recuitPersonId.setText(searchListItem.getRecuitPersonId());
         return convertView;
     }
 
@@ -79,5 +80,6 @@ public class SearchListAdapter extends BaseAdapter {
         TextView education;
         TextView salary;
         TextView positonid;
+        TextView recuitPersonId;
     }
 }

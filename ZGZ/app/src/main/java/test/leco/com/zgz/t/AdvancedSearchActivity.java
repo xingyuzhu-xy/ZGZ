@@ -399,7 +399,7 @@ public class AdvancedSearchActivity extends Activity {
     //行业分类接口获取
     public void postData() {
         postItemList.clear();
-        String httpURL = "http://192.168.7.6/index.php/home/index/dustry?positionid=" + positionid;
+        String httpURL = "http://10.0.2.2/index.php/home/index/dustry?positionid=" + positionid;
         Log.i("postData =======", "" + positionid);
         HttpURLConnection httpURLConnection = null;
         try {
@@ -417,16 +417,18 @@ public class AdvancedSearchActivity extends Activity {
             JSONObject jsonObject = new JSONObject(stringBuilder.toString());
             int status = jsonObject.getInt("status");
             String message = jsonObject.getString("message");
-            JSONArray postdata = jsonObject.getJSONArray("postdata");
-            for (int i = 0; i < postdata.length(); i++) {
+            if (status == 200) {
+                JSONArray postdata = jsonObject.getJSONArray("postdata");
+                for (int i = 0; i < postdata.length(); i++) {
 
-                JSONObject object = postdata.getJSONObject(i);
-                int post_id = object.getInt("post_id");
+                    JSONObject object = postdata.getJSONObject(i);
+                    int post_id = object.getInt("post_id");
 //                postItem.setPositionID(post_id);
 //                Log.i("post_id++++++", "" + post_id);
-                String post_name = object.getString("post_name");
-                postItemList.add(post_name);
-                Log.i("postItemList+++++++", "" + postItemList);
+                    String post_name = object.getString("post_name");
+                    postItemList.add(post_name);
+                    Log.i("postItemList+++++++", "" + postItemList);
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();

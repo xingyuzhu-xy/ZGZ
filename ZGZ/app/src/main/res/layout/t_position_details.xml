@@ -270,6 +270,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/person_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -289,6 +290,7 @@
                         android:textSize="12dp" />
 
                     <TextView
+                        android:id="@+id/person_post"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
@@ -324,7 +326,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/login_time"
                     android:textColor="@color/dark_gray"
-                    android:textSize="11dp" />
+                    android:textSize="11dp"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -333,7 +336,8 @@
                     android:layout_marginRight="12dp"
                     android:text="今天"
                     android:textColor="@color/dark_gray"
-                    android:textSize="11dp" />
+                    android:textSize="11dp"
+                    android:visibility="gone"/>
             </LinearLayout>
 
             <ImageView
@@ -356,6 +360,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/efficiency"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="低于20%"
@@ -370,33 +375,6 @@
                         android:textSize="12sp" />
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_width="1dp"
-                    android:layout_height="33dp"
-                    android:background="@color/line_color" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="11dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="5天"
-                        android:textColor="@color/advanced_search_button"
-                        android:textSize="13sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/resume_reply_time"
-                        android:textColor="@color/dark_gray"
-                        android:textSize="12sp" />
-                </LinearLayout>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -523,7 +501,7 @@
                     android:drawablePadding="7dp"/>
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/uplome"
+                android:id="@+id/resume"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -531,7 +509,7 @@
                 android:background="@drawable/t_enterprise_consultation_send_resume"
                 android:layout_marginRight="10dp">
                 <TextView
-                    android:id="@+id/uptext"
+                    android:id="@+id/resume_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/send_resume"

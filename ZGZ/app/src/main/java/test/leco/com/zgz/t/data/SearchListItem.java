@@ -12,6 +12,15 @@ public class SearchListItem {
     private String address;//地址
     private String education;//学历
     private String salary;//薪资
+    private String recuitPersonId;
+
+    public String getRecuitPersonId() {
+        return recuitPersonId;
+    }
+
+    public void setRecuitPersonId(String recuitPersonId) {
+        this.recuitPersonId = recuitPersonId;
+    }
 
     public String getPostid() {
         return postid;

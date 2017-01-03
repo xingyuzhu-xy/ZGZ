@@ -90,6 +90,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"/>
+        <TextView
+            android:id="@+id/recuit_person_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
     </LinearLayout>
     <ImageView
         android:layout_width="match_parent"
