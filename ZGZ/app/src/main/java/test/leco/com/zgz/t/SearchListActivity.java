@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 import test.leco.com.zgz.R;
 import test.leco.com.zgz.t.adapter.SearchListAdapter;
 import test.leco.com.zgz.t.data.SearchListItem;
@@ -58,12 +59,17 @@ public class SearchListActivity extends Activity {
     String[] salary_sp = {"薪资", "1000以上", "3000以上", "5000以上", "8000以上", "10000以上", "15000以上"};
     String positionName;//行业
     String postName;//职位
+    String postNameid;
     String site;//地区
+    String siteid;
     int minPay;//最低薪资
+    int minPayid;
     int maxPay;//最高薪资
+    int maxPayid;
     int inssueTime;//时间
     int dic;
     private final int SEARCHLIST_POSITIONID_SATE = 11111;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,14 +83,19 @@ public class SearchListActivity extends Activity {
         titleText = (TextView) findViewById(R.id.title_text);
         listView = (ListView) findViewById(R.id.listView);
 
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if (bundle != null) {
             positionName = bundle.getString("positionName");
             postName = bundle.getString("postName");
+            postNameid = postName;
             site = bundle.getString("site");
+            siteid = site;
             minPay = bundle.getInt("minPay");
+            minPayid = minPay;
             maxPay = bundle.getInt("maxPay");
+            maxPayid = maxPay;
             dic = bundle.getInt("dic");
             inssueTime = bundle.getInt("inssueTime");
             Log.i("data*-*-*-*-*-*", "" + positionName + "****" + postName + "****" + site + "****"
@@ -97,16 +108,6 @@ public class SearchListActivity extends Activity {
             nearTseekData();
             titleText.setText(R.string.nearseek);
         }
-
-        experTseekData();
-        new Thread() {
-            @Override
-            public void run() {
-                experTseekData();
-            }
-        }.start();
-
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -185,10 +186,16 @@ public class SearchListActivity extends Activity {
             //parent.getItemAtPosition(position)
             Log.i("======", "" + parent.getItemAtPosition(position));
             Log.i("parent======", "" + parent);
-            postName = parent.getItemAtPosition(position).toString();
-            if (postName.equals("职位类别")) {
-                postName = null;
-                Log.i("postName======", "" + postName);
+            String postName1 = parent.getItemAtPosition(position).toString();
+
+            if (postName1.equals("职位类别")) {
+                postNameid = postName;
+                if (postNameid == null){
+                    postNameid = "";
+                }
+                Log.i("postName======", "" + postNameid);
+            }else {
+                postNameid = postName1;
             }
             if (dic == 0) {
                 experTseekData();
@@ -205,12 +212,17 @@ public class SearchListActivity extends Activity {
     AdapterView.OnItemSelectedListener onItemSelectedListener1 = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            //parent.getItemAtPosition(position)
+        //parent.getItemAtPosition(position)
             Log.i("======", "" + parent.getItemAtPosition(position));
             Log.i("parent======", "" + parent);
-            site = parent.getItemAtPosition(position).toString();
-            if (site.equals("地区")) {
-                site = null;
+            String site1 = parent.getItemAtPosition(position).toString();
+            if (site1.equals("地区")) {
+                siteid = site;
+                if (siteid == null){
+                    siteid = "";
+                }
+            }else {
+                siteid = site1;
             }
             if (dic == 0) {
                 experTseekData();
@@ -231,10 +243,9 @@ public class SearchListActivity extends Activity {
             Log.i("======", "" + parent.getItemAtPosition(position));
             Log.i("parent======", "" + parent);
             String pay = parent.getItemAtPosition(position).toString();
-
             if (pay.equals("薪资")) {
-                minPay = 0;
-                maxPay = 0;
+               minPayid =  minPay;
+               maxPayid =  maxPay;
             } else {
                 String regEx3 = "[0-9]";
                 String s3 = matchResult(Pattern.compile(regEx3), pay);
@@ -270,7 +281,6 @@ public class SearchListActivity extends Activity {
 
 
 
-    SearchListItem searchListItem = new SearchListItem();
     ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
     //高级搜索页面接口
@@ -280,31 +290,34 @@ public class SearchListActivity extends Activity {
                 ("yyyyMMdd");//可以方便地修改日期格式
         String today = dateFormat.format(now);
 
-        if (positionName == null) {
+        if (positionName ==null) {
             positionName = "";
-        } else if (postName == null) {
-            postName = "";
-        } else if (site == null) {
-            site = "";
-        } else if (minPay == 0) {
-            minPay = 0;
+        } else if (postNameid ==null) {
+            postNameid = "";
+        } else if (siteid ==null) {
+            siteid = "";
+            Log.i("siteid++++++", "6456" + siteid + "545454");
+        } else if (minPayid == 0) {
+            minPayid = 0;
         }
-        if (maxPay == 0) {
-            maxPay = 999999999;
+        if (maxPayid == 0) {
+            maxPayid = 999999999;
         } else if (inssueTime < 19700101) {
             inssueTime  = 19700101;
         }
 
 
-        try {
-            positionName = java.net.URLEncoder.encode(positionName,"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            positionName = java.net.URLEncoder.encode(positionName,"UTF-8");
+//            Log.i("positionName+++++", "" + positionName);
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
         String httpURL = "http://10.0.2.2/index.php/home/index/expertseek?positionname="
-                + positionName + "&currenttime=" + today + "&postname=" + postName + "&site=" + site
-                + "&minpay=" + minPay + "&maxpay=" + maxPay + "&time=" + inssueTime;
+                + positionName + "&currenttime=" + today + "&postname=" + postNameid + "&site=" + siteid
+                + "&minpay=" + minPayid + "&maxpay=" + maxPayid + "&time=" + inssueTime;
 
+        Log.i("httpURL+++++", "" + httpURL);
         SearchSeekLoad sear = new SearchSeekLoad();
         sear.execute(httpURL);
 
@@ -413,9 +426,9 @@ public class SearchListActivity extends Activity {
                 JSONObject jsonObject = new JSONObject(s);
                 int status = jsonObject.getInt("status");
                 String message = jsonObject.getString("message");
+                list = new ArrayList<SearchListItem>();
                 if (status == 200) {
                     JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
-                    list = new ArrayList<SearchListItem>();
                     for (int i = 0; i < postdetailsdata.length(); i++) {
                         SearchListItem searchListItem = new SearchListItem();
                         JSONObject object = postdetailsdata.getJSONObject(i);
@@ -467,18 +480,18 @@ public class SearchListActivity extends Activity {
 
         if (positionName == null) {
             positionName = "";
-        } else if (postName == null) {
+        } else if (postNameid == null) {
             postName = "";
-        } else if (site == null) {
-            site = "";
-        } else if (minPay == 0) {
+        } else if (siteid == null) {
+            siteid = "";
+        } else if (minPayid == 0) {
             minPay = 0;
         } else if (inssueTime < 19700101) {
             inssueTime = 19700101;
         }
         String httpURL = "http://10.0.2.2/index.php/home/index/nearbyweek?positionname="
-                + positionName + "&currenttime=" + today + "&postname=" + postName + "&site=" + site
-                + "&minpay=" + minPay + "&time=" + inssueTime;
+                + positionName + "&currenttime=" + today + "&postname=" + postNameid + "&site=" + siteid
+                + "&minpay=" + minPayid + "&time=" + inssueTime;
         Log.i("httpURL+-++--+-+-----", "" + httpURL);
         NearSeekLoad nearSeekLoad = new NearSeekLoad();
         nearSeekLoad.execute(httpURL);
@@ -588,9 +601,10 @@ public class SearchListActivity extends Activity {
                 JSONObject jsonObject = new JSONObject(s);
                 int status = jsonObject.getInt("status");
                 String message = jsonObject.getString("message");
+                list = new ArrayList<SearchListItem>();
                 if (status == 200) {
                     JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
-                    list = new ArrayList<SearchListItem>();
+                    Log.i("*/*/*/*/*/*","4564564646" +  message);
                     for (int i = 0; i < postdetailsdata.length(); i++) {
                         SearchListItem searchListItem = new SearchListItem();
                         JSONObject object = postdetailsdata.getJSONObject(i);
@@ -618,6 +632,7 @@ public class SearchListActivity extends Activity {
                     }
                 }
                 listView.setAdapter(new SearchListAdapter(SearchListActivity.this, list));
+                Log.i("list++9+9+9+9+9+9+", "" + list);
 
             } catch (JSONException e) {
                 e.printStackTrace();

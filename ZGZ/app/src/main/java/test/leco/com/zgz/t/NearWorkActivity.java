@@ -128,26 +128,7 @@ public class NearWorkActivity extends Activity {
 
     int s =0;
 
-//  public void createdialogescop(){
-//        AlertDialog.Builder builder = new AlertDialog.Builder(NearWorkActivity.this);
-//        builder.setTitle("请设置距离范围：");
-//        builder.setSingleChoiceItems(scop, s, new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                scope.setText(scop[which]);
-//                s = which;
-//            }
-//        });
-//        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-////                Toast.makeText(AdvancedSearchActivity.this,"你选择了"+which,Toast.LENGTH_LONG).show();
-//            }
-//        });
-//        builder.setCancelable(false);//点击屏幕不消失
-//        builder.create();
-//        builder.show();
-//    }
+
     Intent intent;
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
@@ -414,7 +395,14 @@ public class NearWorkActivity extends Activity {
 
         @Override
         public void afterTextChanged(Editable editable) {
-            minPay = Integer.parseInt(editable.toString());
+            String minPayid = editable.toString();
+            if (minPayid == null){
+                minPay = 0;
+            }else if(minPayid.equals("")){
+                minPay = 0;
+            }else {
+                minPay = Integer.parseInt(minPayid);
+            }
             Log.i("minPay=======>", "" + minPay);
         }
     };

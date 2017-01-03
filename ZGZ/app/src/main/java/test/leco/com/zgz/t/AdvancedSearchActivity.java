@@ -307,7 +307,14 @@ public class AdvancedSearchActivity extends Activity {
 
         @Override
         public void afterTextChanged(Editable editable) {
-            minPay = Integer.parseInt(editable.toString());
+           String minPayid = editable.toString();
+            if (minPayid.equals(null)) {
+                minPay = 0;
+            }else if (minPayid.equals("")){
+                minPay = 0;
+            }else {
+                minPay = Integer.parseInt(minPayid);
+            }
             Log.i("minPay=======>", "" + minPay);
         }
     };
@@ -325,8 +332,15 @@ public class AdvancedSearchActivity extends Activity {
 
         @Override
         public void afterTextChanged(Editable editable) {
-            maxPay = Integer.parseInt(editable.toString());
-            Log.i("maxPay=======>", "" + maxPay);
+            String maxPayid = editable.toString();
+            if (maxPayid.equals(null)) {
+                maxPay = 0;
+            } else if (maxPayid.equals("")){
+                maxPay = 0;
+            }else {
+                maxPay = Integer.parseInt(maxPayid);
+            }
+                Log.i("maxPay=======>", "" + maxPay);
         }
     };
 

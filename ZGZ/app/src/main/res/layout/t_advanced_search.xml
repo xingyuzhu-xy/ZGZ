@@ -183,6 +183,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/t_salary_range"
                 android:maxLength="9"
+                android:inputType="number"
                 android:maxLines="1" />
 
             <TextView
@@ -202,6 +203,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/t_salary_range"
                 android:maxLength="9"
+                android:inputType="number"
                 android:maxLines="1" />
 
             <TextView

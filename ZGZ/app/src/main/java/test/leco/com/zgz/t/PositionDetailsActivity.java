@@ -3,13 +3,10 @@ package test.leco.com.zgz.t;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
@@ -135,20 +132,6 @@ public class PositionDetailsActivity extends Activity {
                 startActivity(intent);
             }
         });
-//        Intent inte = getIntent();
-//        en_id = inte.getIntExtra("en",-1);
-//        Log.i("en_id===>",""+en_id);
-//        //打电话
-//
-//        tel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Intent.ACTION_DIAL);
-//                Uri data = Uri.parse("tel:" + phone);
-//                intent.setData(data);
-//                startActivity(intent);
-//            }
-//        });
 
         //拿到传递过来的ID
         Intent intent = getIntent();
