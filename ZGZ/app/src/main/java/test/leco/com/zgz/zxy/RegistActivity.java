@@ -70,6 +70,7 @@ public class RegistActivity extends Activity {
                 }
             }
         });
+
         super.onCreate(savedInstanceState);
         register.setOnClickListener(listener);
         sendCode.setOnClickListener(listener);
@@ -94,6 +95,7 @@ public class RegistActivity extends Activity {
             }
         }
     };
+
     public void findViewById(){
         phoneNumb= (EditText) findViewById(R.id.phonenumb);
         password= (EditText) findViewById(R.id.password);

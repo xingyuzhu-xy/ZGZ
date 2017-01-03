@@ -476,23 +476,25 @@ public class SearchListActivity extends Activity {
         } else if (inssueTime < 19700101) {
             inssueTime = 19700101;
         }
-        String httpURL = "http://10.0.2.2/index.php/home/index/nearbyweek?positionname="
+
+        try {
+            positionName = java.net.URLEncoder.encode(positionName,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String httpURL = "http://192.168.7.6/index.php/home/index/nearbyweek?positionname="
                 + positionName + "&currenttime=" + today + "&postname=" + postName + "&site=" + site
                 + "&minpay=" + minPay + "&time=" + inssueTime;
         Log.i("httpURL+-++--+-+-----", "" + httpURL);
         NearSeekLoad nearSeekLoad = new NearSeekLoad();
         nearSeekLoad.execute(httpURL);
-
-
     }
 
     //附近异步任务的使用方法
     public class NearSeekLoad extends AsyncTask<String, Void, String> {
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
         }
 
 
