@@ -309,15 +309,17 @@ public class SearchListActivity extends Activity {
 
 //        try {
 //            positionName = java.net.URLEncoder.encode(positionName,"UTF-8");
-//            Log.i("positionName+++++", "" + positionName);
+//            Log.i("positionName==>",""+positionName);
 //        } catch (UnsupportedEncodingException e) {
 //            e.printStackTrace();
 //        }
         String httpURL = "http://10.0.2.2/index.php/home/index/expertseek?positionname="
+
                 + positionName + "&currenttime=" + today + "&postname=" + postNameid + "&site=" + siteid
                 + "&minpay=" + minPayid + "&maxpay=" + maxPayid + "&time=" + inssueTime;
 
         Log.i("httpURL+++++", "" + httpURL);
+
         SearchSeekLoad sear = new SearchSeekLoad();
         sear.execute(httpURL);
 
@@ -426,6 +428,7 @@ public class SearchListActivity extends Activity {
                 JSONObject jsonObject = new JSONObject(s);
                 int status = jsonObject.getInt("status");
                 String message = jsonObject.getString("message");
+
                 list = new ArrayList<SearchListItem>();
                 if (status == 200) {
                     JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
@@ -489,23 +492,26 @@ public class SearchListActivity extends Activity {
         } else if (inssueTime < 19700101) {
             inssueTime = 19700101;
         }
+        try {
+            positionName = java.net.URLEncoder.encode(positionName,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         String httpURL = "http://10.0.2.2/index.php/home/index/nearbyweek?positionname="
                 + positionName + "&currenttime=" + today + "&postname=" + postNameid + "&site=" + siteid
                 + "&minpay=" + minPayid + "&time=" + inssueTime;
+
+
         Log.i("httpURL+-++--+-+-----", "" + httpURL);
         NearSeekLoad nearSeekLoad = new NearSeekLoad();
         nearSeekLoad.execute(httpURL);
-
-
     }
 
     //附近异步任务的使用方法
     public class NearSeekLoad extends AsyncTask<String, Void, String> {
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
         }
 
 
@@ -604,7 +610,6 @@ public class SearchListActivity extends Activity {
                 list = new ArrayList<SearchListItem>();
                 if (status == 200) {
                     JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
-                    Log.i("*/*/*/*/*/*","4564564646" +  message);
                     for (int i = 0; i < postdetailsdata.length(); i++) {
                         SearchListItem searchListItem = new SearchListItem();
                         JSONObject object = postdetailsdata.getJSONObject(i);

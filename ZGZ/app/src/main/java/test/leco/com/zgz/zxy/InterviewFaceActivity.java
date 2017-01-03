@@ -126,7 +126,7 @@ public class InterviewFaceActivity extends Activity {
     int isonline; //是否在线（1在线）
     String price; //薪水
     public void getinterview(){
-        String httpurl = "http://192.168.7.6/index.php/home/index/getinterview?"+"user_id="+1;
+        String httpurl = "http://10.0.2.2/index.php/home/index/getinterview?"+"user_id="+1;
         try {
             URL url = new URL(httpurl);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();

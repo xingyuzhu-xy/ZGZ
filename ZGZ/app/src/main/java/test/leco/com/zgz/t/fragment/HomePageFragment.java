@@ -51,6 +51,7 @@ public class HomePageFragment extends Fragment {
             }
         });
 
+
         //设置点击事件
         advancedSearch.setOnClickListener(onClickListener);
         whoSeeMe.setOnClickListener(onClickListener);
@@ -96,7 +97,7 @@ public class HomePageFragment extends Fragment {
 
         RecommendListItem recommendListItem1 = new RecommendListItem();
         recommendListItem1.setImage(R.mipmap.home_page_logo_performance);
-        recommendListItem1.setPositionName("绩佣会计");
+        recommendListItem1.setPositionName("新媒体编辑");
         recommendListItem1.setCompanyName("塔尔餐饮");
         recommendListItem1.setWorkPlace("渝中区");
         recommendListItem1.setSalary("3000-5000/月");
@@ -125,5 +126,6 @@ public class HomePageFragment extends Fragment {
         recommendListItem4.setWorkPlace("渝中区");
         recommendListItem4.setSalary("3000-5000/月");
         list.add(recommendListItem4);
+
     }
 }
