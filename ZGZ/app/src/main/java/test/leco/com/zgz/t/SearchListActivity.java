@@ -296,15 +296,16 @@ public class SearchListActivity extends Activity {
         }
 
 
-        try {
-            positionName = java.net.URLEncoder.encode(positionName,"UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            positionName = java.net.URLEncoder.encode(positionName,"UTF-8");
+//            Log.i("positionName==>",""+positionName);
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
         String httpURL = "http://10.0.2.2/index.php/home/index/expertseek?positionname="
                 + positionName + "&currenttime=" + today + "&postname=" + postName + "&site=" + site
                 + "&minpay=" + minPay + "&maxpay=" + maxPay + "&time=" + inssueTime;
-
+        Log.i("====>",""+httpURL);
         SearchSeekLoad sear = new SearchSeekLoad();
         sear.execute(httpURL);
 
@@ -413,9 +414,10 @@ public class SearchListActivity extends Activity {
                 JSONObject jsonObject = new JSONObject(s);
                 int status = jsonObject.getInt("status");
                 String message = jsonObject.getString("message");
+                Log.i("==="+status,"==="+message);
+                list = new ArrayList<SearchListItem>();
                 if (status == 200) {
                     JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
-                    list = new ArrayList<SearchListItem>();
                     for (int i = 0; i < postdetailsdata.length(); i++) {
                         SearchListItem searchListItem = new SearchListItem();
                         JSONObject object = postdetailsdata.getJSONObject(i);
@@ -588,9 +590,9 @@ public class SearchListActivity extends Activity {
                 JSONObject jsonObject = new JSONObject(s);
                 int status = jsonObject.getInt("status");
                 String message = jsonObject.getString("message");
+                list = new ArrayList<SearchListItem>();
                 if (status == 200) {
                     JSONArray postdetailsdata = jsonObject.getJSONArray("postdetailsdata");
-                    list = new ArrayList<SearchListItem>();
                     for (int i = 0; i < postdetailsdata.length(); i++) {
                         SearchListItem searchListItem = new SearchListItem();
                         JSONObject object = postdetailsdata.getJSONObject(i);
